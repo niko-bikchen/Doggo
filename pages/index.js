@@ -1,11 +1,14 @@
 import Head from 'next/head'
+import React from "react";
+import withHttpsRedirect from "../HoCs/withHttpsRedirect";
 
-export default function Home() {
+function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Doggo</title>
+        <meta name="robots" content="noindex"/>
+        <link rel="icon" href="/atom.png" />
       </Head>
 
       <main>
@@ -207,3 +210,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default withHttpsRedirect(Home)
