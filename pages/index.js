@@ -3,7 +3,7 @@ import React from "react";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import withHttpsRedirect from "../HoCs/withHttpsRedirect";
 
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 const QUERY = gql`
     query allCharacters {

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Header.module.css';
+
 import {
     MDBNavbar,
     MDBNavbarBrand,
@@ -17,10 +19,12 @@ import {
 
 const Header = () => {
     return (
-        <MDBNavbar className="Header">
+        <MDBNavbar color="#2B2B3B">
             <MDBNavbarBrand>
                 <img className="Header-logo" src="Doggo_light.png" />
             </MDBNavbarBrand>
+            <MDBNavbarNav left></MDBNavbarNav>
+            <MDBNavbarNav right></MDBNavbarNav>
         </MDBNavbar>
     );
 }
