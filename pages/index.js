@@ -3,10 +3,6 @@ import React from "react";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import withHttpsRedirect from "../HoCs/withHttpsRedirect";
 
-import 'primereact/resources/themes/saga-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-
 import { Menubar } from 'primereact/menubar';
 
 const QUERY = gql`
