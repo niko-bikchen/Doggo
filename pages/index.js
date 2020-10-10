@@ -2,6 +2,7 @@
 import gql from 'graphql-tag';
 import React from "react";
 import {ApolloClient, InMemoryCache} from "@apollo/client";
+import withHttpsRedirect from "../HoCs/withHttpsRedirect";
 import {useState,useEffect, useRef, useCallback} from 'react'
 // import { getDataFromTree } from '@apollo/react-ssr'; useRef useEffect useImperativeHandle
 
@@ -32,4 +33,4 @@ const Index = ({data}) => {
     return JSON.stringify(data)
 };
 
-export default Index;
+export default withHttpsRedirect(Index);
