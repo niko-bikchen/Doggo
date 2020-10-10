@@ -1,3 +1,19 @@
 .Header {
-    background-color: #2B2B3B !important;
+    padding-top     : 0 !important;
+    padding-bottom  : 0 !important;
+    padding-left    : 0 !important;
+    background-color: #2B2B3B;
+}
+
+.Header-brand {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-color: #2E1A19;
+}
+
+.Header-logo {
+    width : 70%;
+    height: auto;
+    margin: 10px;
 }
