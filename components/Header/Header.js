@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useCallback } from 'react';
 
 import styles from './Header.module.css';
 
@@ -18,39 +19,49 @@ import {
 } from "mdbreact";
 
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleCollapse = useCallback(
+        () => {
+            setIsOpen(!isOpen)
+        },
+        [isOpen],
+    );
+
     return (
         <MDBNavbar className={styles.Header} dark expand="md">
             <MDBNavbarBrand className={styles['Header-brand']}>
                 <img className={styles['Header-logo']} src="Doggo_light.png" />
             </MDBNavbarBrand>
-            <MDBNavbarNav left>
-                <MDBNavItem>
-                    <MDBDropdown>
-                        <MDBDropdownToggle nav caret>
-                            <div className="d-none d-md-inline">Послуги</div>
-                        </MDBDropdownToggle>
-                        <MDBDropdownMenu>
-                            <MDBDropdownItem href="#!">Вигул</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Обмін тварин</MDBDropdownItem>
-                        </MDBDropdownMenu>
-                    </MDBDropdown>
-                </MDBNavItem>
-                <MDBNavItem>
-                    <span className="nav-link">Робота</span>
-                </MDBNavItem>
-                <MDBNavItem>
-                    <MDBDropdown>
-                        <MDBDropdownToggle nav caret>
-                            <div className="d-none d-md-inline">Інформація</div>
-                        </MDBDropdownToggle>
-                        <MDBDropdownMenu>
-                            <MDBDropdownItem href="#!">Зони для вигулу</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Правила вигулу собак</MDBDropdownItem>
-                        </MDBDropdownMenu>
-                    </MDBDropdown>
-                </MDBNavItem>
-            </MDBNavbarNav>
-            <MDBNavbarNav right></MDBNavbarNav>
+            <MDBNavbarToggler onClick={toggleCollapse} />
+            <MDBCollapse id="navbarCollapse3" className={styles['Header-collapse']} isOpen={isOpen} navbar>
+                <MDBNavbarNav>
+                    <MDBNavItem>
+                        <MDBDropdown>
+                            <MDBDropdownToggle nav caret>
+                                <span className="text-light">Послуги</span>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu className={styles['Header-dropdown']}>
+                                <MDBDropdownItem href="#!" className="text-light">Вигул</MDBDropdownItem>
+                                <MDBDropdownItem href="#!" className="text-light">Обмін тварин</MDBDropdownItem>
+                            </MDBDropdownMenu>
+                        </MDBDropdown>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <span className="nav-link text-light">Робота</span>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <MDBDropdown>
+                            <MDBDropdownToggle nav caret>
+                                <span className="text-light">Інформація</span>
+                            </MDBDropdownToggle>
+                            <MDBDropdownMenu className={styles['Header-dropdown']}>
+                                <MDBDropdownItem href="#!" className="text-light">Зони для вигулу</MDBDropdownItem>
+                                <MDBDropdownItem href="#!" className="text-light">Правила вигулу</MDBDropdownItem>
+                            </MDBDropdownMenu>
+                        </MDBDropdown>
+                    </MDBNavItem>
+                </MDBNavbarNav>
+            </MDBCollapse>
         </MDBNavbar>
     );
 }

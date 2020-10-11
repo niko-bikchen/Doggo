@@ -2,6 +2,7 @@
     padding-top     : 0 !important;
     padding-bottom  : 0 !important;
     padding-left    : 0 !important;
+    text-transform  : uppercase;
     background-color: #2B2B3B;
 }
 
@@ -9,11 +10,29 @@
     display         : flex;
     justify-content : center;
     align-items     : center;
-    background-color: #2E1A19;
+    /* background-color: #2E1A19; */
 }
 
 .Header-logo {
     width : 70%;
     height: auto;
     margin: 10px;
+}
+
+.Header-collapse {
+    padding: 0 37px;
+}
+
+.Header-dropdown {
+    padding-top     : 0;
+    padding-bottom  : 0;
+    background-color: #21212e;
+}
+
+.Header-dropdown div a:hover {
+    background-color: #39394e;
+}
+
+.Header-dropdown div a {
+    padding: 15px 10px !important;
 }
