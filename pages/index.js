@@ -2,23 +2,28 @@ import gql from 'graphql-tag';
 import React from "react";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import withHttpsRedirect from "../HoCs/withHttpsRedirect";
-import { MDBJumbotron, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCardTitle, MDBIcon } from "mdbreact";
+import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
+
+import styles from './index.module.css';
 
 import Header from '../components/Header/Header';
+import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 
 const QUERY = gql`
-    query allCharacters {
-        characters {
-            results {
-                id
-                name
-            }
+    query {
+        mainPageText {
+            step_1_ua,
+            step_2_ua,
+            step_3_ua,
+            motto_ua,
+            bottom_content_ua,
+            top_content_ua
         }
     }
 `;
 export async function getStaticProps(context) {
     const client = new ApolloClient({
-        uri: 'https://rickandmortyapi.com/graphql',
+        uri: 'https://doggo.co.ua/graphql',
         cache: new InMemoryCache()
     });
     const data = await client.query({
@@ -31,19 +36,73 @@ export async function getStaticProps(context) {
 
 const Index = ({ data }) => {
     return (
-        <div className="Index">
+        <div className={styles["Index"]}>
             <Header />
-            <MDBJumbotron style={{ padding: 0 }}>
-                <MDBCol className="text-white text-center py-5 px-4" style={{ backgroundImage: 'url(landing_bg.png)' }}>
-                    <MDBCol className="py-5">
-                        <MDBCardTitle className="h1-responsive pt-3 m-5 font-bold">Create your beautiful website with MDBootstrap</MDBCardTitle>
-                        <p className="mx-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
-                        optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos. Odit sed qui, dolorum!
-                </p>
-                        <MDBBtn outline color="white" className="mb-5"><MDBIcon icon="clone" className="mr-2"></MDBIcon> View project</MDBBtn>
-                    </MDBCol>
-                </MDBCol>
-            </MDBJumbotron>
+            <div className={styles["Index-top"]}>
+                <div className="text-white text-center">
+                    <div className={styles["Index-top--content"]}>
+                        <div>
+                            <img src="Doggo_light.png" />
+                        </div>
+                        <MDBCardTitle className="h1-responsive m-5 font-bold">
+                            {data.mainPageText.motto_ua}
+                        </MDBCardTitle>
+                        <DoggoBtn size="lg">
+                            Знайти догвокера
+                        </DoggoBtn>
+                    </div>
+                </div>
+            </div>
+            <div className={styles["Index-body"]}>
+                <MDBCard className={styles["Index-body--card-1"]}>
+                    <MDBCardBody className={styles["Index-body--card-content"]}>
+                        <MDBCardTitle>
+                            <img src="Doggo_dark.png" />
+                        </MDBCardTitle>
+                        <MDBCardText className="mt-5">
+                            <img className={styles["blob-2"]} src="blob2.png" />
+                            <img className={styles["doggo-1"]} src="doggo_1-01.png" />
+                            {data.mainPageText.top_content_ua}
+                        </MDBCardText>
+                    </MDBCardBody>
+                </MDBCard>
+                <MDBCard className={styles["Index-body--card-2"]}>
+                    <MDBCardBody className={styles["Index-body--card-content"]}>
+                        <MDBCardTitle className="h1-responsive">
+                            Як це працює?
+                        </MDBCardTitle>
+                        <MDBCardText className="mt-5">
+                            {data.mainPageText.step_1_ua}
+                            <img className={styles["blob-3"]} src="blob3.png" />
+                            <img className={styles["doggo-3"]} src="doggo_3-01.png" />
+                        </MDBCardText>
+                    </MDBCardBody>
+                </MDBCard>
+                <MDBCard className={styles["Index-body--card-3"]}>
+                    <MDBCardBody className={styles["Index-body--card-content"]}>
+                        <MDBCardText>
+                            {data.mainPageText.step_2_ua}
+                            <img className={styles["blob-1"]} src="blob1.png" />
+                        </MDBCardText>
+                    </MDBCardBody>
+                </MDBCard>
+                <MDBCard className={styles["Index-body--card-4"]}>
+                    <MDBCardBody>
+                        <MDBCardText>
+                            {data.mainPageText.step_3_ua}
+                            <img className={styles["doggo-2"]} src="doggo_2-01.png" />
+                            <div>
+                                <DoggoBtn size="lg" className="mt-5">
+                                    Знайти догвокера
+                                </DoggoBtn>
+                            </div>
+                        </MDBCardText>
+                    </MDBCardBody>
+                </MDBCard>
+            </div>
+            <div className={styles["Index-bottom"]}>
+                <img src="Landing_bottom.png" />
+            </div>
         </div>
     )
 };

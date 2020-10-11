@@ -1,0 +1,115 @@
+.Index {
+    background-image: url('../public/Landing_body.jpg');
+    background-size : cover;
+}
+
+.Index-top {
+    margin-top         : -2rem;
+    padding            : 0;
+    padding-top        : 70rem;
+    background-image   : url('../public/landing_bg.png');
+    background-repeat  : no-repeat;
+    background-position: top;
+}
+
+.Index-top--content {
+    margin-top: -43rem;
+}
+
+.Index-top--content img {
+    width     : 13rem;
+    height    : auto;
+    margin-top: 5rem;
+    padding   : 15px;
+    border    : 5px solid rgb(206, 206, 206);
+}
+
+.Index-body {
+    padding   : 10px 50px;
+    text-align: center;
+}
+
+.Index-body--card-1 {
+    position    : relative;
+    padding-left: 50%;
+}
+
+.Index-body--card-2 {
+    position     : relative;
+    margin-top   : 8rem;
+    padding-right: 50%;
+}
+
+.Index-body--card-3 {
+    position    : relative;
+    margin-top  : 8rem;
+    padding-left: 50%;
+}
+
+.Index-body--card-4 {
+    margin-top   : 8rem;
+    margin-bottom: 8rem;
+    padding      : 5rem 10rem;
+}
+
+.Index-body--card-content {
+    padding: 10%;
+    margin : 20% 0;
+}
+
+.blob-2 {
+    position: absolute;
+    left    : 0;
+    top     : 0;
+    width   : auto;
+    height  : auto;
+}
+
+.blob-3 {
+    position: absolute;
+    right   : 0;
+    top     : 0;
+    width   : 45%;
+    height  : auto;
+}
+
+.blob-1 {
+    position: absolute;
+    left    : 0;
+    top     : -13%;
+    width   : 25%;
+    height  : auto;
+}
+
+.doggo-1 {
+    z-index : 2;
+    position: absolute;
+    left    : 0;
+    top     : -10px;
+    width   : 50%;
+    height  : auto;
+}
+
+.doggo-3 {
+    z-index : 2;
+    position: absolute;
+    right   : -10px;
+    top     : -10px;
+    width   : 50%;
+    height  : auto;
+}
+
+.doggo-2 {
+    z-index : 2;
+    position: absolute;
+    left    : -40px;
+    bottom  : -80px;
+    width   : 25%;
+    height  : auto;
+}
+
+.Index-bottom {
+    overflow   : hidden;
+    margin-left: -5px;
+    text-align : center;
+}
