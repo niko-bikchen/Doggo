@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 import Header from '../components/Header/Header';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
-import Head from "next/head";
+import PageBase from './pageBase'
 
 const QUERY = gql`
     query {
@@ -23,22 +23,17 @@ const QUERY = gql`
     }
 `;
 export async function getStaticProps(context) {
-    const data = await Client.query({
+    const {data} = await Client.query({
         query: QUERY
     })
     return {
-        props: { data: data.data }, // will be passed to the page component as props
+        props: { data }, // will be passed to the page component as props
     }
 }
 
 const Index = ({ data }) => {
     return (
-        <div className={styles["Index"]}>
-            <Head>
-               {/* <link rel="preload" as="image" href="blob2.png"/>
-                <link rel="preload" as="image" href="doggo_1-01.png"/>*/}
-            </Head>
-            <Header />
+        <PageBase>
             <div className={styles["Index-top"]}>
                 <div className="text-white text-center">
                     <div className={styles["Index-top--content"]}>
@@ -61,7 +56,7 @@ const Index = ({ data }) => {
                             <img src="Doggo_dark.png" />
                         </MDBCardTitle>
                         <MDBCardText className="mt-5">
-                            <img className={styles["blob-2"]} src="blob2.png" />
+                            <img className={styles["blob-2"]} src="blob2.png"  />
                             <img className={styles["doggo-1"]} src="dog.png" />
                             {data.mainPageText.top_content_ua}
                         </MDBCardText>
@@ -104,7 +99,7 @@ const Index = ({ data }) => {
             <div className={styles["Index-bottom"]}>
                 <img style={{width:"100%"}} src="Landing_bottom.png" />
             </div>
-        </div>
+        </PageBase>
     )
 };
 

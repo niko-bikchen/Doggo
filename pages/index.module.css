@@ -1,5 +1,6 @@
 .Index {
     background-image: url('../public/Landing_body.jpg');
+    min-height: 100vh;
     background-size : cover;
 }
 
