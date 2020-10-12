@@ -32,7 +32,9 @@ const Header = () => {
     return (
         <MDBNavbar className={styles.Header} dark expand="md">
             <MDBNavbarBrand className={styles['Header-brand']}>
-                <img className={styles['Header-logo']} src="Doggo_light.png" />
+                <Link href={"/"}>
+                    <img className={styles['Header-logo']} src="Doggo_light.png" />
+                </Link>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={toggleCollapse} />
             <MDBCollapse id="navbarCollapse3" className={styles['Header-collapse']} isOpen={isOpen} navbar>

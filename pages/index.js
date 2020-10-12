@@ -6,9 +6,7 @@ import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
 
 import styles from './index.module.css';
 
-import Header from '../components/Header/Header';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
-import Footer from '../components/Footer/Footer';
 import PageBase from '../components/PageBase'
 
 const QUERY = gql`
@@ -57,7 +55,7 @@ const Index = ({ data }) => {
                             <img src="Doggo_dark.png" />
                         </MDBCardTitle>
                         <MDBCardText className="mt-5">
-                            <img className={styles["blob-2"]} src="Blub_v2.0.png" />
+                            <img className={styles["blob-2"]} src="Blub_v3.0.png" />
                             {data.mainPageText.top_content_ua}
                         </MDBCardText>
                     </MDBCardBody>
@@ -70,20 +68,28 @@ const Index = ({ data }) => {
                         <MDBCardText className="mt-5">
                             {data.mainPageText.step_1_ua}
                             <img className={styles["blob-3"]} src="Blub_v1.1.png" />
+                            <img className={styles["step-1"]} src="step_1.png" />
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
                 <MDBCard className={styles["Index-body--card-3"]}>
                     <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardText>
-                            {data.mainPageText.step_2_ua}
-                            <img className={styles["blob-1"]} src="Blub_v3.1.png" />
+                            <p className={styles["text-1"]}>
+                                {data.mainPageText.step_2_ua}
+                            </p>
+                            <p className={styles["text-2"]}>
+                                {data.mainPageText.step_2_ua}
+                            </p>
+                            <img className={styles["blob-1"]} src="Blub_v2.0.png" />
+                            <img className={styles["step-2"]} src="step_2.png" />
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
                 <MDBCard className={styles["Index-body--card-4"]}>
-                    <MDBCardBody>
+                    <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardText>
+                            <img className={styles["blob-4"]} src="Blub_v4.0.png" />
                             {data.mainPageText.step_3_ua}
                             <span style={{ display: 'block' }}>
                                 <DoggoBtn size="lg" className="mt-5">
