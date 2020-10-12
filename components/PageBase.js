@@ -1,8 +1,8 @@
 import React from "react";
 
-import Header from "../components/Header/Header";
+import Header from "./Header/Header";
 
-import styles from "./index.module.css";
+import styles from "../pages/index.module.css";
 
 const PageBase = ({children})=>{
     return (

@@ -1,9 +1,8 @@
 import React from "react";
 import Client from "../lib/apollo"
 import gql from "graphql-tag"
-import PageBase from "./pageBase";
-import styles from "./index.module.css";
-import {MDBCard, MDBCardBody, MDBCardText, MDBCardTitle} from "mdbreact";
+import PageBase from "../components/PageBase";
+import {MDBCard, MDBCardBody} from "mdbreact";
 
 const QUERY = gql`
     query{

@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 import Header from '../components/Header/Header';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
-import PageBase from './pageBase'
+import PageBase from '../components/PageBase'
 
 const QUERY = gql`
     query {
