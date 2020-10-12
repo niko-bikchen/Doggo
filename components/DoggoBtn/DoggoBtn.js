@@ -1,11 +1,10 @@
 import React from 'react';
 import { MDBBtn } from 'mdbreact';
 
-import styles from './DoggoBtn.module.css';
 
 const DoggoBtn = (props) => {
     return (
-        <MDBBtn color="amber" className={styles["DoggoBtn"]} {...props}></MDBBtn>
+        <MDBBtn color="amber" style={{borderRadius:"10px"}}{...props}></MDBBtn>
     )
 }
 
