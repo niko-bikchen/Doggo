@@ -9,6 +9,7 @@ import styles from './index.module.css';
 import Header from '../components/Header/Header';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 import Footer from '../components/Footer/Footer';
+import PageBase from '../components/PageBase'
 
 const QUERY = gql`
     query {
@@ -23,18 +24,17 @@ const QUERY = gql`
     }
 `;
 export async function getStaticProps(context) {
-    const data = await Client.query({
+    const { data } = await Client.query({
         query: QUERY
     })
     return {
-        props: { data: data.data }, // will be passed to the page component as props
+        props: { data }, // will be passed to the page component as props
     }
 }
 
 const Index = ({ data }) => {
     return (
-        <div className={styles["Index"]}>
-            <Header />
+        <PageBase>
             <div className={styles["Index-top"]}>
                 <div className="text-white text-center">
                     <div className={styles["Index-top--content"]}>
@@ -100,8 +100,7 @@ const Index = ({ data }) => {
                 </p>
                 <img style={{ width: "100%" }} src="Landing_bottom.png" />
             </div>
-            <Footer />
-        </div>
+        </PageBase>
     )
 };
 
