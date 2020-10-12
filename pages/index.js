@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 import Header from '../components/Header/Header';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
-import Head from "next/head";
+import Footer from '../components/Footer/Footer';
 
 const QUERY = gql`
     query {
@@ -34,10 +34,6 @@ export async function getStaticProps(context) {
 const Index = ({ data }) => {
     return (
         <div className={styles["Index"]}>
-            <Head>
-               {/* <link rel="preload" as="image" href="blob2.png"/>
-                <link rel="preload" as="image" href="doggo_1-01.png"/>*/}
-            </Head>
             <Header />
             <div className={styles["Index-top"]}>
                 <div className="text-white text-center">
@@ -61,8 +57,7 @@ const Index = ({ data }) => {
                             <img src="Doggo_dark.png" />
                         </MDBCardTitle>
                         <MDBCardText className="mt-5">
-                            <img className={styles["blob-2"]} src="blob2.png" />
-                            <img className={styles["doggo-1"]} src="dog.png" />
+                            <img className={styles["blob-2"]} src="Blub_v2.0.png" />
                             {data.mainPageText.top_content_ua}
                         </MDBCardText>
                     </MDBCardBody>
@@ -74,8 +69,7 @@ const Index = ({ data }) => {
                         </MDBCardTitle>
                         <MDBCardText className="mt-5">
                             {data.mainPageText.step_1_ua}
-                            {/*<img className={styles["blob-3"]} src="blob3.png" />
-                            <img className={styles["doggo-3"]} src="doggo_3-01.png" />*/}
+                            <img className={styles["blob-3"]} src="Blub_v1.1.png" />
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
@@ -83,7 +77,7 @@ const Index = ({ data }) => {
                     <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardText>
                             {data.mainPageText.step_2_ua}
-                            {/*<img className={styles["blob-1"]} src="blob1.png" />*/}
+                            <img className={styles["blob-1"]} src="Blub_v3.1.png" />
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
@@ -91,19 +85,22 @@ const Index = ({ data }) => {
                     <MDBCardBody>
                         <MDBCardText>
                             {data.mainPageText.step_3_ua}
-                            {/*<img className={styles["doggo-2"]} src="doggo_2-01.png" />*/}
-                            <div>
+                            <span style={{ display: 'block' }}>
                                 <DoggoBtn size="lg" className="mt-5">
                                     Знайти догвокера
                                 </DoggoBtn>
-                            </div>
+                            </span>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
             </div>
             <div className={styles["Index-bottom"]}>
-                <img style={{width:"100%"}} src="Landing_bottom.png" />
+                <p className={styles["Index-bottom--text"]}>
+                    {data.mainPageText.bottom_content_ua}
+                </p>
+                <img style={{ width: "100%" }} src="Landing_bottom.png" />
             </div>
+            <Footer />
         </div>
     )
 };

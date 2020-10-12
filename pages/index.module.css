@@ -9,7 +9,7 @@
     padding-top        : 70rem;
     background-image   : url('../public/landing_bg.png');
     background-repeat  : no-repeat;
-    background-size : cover;
+    background-size    : cover;
     background-position: top;
 }
 
@@ -32,6 +32,7 @@
 
 .Index-body--card-1 {
     position    : relative;
+    margin-top  : 5rem;
     padding-left: 50%;
 }
 
@@ -110,7 +111,17 @@
 }
 
 .Index-bottom {
+    position   : relative;
     overflow   : hidden;
     margin-left: -5px;
     text-align : center;
+}
+
+.Index-bottom--text {
+    position : absolute;
+    left     : 5rem;
+    top      : 30rem;
+    width    : 35%;
+    font-size: x-large;
+    color    : white;
 }
