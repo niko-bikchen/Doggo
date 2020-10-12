@@ -9,6 +9,7 @@
     padding-top        : 70rem;
     background-image   : url('../public/landing_bg.png');
     background-repeat  : no-repeat;
+    background-size : cover;
     background-position: top;
 }
 
@@ -86,7 +87,7 @@
     position: absolute;
     left    : 0;
     top     : -10px;
-    width   : 50%;
+    width   : 500px;
     height  : auto;
 }
 
