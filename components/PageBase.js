@@ -4,14 +4,17 @@ import Header from "./Header/Header";
 import Footer from './Footer/Footer';
 
 import styles from "../pages/styles/index.module.css";
-
+import SimpleBar from "simplebar-react";
 const PageBase = ({ children, background }) => {
     return (
-        <div className={styles["Index"]} style={{ backgroundImage: background ? `url(${background})` : 'none' }}>
-            <Header />
-            {children}
-            <Footer />
-        </div>
+        <SimpleBar style={{maxHeight:"100vh"}}>
+            <div className={styles["Index"]} style={{ backgroundImage: background ? `url(${background})` : 'none' }}>
+                <Header />
+                {children}
+                <Footer />
+            </div>
+        </SimpleBar>
+
     )
 }
 

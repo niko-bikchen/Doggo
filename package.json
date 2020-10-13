@@ -17,9 +17,10 @@
     "primeflex": "^2.0.0",
     "primeicons": "^4.0.0",
     "primereact": "^5.0.0",
-    "react": "16.13.1",
+    "react": "^16.13.1",
     "react-dom": "16.13.1",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "simplebar-react": "^2.3.0"
   },
   "devDependencies": {
     "graphql-tag": "^2.11.0"
