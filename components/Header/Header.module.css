@@ -1,4 +1,7 @@
 .Header {
+    z-index         : 10;
+    position        : sticky;
+    top             : 0;
     padding-top     : 0 !important;
     padding-bottom  : 0 !important;
     padding-left    : 0 !important;

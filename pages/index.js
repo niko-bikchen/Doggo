@@ -4,7 +4,7 @@ import Client from "../lib/apollo"
 import withHttpsRedirect from "../HoCs/withHttpsRedirect";
 import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
 
-import styles from './index.module.css';
+import styles from './styles/index.module.css';
 
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 import PageBase from '../components/PageBase'
@@ -13,7 +13,8 @@ const QUERY = gql`
     query {
         mainPageText {
             step_1_ua,
-            step_2_ua,
+            step_2_1_ua,
+            step_2_2_ua,
             step_3_ua,
             motto_ua,
             bottom_content_ua,
@@ -32,7 +33,7 @@ export async function getStaticProps(context) {
 
 const Index = ({ data }) => {
     return (
-        <PageBase>
+        <PageBase background="Landing_body.jpg">
             <div className={styles["Index-top"]}>
                 <div className="text-white text-center">
                     <div className={styles["Index-top--content"]}>
@@ -75,12 +76,12 @@ const Index = ({ data }) => {
                 <MDBCard className={styles["Index-body--card-3"]}>
                     <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardText>
-                            <p className={styles["text-1"]}>
-                                {data.mainPageText.step_2_ua}
-                            </p>
-                            <p className={styles["text-2"]}>
-                                {data.mainPageText.step_2_ua}
-                            </p>
+                            <span className={styles["text-1"]}>
+                                {data.mainPageText.step_2_1_ua}
+                            </span>
+                            <span className={styles["text-2"]}>
+                                {data.mainPageText.step_2_2_ua}
+                            </span>
                             <img className={styles["blob-1"]} src="Blub_v2.0.png" />
                             <img className={styles["step-2"]} src="step_2.png" />
                         </MDBCardText>
@@ -91,7 +92,7 @@ const Index = ({ data }) => {
                         <MDBCardText>
                             <img className={styles["blob-4"]} src="Blub_v4.0.png" />
                             {data.mainPageText.step_3_ua}
-                            <span style={{ display: 'block' }}>
+                            <span className="d-block">
                                 <DoggoBtn size="lg" className="mt-5">
                                     Знайти догвокера
                                 </DoggoBtn>

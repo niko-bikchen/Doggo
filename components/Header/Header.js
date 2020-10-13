@@ -51,7 +51,9 @@ const Header = () => {
                         </MDBDropdown>
                     </MDBNavItem>
                     <MDBNavItem>
-                        <span className="nav-link text-light">Робота</span>
+                        <Link href={"/job"}>
+                            <span className="nav-link text-light" style={{ cursor: 'pointer' }}>Робота</span>
+                        </Link>
                     </MDBNavItem>
                     <MDBNavItem>
                         <MDBDropdown>

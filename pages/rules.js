@@ -19,7 +19,7 @@ export async function getStaticProps(ctx) {
 
 const Rules = ({data}) => {
     return (
-        <PageBase>
+        <PageBase background="Landing_body.jpg">
             <div style={{
                 width: "100%",
                 height: "100%",

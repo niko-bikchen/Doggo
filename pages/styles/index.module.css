@@ -1,14 +1,13 @@
 .Index {
-    background-image: url('../public/Landing_body.jpg');
-    min-height      : 100vh;
-    background-size : cover;
+    min-height     : 100vh;
+    background-size: cover;
 }
 
 .Index-top {
     margin-top         : -2rem;
     padding            : 0;
     padding-top        : 70rem;
-    background-image   : url('../public/landing_bg.png');
+    background-image   : url('../../public/Landing_top.png');
     background-repeat  : no-repeat;
     background-size    : cover;
     background-position: top;
@@ -128,6 +127,11 @@
     bottom  : 4rem;
     right   : 8rem;
     width   : 40%;
+}
+
+.text-1,
+.text-2 {
+    display: block;
 }
 
 .Index-bottom {

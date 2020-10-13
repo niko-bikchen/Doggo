@@ -1,0 +1,35 @@
+.Job-content {
+    margin: 5rem;
+}
+
+.Job-promo {
+    display            : flex;
+    align-items        : center;
+    justify-content    : center;
+    height             : 95vh;
+    width              : 100%;
+    background-image   : url("../../public/Job_top.jpg");
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    background-position: center;
+}
+
+.Job-promo--content {
+    padding         : 10rem;
+    text-align      : center;
+    color           : rgb(59, 59, 59);
+    background-color: #858c967c;
+}
+
+.Job-promo--content h2 {
+    font-size: 2.5rem;
+}
+
+.Job-body--content {
+    padding: 5rem;
+}
+
+.Job-text {
+    margin-top: 3rem;
+    font-size : larger;
+}
