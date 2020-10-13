@@ -3,21 +3,34 @@
 }
 
 .Job-promo {
-    display            : flex;
-    align-items        : center;
-    justify-content    : center;
-    height             : 95vh;
-    width              : 100%;
-    background-image   : url("../../public/Job_top.jpg");
-    background-repeat  : no-repeat;
-    background-size    : cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    width: 100%;
+    background-image: url("../../public/Job_top.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
 }
 
+.Job-promo:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    top: 100%;
+    background:
+            linear-gradient(135deg, transparent 33.333%, #fff 0),
+            linear-gradient(-135deg, transparent 33.333%, #fff 0);
+    background-size:30px 60px ;
+}
+
 .Job-promo--content {
-    padding         : 10rem;
-    text-align      : center;
-    color           : rgb(59, 59, 59);
+    padding: 10rem;
+    text-align: center;
+    color: rgb(59, 59, 59);
     background-color: #858c967c;
 }
 
@@ -31,5 +44,5 @@
 
 .Job-text {
     margin-top: 3rem;
-    font-size : larger;
+    font-size: larger;
 }
