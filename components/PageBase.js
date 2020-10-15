@@ -5,6 +5,8 @@ import Footer from './Footer/Footer';
 
 import styles from "../pages/styles/index.module.css";
 import SimpleBar from "simplebar-react";
+import withHttpsRedirect from "../HoCs/withHttpsRedirect";
+import withWwwRedirect from "../HoCs/withWwwRedirect";
 const PageBase = ({ children, background }) => {
     return (
         <SimpleBar style={{maxHeight:"100vh"}}>
@@ -18,4 +20,4 @@ const PageBase = ({ children, background }) => {
     )
 }
 
-export default PageBase;
+export default withWwwRedirect(withHttpsRedirect(PageBase));

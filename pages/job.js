@@ -6,6 +6,7 @@ import { MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle } from "m
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 
 import styles from './styles/job.module.css';
+import {NextSeo} from "next-seo";
 
 const QUERY = gql`
     query{
@@ -24,6 +25,7 @@ export async function getStaticProps(ctx) {
 const Job = ({ data }) => {
     return (
         <PageBase>
+            <NextSeo canonical="https://doggo.co.ua/job"/>
             <div className={styles["Job"]}>
                 <div className={styles["Job-promo"]}>
                     <div className={styles["Job-promo--content"]}>

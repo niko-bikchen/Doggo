@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import React from "react";
 import Client from "../lib/apollo"
 import withHttpsRedirect from "../HoCs/withHttpsRedirect";
+import { NextSeo } from 'next-seo';
 import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
 
 import styles from './styles/index.module.css';
@@ -34,6 +35,7 @@ export async function getStaticProps(context) {
 const Index = ({ data }) => {
     return (
         <PageBase background="Landing_body.jpg">
+            <NextSeo canonical="https://doggo.co.ua/"/>
             <div className={styles["Index-top"]}>
                 <div className="text-white text-center">
                     <div className={styles["Index-top--content"]}>
@@ -111,4 +113,4 @@ const Index = ({ data }) => {
     )
 };
 
-export default withHttpsRedirect(Index);
+export default Index;

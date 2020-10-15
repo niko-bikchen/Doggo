@@ -3,6 +3,7 @@ import Client from "../lib/apollo"
 import gql from "graphql-tag"
 import PageBase from "../components/PageBase";
 import {MDBCard, MDBCardBody} from "mdbreact";
+import {NextSeo} from "next-seo";
 
 const QUERY = gql`
     query{
@@ -20,6 +21,7 @@ export async function getStaticProps(ctx) {
 const Rules = ({data}) => {
     return (
         <PageBase background="Landing_body.jpg">
+            <NextSeo canonical="https://doggo.co.ua/rules"/>
             <div style={{
                 width: "100%",
                 height: "100%",
