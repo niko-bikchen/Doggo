@@ -12,7 +12,9 @@ const PageBase = ({ children, background }) => {
         <SimpleBar style={{maxHeight:"100vh"}}>
             <div className={styles["Index"]} style={{ backgroundImage: background ? `url(${background})` : 'none' }}>
                 <Header />
-                {children}
+                <div style={{minHeight:"calc(100vh - 150px)"}}>
+                    {children}
+                </div>
                 <Footer />
             </div>
         </SimpleBar>

@@ -8,7 +8,7 @@ import {NextSeo} from "next-seo";
 const QUERY = gql`
     query{
         dogWalkingRules{
-            content_ua
+            content_ru
         }
     }
 `
@@ -45,14 +45,14 @@ const Rules = ({data}) => {
                                             fontSize:"150%",
                                             justifyContent: "center",
                                             alignItems: "center",
-                                            marginTop:"30px"
+                                            marginTop:"10px"
                                         }}>
                                             <span style={{color: "white"}}>{i + 1}</span>
                                         </div>
                                     </div>
 
                                     <span>
-                                        {r["content_ua"]}
+                                        {r["content_ru"]}
                                     </span>
                                 </div>
                             ))}
