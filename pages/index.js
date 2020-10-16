@@ -11,16 +11,16 @@ import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 import PageBase from '../components/PageBase'
 
 const QUERY = gql`
-    query {
-        mainPageText {
-            step_1_ua,
-            step_2_1_ua,
-            step_2_2_ua,
-            step_3_ua,
-            motto_ua,
-            bottom_content_ua,
-            top_content_ua
-        }
+    query{
+      mainPageText{
+        steps_title_ru,
+        motto_ru,
+        top_content_ru,
+        step_1_ru,
+        step_2_ru,
+        step_3_ru,
+        bottom_content_ru
+      }
     }
 `;
 export async function getStaticProps(context) {
@@ -43,7 +43,7 @@ const Index = ({ data }) => {
                             <img src="Doggo_light.png" />
                         </div>
                         <MDBCardTitle className="h1-responsive m-5 font-bold">
-                            {data.mainPageText.motto_ua}
+                            {data.mainPageText.motto_ru}
                         </MDBCardTitle>
                         <DoggoBtn size="lg">
                             Знайти догвокера
@@ -59,17 +59,17 @@ const Index = ({ data }) => {
                         </MDBCardTitle>
                         <MDBCardText className="mt-5">
                             <img className={styles["blob-2"]} src="Blub_v3.0.png" />
-                            {data.mainPageText.top_content_ua}
+                            <div dangerouslySetInnerHTML={{__html:data.mainPageText.top_content_ru}}></div>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
                 <MDBCard className={styles["Index-body--card-2"]}>
                     <MDBCardBody className={styles["Index-body--card-content"]}>
-                        <MDBCardTitle className="h1-responsive">
-                            Як це працює?
+                        <MDBCardTitle className="h1-responsive" >
+                            <div dangerouslySetInnerHTML={{__html:data.mainPageText.steps_title_ru}}/>
                         </MDBCardTitle>
                         <MDBCardText className="mt-5">
-                            {data.mainPageText.step_1_ua}
+                            <div dangerouslySetInnerHTML={{__html:data.mainPageText.step_1_ru}}/>
                             <img className={styles["blob-3"]} src="Blub_v1.1.png" />
                             <img className={styles["step-1"]} src="step_1.png" />
                         </MDBCardText>
@@ -79,10 +79,10 @@ const Index = ({ data }) => {
                     <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardText>
                             <span className={styles["text-1"]}>
-                                {data.mainPageText.step_2_1_ua}
+                                <div dangerouslySetInnerHTML={{__html:data.mainPageText.step_2_ru}}/>
                             </span>
                             <span className={styles["text-2"]}>
-                                {data.mainPageText.step_2_2_ua}
+                                <div dangerouslySetInnerHTML={{__html:data.mainPageText.step_3_ru}}/>
                             </span>
                             <img className={styles["blob-1"]} src="Blub_v2.0.png" />
                             <img className={styles["step-2"]} src="step_2.png" />
@@ -93,7 +93,7 @@ const Index = ({ data }) => {
                     <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardText>
                             <img className={styles["blob-4"]} src="Blub_v4.0.png" />
-                            {data.mainPageText.step_3_ua}
+                            <div dangerouslySetInnerHTML={{__html:data.mainPageText.step_3_ru}}/>
                             <span className="d-block">
                                 <DoggoBtn size="lg" className="mt-5">
                                     Знайти догвокера
@@ -105,7 +105,7 @@ const Index = ({ data }) => {
             </div>
             <div className={styles["Index-bottom"]}>
                 <p className={styles["Index-bottom--text"]}>
-                    {data.mainPageText.bottom_content_ua}
+                    {data.mainPageText.bottom_content_ru}
                 </p>
                 <img style={{ width: "100%" }} src="Landing_bottom.png" />
             </div>
