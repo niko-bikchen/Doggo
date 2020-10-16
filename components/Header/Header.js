@@ -45,8 +45,8 @@ const Header = () => {
                                 <span className="text-light">Послуги</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <MDBDropdownItem href="#!" className="text-light">Вигул</MDBDropdownItem>
-                                <MDBDropdownItem href="#!" className="text-light">Обмін тварин</MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/marketplace"}><span className="text-light">Вигул</span></Link></MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/dogExchange"}><span className="text-light">Обмін тварин</span></Link></MDBDropdownItem>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>
@@ -61,7 +61,7 @@ const Header = () => {
                                 <span className="text-light">Інформація</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <MDBDropdownItem href="#!" ><Link href={"/rules"}><span className="text-light">Зони для вигулу</span></Link></MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/dogwalkingZones"}><span className="text-light">Зони для вигулу</span></Link></MDBDropdownItem>
                                 <MDBDropdownItem href="#!" ><Link href={"/rules"}><span className="text-light">Правила вигулу</span></Link></MDBDropdownItem>
                             </MDBDropdownMenu>
                         </MDBDropdown>

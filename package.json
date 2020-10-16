@@ -16,6 +16,7 @@
     "next": "9.5.3",
     "next-seo": "^4.11.0",
     "next-with-apollo": "^5.1.0",
+    "nextjs-sitemap-generator": "^1.1.0",
     "primeflex": "^2.0.0",
     "primeicons": "^4.0.0",
     "primereact": "^5.0.0",
