@@ -19,7 +19,9 @@ import {
     MDBDropdownItem,
     MDBBtn
 } from "mdbreact";
-
+const LinkBtn = React.forwardRef(({onClick,href,children},ref)=>{
+    return <div ref={ref}><MDBBtn className={styles["A"]} onClick={onClick} >{children}</MDBBtn></div>
+});
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleCollapse = useCallback(
@@ -45,8 +47,8 @@ const Header = () => {
                                 <span className="text-light">Услуги</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <Link href={"/marketplace"}><MDBBtn className={styles["A"]}>Выгул</MDBBtn></Link>
-                                <Link href={"/dogExchange"}><MDBBtn className={styles["A"]}>Приюти питомца</MDBBtn></Link>
+                                <Link href={"/marketplace"}><LinkBtn >Выгул</LinkBtn></Link>
+                                <Link href={"/dogExchange"}><LinkBtn>Приюти питомца</LinkBtn></Link>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>
@@ -62,10 +64,10 @@ const Header = () => {
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
                                 <div className={styles["A"]}>
-                                    <Link href={"/dogwalkingZones"}  ><MDBBtn className={styles["A"]}>Места для выгула</MDBBtn></Link>
+                                    <Link href={"/dogwalkingZones"}  ><LinkBtn className={styles["A"]}>Места для выгула</LinkBtn></Link>
                                 </div>
                                 <div className={styles["A"]}>
-                                    <Link href={"/rules"}><MDBBtn className={styles["A"]}>Правила выгула</MDBBtn></Link>
+                                    <Link href={"/rules"}><LinkBtn className={styles["A"]}>Правила выгула</LinkBtn></Link>
                                 </div>
                             </MDBDropdownMenu>
                         </MDBDropdown>
