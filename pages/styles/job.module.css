@@ -18,7 +18,7 @@
     content: "";
     display: block;
     position: absolute;
-    height: 30px;
+    height: 35px;
     width: 100%;
     top: 100%;
     background:
@@ -43,6 +43,5 @@
 }
 
 .Job-text {
-    margin-top: 3rem;
     font-size: larger;
 }

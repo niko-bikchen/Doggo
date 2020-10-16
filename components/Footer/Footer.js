@@ -9,9 +9,9 @@ const Footer = () => {
             <MDBContainer className="align-items-center">
                 <MDBRow>
                     <MDBCol size="4">
-                        <p className="text-muted">
+                        <span className="text-muted">
                             Copyright © 2020 DOGGO. All rights reserved.
-                        </p>
+                        </span>
                     </MDBCol>
                     <MDBCol size="4" className="text-center">
                         <img src="Doggo_light.png" />

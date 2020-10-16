@@ -21,7 +21,7 @@ export async function getStaticProps(ctx) {
 const DogwalkingZones = ({data}) => {
     return (
         <PageBase background="Landing_body.jpg">
-            <NextSeo canonical="https://doggo.co.ua/dogwalkingZones"/>
+            <NextSeo canonical="https://doggo.co.ua/dogwalkingZones" title="Doggo | Места для выгула" />
             <div style={{
                 width: "100%",
                 height: "100%",
@@ -32,7 +32,7 @@ const DogwalkingZones = ({data}) => {
             }}>
                 <MDBCard style={{width: "80vw"}}>
                     <MDBCardBody>
-                        <div className="mt-5">
+                        <div className="mt-2">
                             <div dangerouslySetInnerHTML={{__html:data.dogwalkingZonesPageText.content_ru}}/>
                         </div>
                     </MDBCardBody>

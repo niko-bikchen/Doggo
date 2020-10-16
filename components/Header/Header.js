@@ -42,27 +42,27 @@ const Header = () => {
                     <MDBNavItem>
                         <MDBDropdown>
                             <MDBDropdownToggle nav caret>
-                                <span className="text-light">Послуги</span>
+                                <span className="text-light">Услуги</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <MDBDropdownItem href="#!" ><Link href={"/marketplace"}><span className="text-light">Вигул</span></Link></MDBDropdownItem>
-                                <MDBDropdownItem href="#!" ><Link href={"/dogExchange"}><span className="text-light">Обмін тварин</span></Link></MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/marketplace"}><span className="text-light">Выгул</span></Link></MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/dogExchange"}><span className="text-light">Приюти питомца</span></Link></MDBDropdownItem>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>
                     <MDBNavItem>
                         <Link href={"/job"}>
-                            <span className="nav-link text-light" style={{ cursor: 'pointer' }}>Робота</span>
+                            <span className="nav-link text-light" style={{ cursor: 'pointer' }}>Работа</span>
                         </Link>
                     </MDBNavItem>
                     <MDBNavItem>
                         <MDBDropdown>
                             <MDBDropdownToggle nav caret>
-                                <span className="text-light">Інформація</span>
+                                <span className="text-light">Информация</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <MDBDropdownItem href="#!" ><Link href={"/dogwalkingZones"}><span className="text-light">Зони для вигулу</span></Link></MDBDropdownItem>
-                                <MDBDropdownItem href="#!" ><Link href={"/rules"}><span className="text-light">Правила вигулу</span></Link></MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/dogwalkingZones"}><span className="text-light">Места для выгула</span></Link></MDBDropdownItem>
+                                <MDBDropdownItem href="#!" ><Link href={"/rules"}><span className="text-light">Правила выгула</span></Link></MDBDropdownItem>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>

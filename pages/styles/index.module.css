@@ -116,7 +116,7 @@
 .text-1 {
     z-index : 4;
     position: absolute;
-    top     : 4rem;
+    top     : 6rem;
     right   : 16rem;
     width   : 40%;
 }
@@ -124,7 +124,7 @@
 .text-2 {
     z-index : 4;
     position: absolute;
-    bottom  : 4rem;
+    bottom  : 5rem;
     right   : 8rem;
     width   : 40%;
 }
