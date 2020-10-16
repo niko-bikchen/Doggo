@@ -2,7 +2,6 @@ import React from "react";
 
 import Header from "./Header/Header";
 import Footer from './Footer/Footer';
-
 import styles from "../pages/styles/index.module.css";
 import SimpleBar from "simplebar-react";
 import withHttpsRedirect from "../HoCs/withHttpsRedirect";
