@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useCallback } from 'react';
+import {useState, useCallback} from 'react';
 
 import styles from './Header.module.css';
 
@@ -19,8 +19,9 @@ import {
     MDBDropdownItem,
     MDBBtn
 } from "mdbreact";
-const LinkBtn = React.forwardRef(({onClick,href,children},ref)=>{
-    return <div ref={ref}><MDBBtn size={"lg"} className={styles["A"]} onClick={onClick} >{children}</MDBBtn></div>
+
+const LinkBtn = React.forwardRef(({onClick, href, children}, ref) => {
+    return <div ref={ref} href={href}><MDBBtn size={"lg"} className={styles["A"]} onClick={onClick}>{children}</MDBBtn></div>
 });
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,11 +35,11 @@ const Header = () => {
     return (
         <MDBNavbar className={styles.Header} dark expand="md">
             <MDBNavbarBrand className={styles['Header-brand']}>
-                <Link href={"/"}>
-                    <img className={styles['Header-logo']} src="Doggo_light.png" />
+                <Link href={"/"} passHref>
+                    <img className={styles['Header-logo']} src="Doggo_light.png"/>
                 </Link>
             </MDBNavbarBrand>
-            <MDBNavbarToggler onClick={toggleCollapse} />
+            <MDBNavbarToggler onClick={toggleCollapse}/>
             <MDBCollapse id="navbarCollapse3" className={styles['Header-collapse']} isOpen={isOpen} navbar>
                 <MDBNavbarNav>
                     <MDBNavItem>
@@ -47,14 +48,14 @@ const Header = () => {
                                 <span className="text-light">Услуги</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <Link href={"/marketplace"}><LinkBtn >Выгул</LinkBtn></Link>
-                                <Link href={"/dogExchange"}><LinkBtn>Приюти питомца</LinkBtn></Link>
+                                <Link href="/marketplace" passHref><LinkBtn>Выгул</LinkBtn></Link>
+                                <Link href="/dogExchange" passHref><LinkBtn>Приюти питомца</LinkBtn></Link>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>
                     <MDBNavItem>
-                        <Link href={"/job"}>
-                            <span className="nav-link text-light" style={{ cursor: 'pointer' }}>Работа</span>
+                        <Link href={"/job"} passHref>
+                            <span className="nav-link text-light" style={{cursor: 'pointer'}}>Работа</span>
                         </Link>
                     </MDBNavItem>
                     <MDBNavItem>
@@ -64,10 +65,10 @@ const Header = () => {
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
                                 <div className={styles["A"]}>
-                                    <Link href={"/dogwalkingZones"}  ><LinkBtn>Места для выгула</LinkBtn></Link>
+                                    <Link href="/dogwalkingZones" passHref><LinkBtn>Места для выгула</LinkBtn></Link>
                                 </div>
                                 <div className={styles["A"]}>
-                                    <Link href={"/rules"}><LinkBtn>Правила выгула</LinkBtn></Link>
+                                    <Link href="/rules" passHref><LinkBtn>Правила выгула</LinkBtn></Link>
                                 </div>
                             </MDBDropdownMenu>
                         </MDBDropdown>
