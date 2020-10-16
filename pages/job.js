@@ -2,16 +2,17 @@ import React from "react";
 import Client from "../lib/apollo"
 import gql from "graphql-tag"
 import PageBase from "../components/PageBase";
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle } from "mdbreact";
+
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 
 import styles from './styles/job.module.css';
+import {NextSeo} from "next-seo";
 
 const QUERY = gql`
     query{
         jobPageText {
-            content_ua,
-            title_ua
+            content_ru,
+            title_ru
         }
     }
 `
@@ -24,6 +25,7 @@ export async function getStaticProps(ctx) {
 const Job = ({ data }) => {
     return (
         <PageBase>
+            <NextSeo canonical="https://doggo.co.ua/job"/>
             <div className={styles["Job"]}>
                 <div className={styles["Job-promo"]}>
                     <div className={styles["Job-promo--content"]}>
@@ -33,11 +35,11 @@ const Job = ({ data }) => {
                 </div>
                 <div className={styles["Job-body--content"]}>
                     <h1>
-                        {data.jobPageText.title_ua}
+                        {data.jobPageText.title_ru}
                     </h1>
-                    <p className={styles["Job-text"]}>
-                        {data.jobPageText.content_ua}
-                    </p>
+                    <div className={styles["Job-text"]}>
+                        <div dangerouslySetInnerHTML={{__html: data.jobPageText.content_ru}} />
+                    </div>
                 </div>
             </div>
         </PageBase>

@@ -3,11 +3,12 @@ import Client from "../lib/apollo"
 import gql from "graphql-tag"
 import PageBase from "../components/PageBase";
 import {MDBCard, MDBCardBody} from "mdbreact";
+import {NextSeo} from "next-seo";
 
 const QUERY = gql`
     query{
         dogWalkingRules{
-            content_ua
+            content_ru
         }
     }
 `
@@ -20,6 +21,7 @@ export async function getStaticProps(ctx) {
 const Rules = ({data}) => {
     return (
         <PageBase background="Landing_body.jpg">
+            <NextSeo canonical="https://doggo.co.ua/rules"/>
             <div style={{
                 width: "100%",
                 height: "100%",
@@ -43,14 +45,14 @@ const Rules = ({data}) => {
                                             fontSize:"150%",
                                             justifyContent: "center",
                                             alignItems: "center",
-                                            marginTop:"30px"
+                                            marginTop:"10px"
                                         }}>
                                             <span style={{color: "white"}}>{i + 1}</span>
                                         </div>
                                     </div>
 
                                     <span>
-                                        {r["content_ua"]}
+                                        {r["content_ru"]}
                                     </span>
                                 </div>
                             ))}
