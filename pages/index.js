@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 import React from "react";
 import Client from "../lib/apollo"
-import withHttpsRedirect from "../HoCs/withHttpsRedirect";
 import { NextSeo } from 'next-seo';
 import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
 
@@ -114,3 +113,4 @@ const Index = ({ data }) => {
 };
 
 export default Index;
+

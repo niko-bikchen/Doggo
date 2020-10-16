@@ -45,8 +45,8 @@ const Header = () => {
                                 <span className="text-light">Услуги</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <MDBDropdownItem href="#!" ><Link href={"/marketplace"}><span className="text-light">Выгул</span></Link></MDBDropdownItem>
-                                <MDBDropdownItem href="#!" ><Link href={"/dogExchange"}><span className="text-light">Приюти питомца</span></Link></MDBDropdownItem>
+                                <div className={styles["A"]}><Link href={"/marketplace"}><span className="text-light">Выгул</span></Link></div>
+                                <div className={styles["A"]}><Link href={"/dogExchange"}><span className="text-light">Приюти питомца</span></Link></div>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>
@@ -61,8 +61,12 @@ const Header = () => {
                                 <span className="text-light">Информация</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <MDBDropdownItem href="#!" ><Link href={"/dogwalkingZones"}><span className="text-light">Места для выгула</span></Link></MDBDropdownItem>
-                                <MDBDropdownItem href="#!" ><Link href={"/rules"}><span className="text-light">Правила выгула</span></Link></MDBDropdownItem>
+                                <div className={styles["A"]}>
+                                    <Link href={"/dogwalkingZones"}  ><span className="text-light">Места для выгула</span></Link>
+                                </div>
+                                <div className={styles["A"]}>
+                                    <Link href={"/rules"}><span className="text-light">Правила выгула</span></Link>
+                                </div>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>

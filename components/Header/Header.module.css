@@ -31,11 +31,14 @@
     padding-bottom  : 0;
     background-color: #21212e;
 }
-
-.Header-dropdown div a:hover {
-    background-color: #39394e;
+.A{
+    padding: 15px 10px;
+    white-space: nowrap;
+}
+.A:hover {
+    background-color: #39394e!important;
 }
 
-.Header-dropdown div a {
-    padding: 15px 10px !important;
+.Header-dropdown a {
+
 }
