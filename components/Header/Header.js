@@ -45,8 +45,8 @@ const Header = () => {
                                 <span className="text-light">Услуги</span>
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <div className={styles["A"]}><Link href={"/marketplace"}><span className="text-light">Выгул</span></Link></div>
-                                <div className={styles["A"]}><Link href={"/dogExchange"}><span className="text-light">Приюти питомца</span></Link></div>
+                                <Link href={"/marketplace"}><MDBBtn className={styles["A"]}>Выгул</MDBBtn></Link>
+                                <Link href={"/dogExchange"}><MDBBtn className={styles["A"]}>Приюти питомца</MDBBtn></Link>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>
@@ -62,10 +62,10 @@ const Header = () => {
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
                                 <div className={styles["A"]}>
-                                    <Link href={"/dogwalkingZones"}  ><span className="text-light">Места для выгула</span></Link>
+                                    <Link href={"/dogwalkingZones"}  ><MDBBtn className={styles["A"]}>Места для выгула</MDBBtn></Link>
                                 </div>
                                 <div className={styles["A"]}>
-                                    <Link href={"/rules"}><span className="text-light">Правила выгула</span></Link>
+                                    <Link href={"/rules"}><MDBBtn className={styles["A"]}>Правила выгула</MDBBtn></Link>
                                 </div>
                             </MDBDropdownMenu>
                         </MDBDropdown>
