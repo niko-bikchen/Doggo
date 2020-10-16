@@ -35,10 +35,12 @@
     width: 100%;
     height:100%;
     margin: 0!important;
+    color:white;
     background-color: transparent!important;
     white-space: nowrap;
 }
 .A:hover {
     background-color: #39394e!important;
+    color: white;
 }
 

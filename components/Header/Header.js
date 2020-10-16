@@ -20,7 +20,7 @@ import {
     MDBBtn
 } from "mdbreact";
 const LinkBtn = React.forwardRef(({onClick,href,children},ref)=>{
-    return <div ref={ref}><MDBBtn className={styles["A"]} onClick={onClick} >{children}</MDBBtn></div>
+    return <div ref={ref}><MDBBtn size={"lg"} className={styles["A"]} onClick={onClick} >{children}</MDBBtn></div>
 });
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,10 +64,10 @@ const Header = () => {
                             </MDBDropdownToggle>
                             <MDBDropdownMenu className={styles['Header-dropdown']}>
                                 <div className={styles["A"]}>
-                                    <Link href={"/dogwalkingZones"}  ><LinkBtn className={styles["A"]}>Места для выгула</LinkBtn></Link>
+                                    <Link href={"/dogwalkingZones"}  ><LinkBtn>Места для выгула</LinkBtn></Link>
                                 </div>
                                 <div className={styles["A"]}>
-                                    <Link href={"/rules"}><LinkBtn className={styles["A"]}>Правила выгула</LinkBtn></Link>
+                                    <Link href={"/rules"}><LinkBtn>Правила выгула</LinkBtn></Link>
                                 </div>
                             </MDBDropdownMenu>
                         </MDBDropdown>
