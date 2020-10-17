@@ -7,7 +7,7 @@ import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
 import styles from './styles/index.module.css';
 
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
-import PageBase from '../components/PageBase'
+import PageBase from '../components/PageBase/PageBase'
 
 const QUERY = gql`
     query{

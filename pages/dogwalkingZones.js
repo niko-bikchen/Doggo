@@ -1,7 +1,7 @@
 import React from "react";
 import Client from "../lib/apollo"
 import gql from "graphql-tag"
-import PageBase from "../components/PageBase";
+import PageBase from "../components/PageBase/PageBase";
 import {MDBCard, MDBCardBody} from "mdbreact";
 import {NextSeo} from "next-seo";
 

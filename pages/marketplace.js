@@ -1,9 +1,11 @@
 import React from "react";
 import Client from "../lib/apollo"
 import gql from "graphql-tag"
-import PageBase from "../components/PageBase";
-import {MDBCard, MDBCardBody} from "mdbreact";
-import {NextSeo} from "next-seo";
+import PageBase from "../components/PageBase/PageBase";
+import { MDBCard, MDBCardBody } from "mdbreact";
+import { NextSeo } from "next-seo";
+
+import styles from './styles/marketplace.module.css';
 
 const QUERY = gql`
     query{
@@ -14,26 +16,19 @@ const QUERY = gql`
 `
 
 export async function getStaticProps(ctx) {
-    const {data} = await Client.query({query: QUERY})
-    return {props: {data}}
+    const { data } = await Client.query({ query: QUERY })
+    return { props: { data } }
 }
 
-const Marketplace = ({data}) => {
+const Marketplace = ({ data }) => {
     return (
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
-            <div style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                padding: "40px",
-                alignItems: "center"
-            }}>
-                <MDBCard style={{width: "80vw"}}>
+            <div className={styles["Marketplace"]}>
+                <MDBCard style={{ width: "80vw" }}>
                     <MDBCardBody>
                         <div className="mt-2">
-                            <div dangerouslySetInnerHTML={{__html:data.marketplacePageText.content_ru}}/>
+                            <div dangerouslySetInnerHTML={{ __html: data.marketplacePageText.content_ru }} />
                         </div>
                     </MDBCardBody>
                 </MDBCard>
