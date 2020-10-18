@@ -2,11 +2,18 @@
     position        : relative;
     display         : flex;
     align-items     : center;
-    height          : 100px;
+    height          : 15vh;
     background-color: #3C444C;
 }
 
 .Footer img {
     width : 40%;
     height: auto;
+}
+
+@media (max-width: 992px) {
+    .Footer img {
+        margin-top: 10px;
+        width     : 20%;
+    }
 }

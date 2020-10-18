@@ -8,15 +8,15 @@ const Footer = () => {
         <div className={style["Footer"]}>
             <MDBContainer className="align-items-center">
                 <MDBRow>
-                    <MDBCol md="4">
+                    <MDBCol lg="4" className="text-center text-lg-left text-sm-center">
                         <span className="text-muted">
                             Copyright © 2020 DOGGO. All rights reserved.
                         </span>
                     </MDBCol>
-                    <MDBCol md="4" className="text-center">
+                    <MDBCol lg="4" className="text-center">
                         <img src="Doggo_light.png" />
                     </MDBCol>
-                    <MDBCol md="4"></MDBCol>
+                    <MDBCol lg="4"></MDBCol>
                 </MDBRow>
             </MDBContainer>
         </div>

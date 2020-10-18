@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.3",
+    "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "graphql": "^15.3.0",
     "html-react-parser": "^0.14.0",
