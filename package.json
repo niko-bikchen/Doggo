@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.3",
+    "@react-google-maps/api": "^1.13.0",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "graphql": "^15.3.0",
@@ -24,7 +25,8 @@
     "react": "^16.13.1",
     "react-dom": "16.13.1",
     "react-transition-group": "^4.4.1",
-    "simplebar-react": "^2.3.0"
+    "simplebar-react": "^2.3.0",
+    "underscore": "^1.11.0"
   },
   "devDependencies": {
     "graphql-tag": "^2.11.0"

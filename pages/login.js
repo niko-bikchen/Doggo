@@ -6,7 +6,7 @@ import { Toast } from 'primereact/toast';
 
 import Footer from '../components/Footer/Footer';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
-import { signInUser } from './js/authentication';
+import { signInUser } from '../lib/authentication';
 import styles from './styles/login.module.css';
 
 const Login = () => {
