@@ -49,7 +49,7 @@ const Login = () => {
     return (
         <div>
             <NextSeo canonical="https://doggo.co.ua/login" title="Doggo | Авторизация" />
-            <div className={styles["Login"]}>
+            {/*<div className={styles["Login"]}>
                 <Card className={styles["Login-container"]}>
                     <Grid container>
                         <Grid item md={6}>
@@ -73,7 +73,7 @@ const Login = () => {
                         </DoggoBtn>
                     </CardContent>
                 </Card>
-            </div>
+            </div>*/}
             <Footer />
         </div>
     );

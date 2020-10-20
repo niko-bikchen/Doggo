@@ -13,7 +13,7 @@ import styles from './styles/registration.module.css';
 const Registration = () => {
     return (
         <div>
-            <div className={styles["Registration"]}>
+            {/*<div className={styles["Registration"]}>
                 <Card className={styles["Registration-container"]}>
                     <div>
                         <span>Реєстрація</span>
@@ -24,7 +24,7 @@ const Registration = () => {
                     <CardContent>
                     </CardContent>
                 </Card>
-            </div>
+            </div>*/}
             <Footer />
         </div>
     )

@@ -1,30 +1,52 @@
 import React from 'react';
-import { useState, useCallback } from 'react';
+import styles from './Header.module.css'
+import {useState, useCallback} from 'react';
 import Link from "next/link";
-import {
-    MDBNavbar,
-    MDBNavbarBrand,
-    MDBNavbarNav,
-    MDBNavItem,
-    MDBNavbarToggler,
-    MDBCollapse,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBBtn
-} from "mdbreact";
+import {makeStyles} from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import DropdownBtn from "../DropdownBtn";
+import MenuItem from "@material-ui/core/MenuItem";
 
-import styles from './Header.module.css';
 
-const LinkBtn = React.forwardRef(({ onClick, href, children }, ref) => {
+const LinkHack = React.forwardRef(({onClick, href, children}, ref) => {
     return (
         <div ref={ref}>
-            <MDBBtn size={"lg"} className={styles["A"]} onClick={onClick}>{children}</MDBBtn>
-            <a href={href} style={{ height: '0', width: '0' }}></a>
+            <span onClick={onClick}>{children}</span>
+            <a href={href} style={{height: '0', width: '0'}}></a>
         </div>
     )
 });
+const useStyles = makeStyles((theme) => ({
+    toolbar: {
+        justifyContent: "space-around"
+    },
+    link:{
+        color:"white",
+        padding: "16px 38px",
+        width:"100%",
+        height:"100%"
+    },
+    menuItem: {
+        padding:"0!important",
+        textTransform: "uppercase",
+        /*,*/
+        color: "white",
+        '&:hover':{
+            backgroundColor:'#39394e'
+        }
+    },
+    title: {
+        flexGrow: 1,
+    },
+}));
 const Header = () => {
+    const classes = useStyles();
+    console.log(classes)
     const [isOpen, setIsOpen] = useState(false);
     const toggleCollapse = useCallback(
         () => {
@@ -34,7 +56,30 @@ const Header = () => {
     );
 
     return (
-        <MDBNavbar className={styles.Header} dark expand="md">
+        <AppBar style={{backgroundColor: "#2B2B3B"}} position="static">
+            <Toolbar className={classes.toolbar}>
+                {/*<IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <MenuIcon />
+                </IconButton>*/}
+                <Link href="/" className={classes.title} passHref>
+                    <img className={styles['Header-logo']} src="Doggo_light.png"/>
+                </Link>
+                <DropdownBtn text={'Услуги'}>
+                    <MenuItem className={classes.menuItem}>
+                        <Link href='/marketplace' passHref>
+                            <a className={classes.link}>Выгул</a>
+                        </Link>
+                    </MenuItem>
+                    <MenuItem className={classes.menuItem}>
+                        <Link className={classes.link} href='/marketplace'  passHref>
+                            <a className={classes.link}>Приюти питомца</a>
+                        </Link>
+                    </MenuItem>
+                </DropdownBtn>
+                {/* <Link href={}<LinkBtn></LinkBtn>*/}
+            </Toolbar>
+        </AppBar>
+        /*<MDBNavbar className={styles.Header} dark expand="md">
             <MDBNavbarBrand className={styles['Header-brand']}>
                 <Link href="/" passHref>
                     <img className={styles['Header-logo']} src="Doggo_light.png" />
@@ -83,7 +128,7 @@ const Header = () => {
                     </MDBNavItem>
                 </MDBNavbarNav>
             </MDBCollapse>
-        </MDBNavbar>
+        </MDBNavbar>*/
     );
 }
 

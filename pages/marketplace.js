@@ -2,7 +2,6 @@ import React from "react";
 import Client from "../lib/apollo"
 import gql from "graphql-tag"
 import PageBase from "../components/PageBase/PageBase";
-import { MDBCard, MDBCardBody } from "mdbreact";
 import { NextSeo } from "next-seo";
 
 import styles from './styles/marketplace.module.css';
@@ -24,7 +23,7 @@ const Marketplace = ({ data }) => {
     return (
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
-            <div className={styles["Marketplace"]}>
+            {/*<div className={styles["Marketplace"]}>
                 <MDBCard style={{ width: "80vw" }}>
                     <MDBCardBody>
                         <div className="mt-2">
@@ -32,7 +31,7 @@ const Marketplace = ({ data }) => {
                         </div>
                     </MDBCardBody>
                 </MDBCard>
-            </div>
+            </div>*/}
         </PageBase>
     )
 }

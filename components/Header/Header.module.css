@@ -16,9 +16,8 @@
 }
 
 .Header-logo {
-    width : 50%;
-    height: auto;
-    margin: 10px;
+    width : auto;
+    height: 50px;
     cursor: pointer;
 }
 

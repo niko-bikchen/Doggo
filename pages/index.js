@@ -2,7 +2,6 @@ import gql from 'graphql-tag';
 import React from "react";
 import Client from "../lib/apollo"
 import { NextSeo } from 'next-seo';
-import { MDBCardTitle, MDBCard, MDBCardText, MDBCardBody } from "mdbreact";
 
 import styles from './styles/index.module.css';
 
@@ -35,7 +34,7 @@ const Index = ({ data }) => {
     return (
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/" title="Doggo | Сервис выгула собак" description="Не держите своего питомца дома в четырех стенах! DOGGO - сервис, где вы сможете найти идеального выгульщика, или стать им." />
-            <div className={styles["Index-top"]}>
+            {/*<div className={styles["Index-top"]}>
                 <div className="text-white text-center">
                     <div className={styles["Index-top--content"]}>
                         <div>
@@ -49,8 +48,8 @@ const Index = ({ data }) => {
                         </DoggoBtn>
                     </div>
                 </div>
-            </div>
-            <div className={styles["Index-body"]}>
+            </div>*/}
+            {/*<div className={styles["Index-body"]}>
                 <MDBCard className={styles["Index-body--card-1"]}>
                     <MDBCardBody className={styles["Index-body--card-content"]}>
                         <MDBCardTitle>
@@ -101,7 +100,7 @@ const Index = ({ data }) => {
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
-            </div>
+            </div>*/}
             <div className={styles["Index-bottom"]}>
                 <p className={styles["Index-bottom--text"]}>
                     {/* {data.mainPageText.bottom_content_ru} */}

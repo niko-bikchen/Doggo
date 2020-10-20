@@ -2,13 +2,9 @@ import React, {useEffect, useRef, useState} from "react";
 import Client from "../lib/apollo"
 import gql from "graphql-tag"
 import PageBase from "../components/PageBase/PageBase";
-import {MDBCard, MDBCardBody} from "mdbreact";
+
 import {NextSeo} from "next-seo";
-import {
-    MDBContainer, MDBRow, MDBCol, MDBTreeview,
-    MDBTreeviewList,
-    MDBTreeviewItem
-} from "mdbreact";
+
 import Map from "../components/Map"
 import _ from "underscore"
 import {Marker} from "@react-google-maps/api";
@@ -36,8 +32,8 @@ export async function getStaticProps(ctx) {
 const LocationsToTree = React.memo(({locations, onAddressClick}) => {
     let count = 0;
 
-    return (
-        <MDBTreeview
+    return (<div></div>
+        /*<MDBTreeview
             theme='animated'
         >
             {_.values(_.mapObject(locations, (value, key) => {
@@ -58,7 +54,7 @@ const LocationsToTree = React.memo(({locations, onAddressClick}) => {
                 )
             }))}
 
-        </MDBTreeview>
+        </MDBTreeview>*/
     )
 }, () => true)
 
@@ -82,7 +78,7 @@ const DogwalkingZones = ({dogWalkingZones, dogwalkingZonesPageText}) => {
                 padding: "40px",
                 alignItems: "center"
             }}>
-                <MDBCard style={{width: "80vw"}}>
+                {/*<MDBCard style={{width: "80vw"}}>
                     <MDBCardBody>
                         <MDBContainer>
                             <MDBRow>
@@ -103,7 +99,7 @@ const DogwalkingZones = ({dogWalkingZones, dogwalkingZonesPageText}) => {
                         </MDBContainer>
 
                     </MDBCardBody>
-                </MDBCard>
+                </MDBCard>*/}
             </div>
         </PageBase>
     )
