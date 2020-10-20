@@ -5,7 +5,12 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Grid from '@material-ui/core/Grid';
+import Box from "@material-ui/core/Box";
+import Button from '@material-ui/core/Button';
 
 import Footer from '../components/Footer/Footer';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
@@ -49,31 +54,45 @@ const Login = () => {
     return (
         <div>
             <NextSeo canonical="https://doggo.co.ua/login" title="Doggo | Авторизация" />
-            {/*<div className={styles["Login"]}>
+            <div className={styles["Login"]}>
                 <Card className={styles["Login-container"]}>
                     <Grid container>
-                        <Grid item md={6}>
-                            <Typography variant="h5">
-                                Вхід
-                            </Typography>
+                        <Grid item xs={12} md={6}>
+                            <Box textAlign="right" mr={2}>
+                                <Typography variant="h5">
+                                    Вхід
+                                </Typography>
+                            </Box>
                         </Grid>
-                        <Grid item md={6}>
-                            <Link href="/registration">
-                                <a href="/registration" className="text-reset font-weight-light h5">Реєстрація</a>
+                        <Grid item xs={12} md={6}>
+                            <Link href="/registration" passHref>
+                                <Button>
+                                    <Typography variant="body1">
+                                        Реєстрація
+                                    </Typography>
+                                </Button>
                             </Link>
                         </Grid>
                     </Grid>
                     <CardContent>
                         <form noValidate autoComplete="off">
-                            <TextField label="Пошта" type="text" />
-                            <TextField label="Пароль" type="password" />
+                            <Grid container spacing={3} justify="center">
+                                <Grid item xs={12}>
+                                    <TextField fullWidth variant="outlined" label="Пошта" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><MailOutlineIcon /></InputAdornment>) }} />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField fullWidth variant="outlined" label="Пароль" type="password" InputProps={{ startAdornment: (<InputAdornment position="start"><LockOutlinedIcon /></InputAdornment>) }} />
+                                </Grid>
+                            </Grid>
                         </form>
-                        <DoggoBtn size="lg" onClick={handleSignIn}>
-                            Увійти
-                        </DoggoBtn>
+                        <Box textAlign="center" mt={3}>
+                            <DoggoBtn size="large" onClick={handleSignIn}>
+                                Увійти
+                            </DoggoBtn>
+                        </Box>
                     </CardContent>
                 </Card>
-            </div>*/}
+            </div>
             <Footer />
         </div>
     );

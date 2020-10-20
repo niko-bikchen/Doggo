@@ -9,13 +9,13 @@ const DoggoBtn = (props) => {
             backgroundColor: '#E0802B',
             borderRadius: 5,
             color: 'white',
-            padding: '10px'
+            padding: '10px',
+            '&:hover': {
+                backgroundColor: '#af6523'
+            }
         },
         label: {
             textTransform: 'uppercase'
-        },
-        hover: {
-            backgroundColor: '#a96020'
         }
     })(Button);
 
