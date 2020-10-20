@@ -2,18 +2,23 @@
     position        : relative;
     display         : flex;
     align-items     : center;
-    height          : 15vh;
+    min-height      : 100px;
+    font-family     : 'Roboto';
+    color           : rgb(131, 131, 131);
     background-color: #3C444C;
 }
 
 .Footer img {
-    width : 40%;
+    width : 150px;
     height: auto;
 }
 
 @media (max-width: 992px) {
+    .Footer {
+        padding: 10px 0;
+    }
+
     .Footer img {
-        margin-top: 10px;
-        width     : 20%;
+        margin-top: 15px;
     }
 }
