@@ -3,8 +3,8 @@ import Client from "../lib/apollo"
 import gql from "graphql-tag"
 import PageBase from "../components/PageBase/PageBase";
 import { NextSeo } from "next-seo";
+import PageCard from "../components/PageCard";
 
-import styles from './styles/marketplace.module.css';
 
 const QUERY = gql`
     query{
@@ -23,15 +23,9 @@ const Marketplace = ({ data }) => {
     return (
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
-            {/*<div className={styles["Marketplace"]}>
-                <MDBCard style={{ width: "80vw" }}>
-                    <MDBCardBody>
-                        <div className="mt-2">
-                            <div dangerouslySetInnerHTML={{ __html: data.marketplacePageText.content_ru }} />
-                        </div>
-                    </MDBCardBody>
-                </MDBCard>
-            </div>*/}
+            <PageCard>
+                <div dangerouslySetInnerHTML={{ __html: data.marketplacePageText.content_ru }} />
+            </PageCard>
         </PageBase>
     )
 }

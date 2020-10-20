@@ -5,6 +5,7 @@ import PageBase from "../components/PageBase/PageBase";
 import { NextSeo } from "next-seo";
 
 import styles from './styles/petAdoption.module.css';
+import PageCard from "../components/PageCard";
 
 const QUERY = gql`
     query{
@@ -23,15 +24,9 @@ const PetAdoption = ({ data }) => {
     return (
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/petAdoption" title="Doggo | Приюти питомца" />
-            {/*<div className={styles["PetAdoption"]}>
-                <MDBCard style={{ width: "80vw" }}>
-                    <MDBCardBody>
-                        <div className="mt-2">
-                            <div dangerouslySetInnerHTML={{ __html: data.dogExchangePageText.content_ru }} />
-                        </div>
-                    </MDBCardBody>
-                </MDBCard>
-            </div>*/}
+            <PageCard>
+                <div dangerouslySetInnerHTML={{ __html: data.dogExchangePageText.content_ru }} />
+            </PageCard>
         </PageBase>
     )
 }
