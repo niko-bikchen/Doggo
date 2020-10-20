@@ -59,28 +59,26 @@ const Login = () => {
                                 <Button label="Регистрация" className="p-button-secondary p-button-text p-0" />
                             </MDBCol>
                         </MDBRow>
-                        <form>
-                            <div className="p-fluid mt-5">
-                                <div className="p-field">
-                                    <div className="p-input-icon-left">
-                                        <i className="pi pi-envelope" />
-                                        <InputText placeholder="Почта" onChange={onInputChange} type="text" name="email" />
-                                    </div>
-                                    <small className="p-invalid" style={{ display: credentialsValidated.email ? 'none' : 'block' }}>
-                                        Неправильная почта
-                                    </small>
+                        <div className="p-fluid mt-5">
+                            <div className="p-field">
+                                <div className="p-input-icon-left">
+                                    <i className="pi pi-envelope" />
+                                    <InputText placeholder="Почта" onChange={onInputChange} type="text" name="email" />
                                 </div>
-                                <div className="p-field">
-                                    <div className="p-input-icon-left mt-3">
-                                        <i className="pi pi-lock" />
-                                        <InputText placeholder="Пароль" onChange={onInputChange} type="password" name="password" />
-                                    </div>
-                                    <small className="p-invalid" style={{ display: credentialsValidated.password ? 'none' : 'block' }}>
-                                        Неправильний пароль
-                                    </small>
-                                </div>
+                                <small className="p-invalid" style={{ display: credentialsValidated.email ? 'none' : 'block' }}>
+                                    Неправильная почта
+                                </small>
                             </div>
-                        </form>
+                            <div className="p-field">
+                                <div className="p-input-icon-left mt-3">
+                                    <i className="pi pi-lock" />
+                                    <InputText placeholder="Пароль" onChange={onInputChange} type="password" name="password" />
+                                </div>
+                                <small className="p-invalid" style={{ display: credentialsValidated.password ? 'none' : 'block' }}>
+                                    Неправильний пароль
+                                    </small>
+                            </div>
+                        </div>
                         <div className="text-center mt-5">
                             <DoggoBtn size="lg" onClick={handleSignIn}>
                                 Войти
