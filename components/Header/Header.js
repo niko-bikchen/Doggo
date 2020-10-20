@@ -8,6 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import DropdownBtn from "../DropdownBtn";
 import MenuItem from "@material-ui/core/MenuItem";
+import DoggoBtn from "../DoggoBtn/DoggoBtn";
 
 
 const LinkHack = React.forwardRef(({onClick, href, children}, ref) => {
@@ -87,6 +88,9 @@ const Header = () => {
                         </Link>
                     </MenuItem>
                 </DropdownBtn>
+                <Link  href='/login'  passHref>
+                    <DoggoBtn>Войти</DoggoBtn>
+                </Link>
             </Toolbar>
         </AppBar>
     );
