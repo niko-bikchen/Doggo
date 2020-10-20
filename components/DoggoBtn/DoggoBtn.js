@@ -1,11 +1,20 @@
 import React from 'react';
-import { MDBBtn } from 'mdbreact';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 
 const DoggoBtn = (props) => {
-    return (
-        <MDBBtn color="amber" style={{borderRadius:"10px",color:"white"}}{...props}></MDBBtn>
-    )
+    const DBtn = withStyles({
+        root: {
+            backgroundColor: '#E0802B',
+            borderRadius: 15
+        },
+        label: {
+            textTransform: 'capitalize'
+        }
+    })(Button);
+
+    return <DBtn {...props}></DBtn>
 }
 
 export default DoggoBtn;
