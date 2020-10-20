@@ -1,19 +1,22 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 import style from './Footer.module.css';
 
 const Footer = () => {
     return (
         <div className={style["Footer"]}>
-            <Grid container spacing={0}>
-                <Grid item md={4}>
+            <Grid container spacing={0} justify="center" alignItems="center">
+                <Grid item xs={12} md={4} justify="center" alignItems="center" style={{ display: 'flex' }}>
                     Copyright © 2020 DOGGO. All rights reserved.
                 </Grid>
-                <Grid item md={4}>
-                    <img src="Doggo_light.png" />
+                <Grid item xs={12} md={4}>
+                    <Box textAlign="center">
+                        <img src="Doggo_light.png" />
+                    </Box>
                 </Grid>
-                <Grid item md={4}></Grid>
+                <Grid item xs={12} md={4}></Grid>
             </Grid>
         </div>
     );
