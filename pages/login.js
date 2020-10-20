@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import { Button } from 'primereact/button';
-import { InputText } from 'primereact/inputtext';
-import { Toast } from 'primereact/toast';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBInput } from "mdbreact";
+import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 import Footer from '../components/Footer/Footer';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
@@ -37,55 +36,43 @@ const Login = () => {
         if (userCredentials.email && credentialsValidated.email && credentialsValidated.password) {
             const response = await signInUser(userCredentials);
             if (response.message && response.message.includes('400')) {
-                toast.show({ severity: 'error', summary: 'Ошибка', detail: 'Пользователя с такими данными не существует', life: 7000 });
             } else {
                 setUserJwt(response.data.jwt);
-                toast.show({ severity: 'success', summary: 'Успех!', detail: 'Авторизация прошла успешно', life: 7000 });
             }
         }
     };
 
     return (
         <div>
-            <Toast ref={(el) => setToast(el)} />
+            <NextSeo canonical="https://doggo.co.ua/login" title="Doggo | Авторизация" />
             <div className={styles["Login"]}>
-                <div className={styles["Login-container"] + " py-4"}>
-                    <MDBContainer>
-                        <MDBRow className="mx-2 align-center align-items-center">
-                            <MDBCol md="6" className="h3 text-center text-md-left">
-                                Вход
-                            </MDBCol>
-                            <MDBCol md="6" className="text-center text-md-right text-muted">
-                                <Button label="Регистрация" className="p-button-secondary p-button-text p-0" />
-                            </MDBCol>
-                        </MDBRow>
-                        <div className="p-fluid mt-5">
-                            <div className="p-field">
-                                <div className="p-input-icon-left">
-                                    <i className="pi pi-envelope" />
-                                    <InputText placeholder="Почта" onChange={onInputChange} type="text" name="email" />
-                                </div>
-                                <small className="p-invalid" style={{ display: credentialsValidated.email ? 'none' : 'block' }}>
-                                    Неправильная почта
-                                </small>
-                            </div>
-                            <div className="p-field">
-                                <div className="p-input-icon-left mt-3">
-                                    <i className="pi pi-lock" />
-                                    <InputText placeholder="Пароль" onChange={onInputChange} type="password" name="password" />
-                                </div>
-                                <small className="p-invalid" style={{ display: credentialsValidated.password ? 'none' : 'block' }}>
-                                    Неправильний пароль
-                                    </small>
-                            </div>
-                        </div>
+                <MDBCard className={styles["Login-container"]}>
+                    <MDBCardTitle>
+                        <MDBContainer>
+                            <MDBRow className="mx-2 align-center align-items-center">
+                                <MDBCol md="6" className="h3 text-center text-md-left">
+                                    Вхід
+                                </MDBCol>
+                                <MDBCol md="6" className="text-center text-md-right text-muted">
+                                    <Link href="/registration">
+                                        <a href="/registration" className="text-reset font-weight-light h5">Реєстрація</a>
+                                    </Link>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>
+                    </MDBCardTitle>
+                    <MDBCardBody>
+                        <MDBContainer>
+                            <MDBInput label="Пошта" icon="envelope" />
+                            <MDBInput label="Пароль" icon="asterisk" type="password" />
+                        </MDBContainer>
                         <div className="text-center mt-5">
                             <DoggoBtn size="lg" onClick={handleSignIn}>
-                                Войти
+                                Увійти
                             </DoggoBtn>
                         </div>
-                    </MDBContainer>
-                </div>
+                    </MDBCardBody>
+                </MDBCard>
             </div>
             <Footer />
         </div>
