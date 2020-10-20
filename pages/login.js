@@ -78,10 +78,10 @@ const Login = () => {
                         <form noValidate autoComplete="off">
                             <Grid container spacing={3} justify="center">
                                 <Grid item xs={12}>
-                                    <TextField fullWidth variant="outlined" label="Пошта" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><MailOutlineIcon /></InputAdornment>) }} />
+                                    <TextField onChange={onInputChange} name="email" fullWidth variant="outlined" label="Пошта" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><MailOutlineIcon /></InputAdornment>) }} />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField fullWidth variant="outlined" label="Пароль" type="password" InputProps={{ startAdornment: (<InputAdornment position="start"><LockOutlinedIcon /></InputAdornment>) }} />
+                                    <TextField onChange={onInputChange} name="password" fullWidth variant="outlined" label="Пароль" type="password" InputProps={{ startAdornment: (<InputAdornment position="start"><LockOutlinedIcon /></InputAdornment>) }} />
                                 </Grid>
                             </Grid>
                         </form>
