@@ -1,24 +1,20 @@
 import React from 'react';
-import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
+import Grid from '@material-ui/core/Grid';
 
 import style from './Footer.module.css';
 
 const Footer = () => {
     return (
         <div className={style["Footer"]}>
-            <MDBContainer className="align-items-center">
-                <MDBRow>
-                    <MDBCol lg="4" className="text-center text-lg-left text-sm-center">
-                        <span className="text-muted">
-                            Copyright © 2020 DOGGO. All rights reserved.
-                        </span>
-                    </MDBCol>
-                    <MDBCol lg="4" className="text-center">
-                        <img src="Doggo_light.png" />
-                    </MDBCol>
-                    <MDBCol lg="4"></MDBCol>
-                </MDBRow>
-            </MDBContainer>
+            <Grid container spacing={0}>
+                <Grid item md={4}>
+                    Copyright © 2020 DOGGO. All rights reserved.
+                </Grid>
+                <Grid item md={4}>
+                    <img src="Doggo_light.png" />
+                </Grid>
+                <Grid item md={4}></Grid>
+            </Grid>
         </div>
     );
 };
