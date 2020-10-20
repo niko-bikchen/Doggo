@@ -72,7 +72,7 @@ const Header = () => {
                         </Link>
                     </MenuItem>
                 </DropdownBtn>
-                <Link  href='/marketplace'  passHref>
+                <Link  href='/job'  passHref>
                     <Button style={{color:'white'}}>работа</Button>
                 </Link>
                 <DropdownBtn text={'Информация'}>
