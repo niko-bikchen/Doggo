@@ -1,7 +1,8 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-css-only/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
 import 'simplebar/dist/simplebar.min.css';
+import 'fontsource-roboto/300.css';
+import 'fontsource-roboto/400.css';
+import 'fontsource-roboto/500.css';
+import 'fontsource-roboto/700.css';
 
 import './styles/global.css';
 
