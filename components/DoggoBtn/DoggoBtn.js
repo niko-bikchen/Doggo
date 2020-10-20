@@ -7,10 +7,15 @@ const DoggoBtn = (props) => {
     const DBtn = withStyles({
         root: {
             backgroundColor: '#E0802B',
-            borderRadius: 15
+            borderRadius: 5,
+            color: 'white',
+            padding: '10px'
         },
         label: {
-            textTransform: 'capitalize'
+            textTransform: 'uppercase'
+        },
+        hover: {
+            backgroundColor: '#a96020'
         }
     })(Button);
 

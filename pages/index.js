@@ -44,7 +44,7 @@ const Index = ({ data }) => {
                         <MDBCardTitle className="h1-responsive m-5 font-bold">
                             {data.mainPageText.motto_ru}
                         </MDBCardTitle>
-                        <DoggoBtn size="lg">
+                        <DoggoBtn variant="contained" disableElevation>
                             Найти догвокера
                         </DoggoBtn>
                     </div>
