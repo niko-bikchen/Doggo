@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     menuItem: {
         padding:"0!important",
         textTransform: "uppercase",
-        /*,*/
         color: "white",
         '&:hover':{
             backgroundColor:'#39394e'
@@ -71,64 +70,28 @@ const Header = () => {
                         </Link>
                     </MenuItem>
                     <MenuItem className={classes.menuItem}>
-                        <Link className={classes.link} href='/marketplace'  passHref>
+                        <Link href='/marketplace'  passHref>
                             <a className={classes.link}>Приюти питомца</a>
                         </Link>
                     </MenuItem>
                 </DropdownBtn>
-                {/* <Link href={}<LinkBtn></LinkBtn>*/}
+                <Link  href='/marketplace'  passHref>
+                    <Button style={{color:'white'}}>работа</Button>
+                </Link>
+                <DropdownBtn text={'Информация'}>
+                    <MenuItem className={classes.menuItem}>
+                        <Link href='/rules' passHref>
+                            <a className={classes.link}>Правила выгула</a>
+                        </Link>
+                    </MenuItem>
+                    <MenuItem className={classes.menuItem}>
+                        <Link href='/dogwalkingZones'  passHref>
+                            <a className={classes.link}>Места для выгула</a>
+                        </Link>
+                    </MenuItem>
+                </DropdownBtn>
             </Toolbar>
         </AppBar>
-        /*<MDBNavbar className={styles.Header} dark expand="md">
-            <MDBNavbarBrand className={styles['Header-brand']}>
-                <Link href="/" passHref>
-                    <img className={styles['Header-logo']} src="Doggo_light.png" />
-                </Link>
-            </MDBNavbarBrand>
-            <MDBNavbarToggler onClick={toggleCollapse} />
-            <MDBCollapse id="navbarCollapse3" className={styles['Header-collapse']} isOpen={isOpen} navbar>
-                <MDBNavbarNav>
-                    <MDBNavItem>
-                        <MDBDropdown>
-                            <MDBDropdownToggle nav caret>
-                                <span className="text-light">Услуги</span>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <Link href="/marketplace" passHref><LinkBtn>Выгул</LinkBtn></Link>
-                                <Link href="/petAdoption" passHref><LinkBtn>Приюти питомца</LinkBtn></Link>
-                            </MDBDropdownMenu>
-                        </MDBDropdown>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                        <Link href="/job" passHref>
-                            <span className="nav-link text-light" style={{ cursor: 'pointer' }}>
-                                Работа
-                                <a href="/job" style={{ height: '0', width: '0' }}></a>
-                            </span>
-                        </Link>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                        <MDBDropdown>
-                            <MDBDropdownToggle nav caret>
-                                <span className="text-light">Информация</span>
-                            </MDBDropdownToggle>
-                            <MDBDropdownMenu className={styles['Header-dropdown']}>
-                                <Link href="/rules" passHref><LinkBtn>Правила выгула</LinkBtn></Link>
-                                <Link href="/dogwalkingZones" passHref><LinkBtn>Места для выгула</LinkBtn></Link>
-                            </MDBDropdownMenu>
-                        </MDBDropdown>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                        <Link href="/login" passHref>
-                            <span className={styles["Header-loginBtn"] + " nav-link" + " text-light"}>
-                                Войти
-                                <a href="/login" style={{ height: '0', width: '0' }}></a>
-                            </span>
-                        </Link>
-                    </MDBNavItem>
-                </MDBNavbarNav>
-            </MDBCollapse>
-        </MDBNavbar>*/
     );
 }
 
