@@ -57,28 +57,6 @@ const LocationsToTree = React.memo(({locations, onAddressClick}) => {
                 )
             }))}
         </StyledTreeView>
-        /*<MDBTreeview
-            theme='animated'
-        >
-            {_.values(_.mapObject(locations, (value, key) => {
-                return (
-                    <MDBTreeviewList key={key} icon='city' title={key}  opened={count===0}>
-                        {value.map((el, i) =>{
-                            count++;
-                            return (
-                                    <MDBTreeviewItem  key={key + i} onClick={onAddressClick({lat: el.lat, lng: el.lng})}
-                                                     icon='building' title={el.address} far/>
-
-                            )
-                        }
-
-                        )}
-
-                    </MDBTreeviewList>
-                )
-            }))}
-
-        </MDBTreeview>*/
     )
 }, () => true)
 const useStyles = makeStyles((theme) => ({
@@ -86,8 +64,9 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(2),
+        padding: "0",
         textAlign: 'center',
+        height:'70vh',
         color: theme.palette.text.secondary,
     },
 }));
@@ -105,43 +84,22 @@ const DogwalkingZones = ({dogWalkingZones, dogwalkingZonesPageText}) => {
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/dogwalkingZones" title="Doggo | Места для выгула"/>
                 <Grid style={{padding:'20px'}} container spacing={3}>
-
                     <Grid item xs={6}>
                         <Paper className={classes.paper}>
-                            <LocationsToTree locations={locations} onAddressClick={onAddressClick}/>
+                            <div style={{padding:"20px"}}>
+                                <LocationsToTree locations={locations} onAddressClick={onAddressClick}/>
+                            </div>
+
                         </Paper>
                     </Grid>
                     <Grid item xs={6}>
-                        <Paper className={classes.paper} style={{padding:"0"}}>
-                            <Map zoom={16} containerStyle={{width: "100%",borderRadius:"4px"}} center={currLocation}>
+                        <Paper className={classes.paper}>
+                            <Map zoom={16} containerStyle={{width: "100%", height:"100%",borderRadius:"4px"}} center={currLocation}>
                                 <Marker position={currLocation}/>
                             </Map>
                         </Paper>
                     </Grid>
                 </Grid>
-
-                {/*<MDBCard style={{width: "80vw"}}>
-                    <MDBCardBody>
-                        <MDBContainer>
-                            <MDBRow>
-                                <MDBCol md="6" key={"static"}>
-                                    <LocationsToTree locations={locations} onAddressClick={onAddressClick}/>
-                                </MDBCol>
-                                <MDBCol md="6">
-                                    <Map zoom={16} containerStyle={{width: "100%"}} center={currLocation}>
-                                        <Marker position={currLocation}/>
-                                    </Map>
-                                </MDBCol>
-                            </MDBRow>
-                            <MDBRow>
-                                <div className="mt-2">
-                                    <div dangerouslySetInnerHTML={{__html: dogwalkingZonesPageText.content_ru}}/>
-                                </div>
-                            </MDBRow>
-                        </MDBContainer>
-
-                    </MDBCardBody>
-                </MDBCard>*/}
         </PageBase>
     )
 }
