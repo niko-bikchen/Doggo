@@ -4,6 +4,7 @@ import gql from "graphql-tag"
 import PageBase from "../components/PageBase/PageBase";
 import { NextSeo } from "next-seo";
 import PageCard from "../components/PageCard";
+import {connect} from "react-redux";
 
 
 const QUERY = gql`
@@ -18,8 +19,9 @@ export async function getStaticProps(ctx) {
     const { data } = await Client.query({ query: QUERY })
     return { props: { data } }
 }
-
-const Marketplace = ({ data }) => {
+const mapStateToProps = ({jwt}) => ({jwt})
+const Marketplace = ({ data, jwt }) => {
+    console.log(jwt)
     return (
         <PageBase background="Landing_body.jpg">
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
@@ -30,4 +32,4 @@ const Marketplace = ({ data }) => {
     )
 }
 
-export default Marketplace
+export default connect(mapStateToProps)(Marketplace)

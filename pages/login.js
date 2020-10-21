@@ -16,8 +16,10 @@ import Footer from '../components/Footer/Footer';
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 import { signInUser } from '../lib/authentication';
 import styles from './styles/login.module.css';
+import {ACTION_TYPES, ACTIONS} from "../lib/store";
+import {connect} from "react-redux";
 
-const Login = () => {
+const Login = ({setJwt}) => {
     const [userJwt, setUserJwt] = useState('');
     const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
     const [credentialsValidated, setCredentialsValidated] = useState({ email: true, password: true });
@@ -46,7 +48,9 @@ const Login = () => {
             const response = await signInUser(userCredentials);
             if (response.message && response.message.includes('400')) {
             } else {
-                setUserJwt(response.data.jwt);
+                console.log(response.data)
+                setJwt(response.data.jwt)
+                /*setUserJwt(response.data.jwt);*/
             }
         }
     };
@@ -97,5 +101,9 @@ const Login = () => {
         </div>
     );
 };
-
-export default Login;
+const mapDispatchToProps = dispatch => {
+    return {
+        setJwt:jwt=>dispatch(ACTIONS[ACTION_TYPES.SET_JWT]({jwt}))
+    }
+}
+export default connect(null,mapDispatchToProps)(Login);
