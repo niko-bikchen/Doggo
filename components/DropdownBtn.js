@@ -8,78 +8,57 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
+import Popover from "@material-ui/core/Popover";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-    },
-    paper: {
-        marginRight: theme.spacing(2),
+    typography: {
+        padding: theme.spacing(2),
     },
 }));
-const DropdownBtn = ({text="btn",children=[]}) => {
-    const [open, setOpen] = React.useState(false);
-    const anchorRef = React.useRef(null);
 
-    const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen);
+const DropdownBtn = ({text="popover btn",children}) => {
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-            return;
-        }
-
-        setOpen(false);
+    const handleClose = () => {
+        setAnchorEl(null);
     };
 
-    function handleListKeyDown(event) {
-        if (event.key === 'Tab') {
-            event.preventDefault();
-            setOpen(false);
-        }
-    }
-
-    // return focus to the button when we transitioned from !open -> open
-    const prevOpen = React.useRef(open);
-    React.useEffect(() => {
-        if (prevOpen.current === true && open === false) {
-            anchorRef.current.focus();
-        }
-
-        prevOpen.current = open;
-    }, [open]);
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     return (
         <div>
-            <Button
-                style={{color:"white"}}
-                ref={anchorRef}
-                aria-controls={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                endIcon={open?<ArrowDropUpIcon/>:<ArrowDropDownIcon/>}
-                onClick={handleToggle}
-            >
+            <Button aria-describedby={id}
+                    style={{color:"white"}}
+                    endIcon={open?<ArrowDropUpIcon/>:<ArrowDropDownIcon/>}
+                    onClick={handleClick}>
                 {text}
             </Button>
-            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                    <Grow
-                        {...TransitionProps}
-                        style={{ transformOrigin: 'center bottom' }}
-                    >
-                        <Paper style={{backgroundColor:"#212529"}}>
-                            <ClickAwayListener onClickAway={handleClose}>
-                                <MenuList style={{padding:"0"}} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                                    {children}
-                                </MenuList>
-                            </ClickAwayListener>
-                        </Paper>
-                    </Grow>
-                )}
-            </Popper>
+            <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+                PaperProps={{style:{backgroundColor:"#212529"}}}
+            >
+                <MenuList style={{padding:"0"}} autoFocusItem={open}>
+                    {children}
+                </MenuList>
+            </Popover>
         </div>
-    )
+    );
 }
-
 export default DropdownBtn
