@@ -6,7 +6,7 @@ import style from './Footer.module.css';
 
 const Footer = () => {
     return (
-        <div className={style["Footer"]}>
+        <footer className={style["Footer"]}>
             <Grid container spacing={0} justify="center" alignItems="center">
                 <Grid item xs={12} md={4}>
                     <Grid container justify="center" alignItems="center">
@@ -20,7 +20,7 @@ const Footer = () => {
                 </Grid>
                 <Grid item xs={12} md={4}></Grid>
             </Grid>
-        </div>
+        </footer>
     );
 };
 

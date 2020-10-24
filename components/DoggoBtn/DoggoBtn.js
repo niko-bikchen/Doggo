@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 
-const DoggoBtn = (props,ref) => {
+const DoggoBtn = (props, ref) => {
     const DBtn = withStyles({
         root: {
             backgroundColor: '#E0802B',

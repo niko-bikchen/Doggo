@@ -2,7 +2,7 @@
     position        : relative;
     display         : flex;
     align-items     : center;
-    min-height      : 100px;
+    height          : 100px;
     font-family     : 'Roboto';
     color           : rgb(131, 131, 131);
     background-color: #3C444C;
