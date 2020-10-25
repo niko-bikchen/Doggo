@@ -91,11 +91,9 @@ const Index = ({ data }) => {
                         <div>
                             <img className={styles["blob-4"]} src="Blub_v4.0.png" alt="A picture of a dog" />
                             <span className={styles["paper-text"]} style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_3_ru }} />
-                            <span className="d-block">
-                                <DoggoBtn size="large" >
-                                    Найти догвокера
-                                </DoggoBtn>
-                            </span>
+                            <DoggoBtn style={{marginTop:"20px"}} size="large" >
+                                Найти догвокера
+                            </DoggoBtn>
                         </div>
                     </div>
                 </Paper>

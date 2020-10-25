@@ -78,8 +78,8 @@
     position: absolute;
     right   : 0;
     top     : 0;
-    width   : 41%;
-    height  : auto;
+    width   : auto;
+    height  : 120%;
 }
 
 .blob-1 {
