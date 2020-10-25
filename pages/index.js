@@ -2,11 +2,12 @@ import gql from 'graphql-tag';
 import React from "react";
 import Client from "../lib/apollo"
 import { NextSeo } from 'next-seo';
-
+import Paper from "@material-ui/core/Paper";
 import styles from './styles/index.module.css';
-
 import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 import PageBase from '../components/PageBase/PageBase'
+import {Grid} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 
 const QUERY = gql`
     query{
@@ -32,79 +33,77 @@ export async function getStaticProps(context) {
 
 const Index = ({ data }) => {
     return (
-        <PageBase background="Landing_body.jpg">
+        <PageBase background="Landing_body.jpg" footerParams={{backgroundColor:"#2B2B3B",theme:"dark"}} >
             <NextSeo canonical="https://doggo.co.ua/" title="Doggo | Сервис выгула собак" description="Не держите своего питомца дома в четырех стенах! DOGGO - сервис, где вы сможете найти идеального выгульщика, или стать им." />
-            {/*<div className={styles["Index-top"]}>
-                <div className="text-white text-center">
+            <Grid container alignItems={"center"} justify={"center"} className={styles["Index-top"]}>
+                <div style={{color:"white", textAlign:"center"}}>
                     <div className={styles["Index-top--content"]}>
                         <div>
                             <img src="Doggo_light.png" alt="Doggo logo" />
                         </div>
-                        <MDBCardTitle className="h1-responsive m-5 font-bold">
+                        <h1 className="h1-responsive m-5 font-bold">
                             {data.mainPageText.motto_ru}
-                        </MDBCardTitle>
+                        </h1>
                         <DoggoBtn variant="contained" disableElevation>
                             Найти догвокера
                         </DoggoBtn>
                     </div>
                 </div>
-            </div>*/}
-            {/*<div className={styles["Index-body"]}>
-                <MDBCard className={styles["Index-body--card-1"]}>
-                    <MDBCardBody className={styles["Index-body--card-content"]}>
-                        <MDBCardTitle>
+            </Grid>
+            <div className={styles["Index-body"]}>
+                <Paper className={styles["Index-body--card-1"]}>
+                    <div className={styles["Index-body--card-content"]}>
+                        <div>
                             <img src="Doggo_dark.png" alt="Doggo logo" />
-                        </MDBCardTitle>
-                        <MDBCardText className="mt-5">
+                        </div>
+                        <div>
                             <img className={styles["blob-2"]} src="Blub_v3.0.png" alt="A picture of a dog" />
-                            <span style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.top_content_ru }}></span>
-                        </MDBCardText>
-                    </MDBCardBody>
-                </MDBCard>
-                <MDBCard className={styles["Index-body--card-2"]}>
-                    <MDBCardBody className={styles["Index-body--card-content"]}>
-                        <MDBCardTitle className="h1-responsive" >
-                            <span style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.steps_title_ru }} />
-                        </MDBCardTitle>
-                        <MDBCardText className="mt-5">
-                            <span style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_1_ru }} />
+                            <span style={{ display: 'block' }} className={styles["paper-text"]} dangerouslySetInnerHTML={{ __html: data.mainPageText.top_content_ru }}></span>
+                        </div>
+                    </div>
+                </Paper>
+                <Paper className={styles["Index-body--card-2"]}>
+                    <div className={styles["Index-body--card-content"]}>
+                        <Typography variant="h4" className="h1-responsive" style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.steps_title_ru }} />
+                        <div >
+                            <span className={styles["paper-text"]} style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_1_ru }} />
                             <img className={styles["blob-3"]} src="Blub_v1.1.png" alt="A picture of a dog" />
                             <img className={styles["step-1"]} src="step_1.png" alt="Number 1 in a circle" />
-                        </MDBCardText>
-                    </MDBCardBody>
-                </MDBCard>
-                <MDBCard className={styles["Index-body--card-3"]}>
-                    <MDBCardBody className={styles["Index-body--card-content"]}>
-                        <MDBCardText>
+                        </div>
+                    </div>
+                </Paper>
+                <Paper className={styles["Index-body--card-3"]}>
+                    <div className={styles["Index-body--card-content"]}>
+                        <div>
                             <span className={styles["text-1"]}>
-                                <span style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_2_ru }} />
+                                <span className={styles["paper-text"]} style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_2_ru }} />
                             </span>
                             <span className={styles["text-2"]}>
-                                <span style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_3_ru }} />
+                                <span className={styles["paper-text"]} style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_3_ru }} />
                             </span>
                             <img className={styles["blob-1"]} src="Blub_v2.0.png" alt="A picture of a dog" />
                             <img className={styles["step-2"]} src="step_2.png" alt="Number 2 and 3 in a circle" />
-                        </MDBCardText>
-                    </MDBCardBody>
-                </MDBCard>
-                <MDBCard className={styles["Index-body--card-4"]}>
-                    <MDBCardBody className={styles["Index-body--card-content"]}>
-                        <MDBCardText>
+                        </div>
+                    </div>
+                </Paper>
+                <Paper className={styles["Index-body--card-4"]}>
+                    <div className={styles["Index-body--card-content"]}>
+                        <div>
                             <img className={styles["blob-4"]} src="Blub_v4.0.png" alt="A picture of a dog" />
-                            <span style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_3_ru }} />
+                            <span className={styles["paper-text"]} style={{ display: 'block' }} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_3_ru }} />
                             <span className="d-block">
-                                <DoggoBtn size="lg" className="mt-5">
+                                <DoggoBtn size="large" >
                                     Найти догвокера
                                 </DoggoBtn>
                             </span>
-                        </MDBCardText>
-                    </MDBCardBody>
-                </MDBCard>
-            </div>*/}
+                        </div>
+                    </div>
+                </Paper>
+            </div>
             <div className={styles["Index-bottom"]}>
-                <p className={styles["Index-bottom--text"]}>
-                    {/* {data.mainPageText.bottom_content_ru} */}
-                </p>
+                <div className={styles["Index-bottom--text"]}>
+                     {data.mainPageText.bottom_content_ru}
+                </div>
                 <img style={{ width: "100%" }} src="Landing_bottom.png" alt="A picture of a dog" />
             </div>
         </PageBase>

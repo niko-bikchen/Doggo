@@ -6,15 +6,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 95vh;
+    height: 100vh;
     width: 100%;
-    background-image: url("../../public/Job_top.jpg");
+    background-image: url("../../public/JobTop.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
 }
 
-.Job-promo:after {
+
+/*.Job-promo:after {
     content: "";
     display: block;
     position: absolute;
@@ -25,7 +26,7 @@
             linear-gradient(135deg, transparent 33.333%, #fff 0),
             linear-gradient(-135deg, transparent 33.333%, #fff 0);
     background-size:30px 60px ;
-}
+}*/
 
 .Job-promo--content {
     padding: 10rem;

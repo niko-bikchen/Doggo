@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 import Footer from '../Footer/Footer';
 import styles from "../../pages/styles/index.module.css";
 
-const PageBase = ({ children, background }) => {
+const PageBase = ({ children, background, footerParams }) => {
     return (
         <SimpleBar style={{ maxHeight: "100vh" }}>
             <div className={styles["Index"]} style={{ backgroundColor:'#F5F7FA', backgroundImage: background ? `url(${background})` : 'none' }}>
@@ -15,7 +15,7 @@ const PageBase = ({ children, background }) => {
                 <div style={{ minHeight: "calc(100vh - 150px)" }}>
                     {children}
                 </div>
-                <Footer />
+                <Footer {...footerParams} />
             </div>
         </SimpleBar>
 

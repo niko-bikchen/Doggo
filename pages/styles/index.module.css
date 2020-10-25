@@ -3,10 +3,14 @@
     background-size: cover;
 }
 
+.paper-text{
+    font-size: 25px;
+}
+
 .Index-top {
-    margin-top         : -2rem;
+    margin-top: -1px;
     padding            : 0;
-    padding-top        : 70rem;
+    padding-top        : 100rem;
     background-image   : url('../../public/Landing_top.png');
     background-repeat  : no-repeat;
     background-size    : cover;
@@ -14,7 +18,7 @@
 }
 
 .Index-top--content {
-    margin-top: -43rem;
+    margin-top: -60rem;
 }
 
 .Index-top--content img {
@@ -65,8 +69,8 @@
     position: absolute;
     left    : 0;
     top     : -5rem;
-    width   : 41%;
-    height  : auto;
+    width   : auto;
+    height  : 130%;
 }
 
 .blob-3 {
@@ -139,13 +143,14 @@
     overflow   : hidden;
     margin-top : 5rem;
     margin-left: -5px;
+    margin-bottom: -5px;
     text-align : center;
 }
 
 .Index-bottom--text {
     position : absolute;
     left     : 5rem;
-    top      : 28rem;
+    top      : 20rem;
     width    : 35%;
     font-size: x-large;
     color    : white;
