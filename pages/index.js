@@ -44,7 +44,7 @@ const Index = ({ data }) => {
                         <h1 className="h1-responsive m-5 font-bold">
                             {data.mainPageText.motto_ru}
                         </h1>
-                        <DoggoBtn variant="contained" disableElevation>
+                        <DoggoBtn size={"large"}>
                             Найти догвокера
                         </DoggoBtn>
                     </div>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const DropdownBtn = ({text="popover btn",children}) => {
+const DropdownBtn = ({buttonProps={},text="popover btn",children}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -34,6 +34,7 @@ const DropdownBtn = ({text="popover btn",children}) => {
     return (
         <div>
             <Button aria-describedby={id}
+                    {...buttonProps}
                     style={{color:"white"}}
                     endIcon={open?<ArrowDropUpIcon/>:<ArrowDropDownIcon/>}
                     onClick={handleClick}>

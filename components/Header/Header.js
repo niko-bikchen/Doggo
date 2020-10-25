@@ -80,7 +80,7 @@ const Header = () => {
                 <img className={styles['Header-logo']} src="Doggo_light.png" alt="Логотип Doggo" />
             </Button>
         </Link>,
-        <DropdownBtn key={2} text={'Послуги'}>
+        <DropdownBtn buttonProps={{size:"large"}} key={2} text={'Послуги'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/marketplace' passHref>
                     <a className={classes.link}>Вигул</a>
@@ -93,9 +93,9 @@ const Header = () => {
             </MenuItem>
         </DropdownBtn>,
         <Link key={3} href='/job' passHref>
-            <Button style={{ color: 'white' }}>Робота</Button>
+            <Button size={"large"} style={{ color: 'white' }}>Робота</Button>
         </Link>,
-        <DropdownBtn key={4} text={'Інформація'}>
+        <DropdownBtn buttonProps={{size:"large"}} key={4} text={'Інформація'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/rules' passHref>
                     <a className={classes.link}>Правила вигулу</a>
@@ -108,7 +108,7 @@ const Header = () => {
             </MenuItem>
         </DropdownBtn>,
         <Link key={5} href='/login' passHref>
-            <DoggoBtn>Увійти</DoggoBtn>
+            <DoggoBtn size={"large"}>Увійти</DoggoBtn>
         </Link>
     ]
     return (
