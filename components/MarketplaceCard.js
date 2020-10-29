@@ -42,7 +42,7 @@ const contactIconsMap = {
     "viber": <ViberIcon style={{padding:"2px",color:"white",backgroundColor:"#665CAC",borderRadius:"4px"}}/>
 }
 
-const mapContacts = contacts => _.map(contacts, (c, i) => <Button key={i}
+const mapContacts = contacts => _.map(contacts, (c, i) => <Button style={{padding:"2px"}} key={i}
                                                                 startIcon={contactIconsMap[c.type]}>{c.value}</Button>)
 
 const MarketplaceCard = ({name = "Name", contacts = defaultContacts, region = defaultRegion}) => {
@@ -62,8 +62,11 @@ const MarketplaceCard = ({name = "Name", contacts = defaultContacts, region = de
                     <Typography gutterBottom variant="h5" component="h2">
                         {name}
                     </Typography>
-                    <Grid container>
-                        {mapContacts(contacts).map((c,i)=><Grid key={i} xs={12} md={6} item>{c}</Grid>)}
+                    <Grid container justify={"space-between"}>
+                        {mapContacts(contacts).map((c,i)=>(
+                            <Grid style={{}} key={i} sm={12} lg={6} item>
+                                <CenterContent>{c}</CenterContent>
+                            </Grid>))}
                     </Grid>
                 </CardContent>
             <CardActions>
