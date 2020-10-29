@@ -11,7 +11,7 @@ const defaultCenter = {
     lng: -38.523
 };
 
-function MyComponent({containerStyle,center,children,zoom=10}) {
+function MyComponent({containerStyle,center,children,zoom=16}) {
     return (
         <LoadScript
             googleMapsApiKey="AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"

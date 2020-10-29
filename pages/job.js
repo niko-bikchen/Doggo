@@ -29,7 +29,7 @@ const Job = ({ data }) => {
             <div className={styles["Job"]}>
                 <div className={styles["Job-promo"]}>
                     <div className={styles["Job-promo--content"]}>
-                        <h2>Хочешь стать частью команды?</h2>
+                        <h2 style={{fontWeight:"300"}}>Хочешь стать частью команды?</h2>
                         <DoggoBtn size="large" className="mt-5">Начать работу</DoggoBtn>
                     </div>
                 </div>

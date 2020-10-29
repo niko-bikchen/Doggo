@@ -5,8 +5,8 @@ import PageBase from "../components/PageBase/PageBase";
 import { NextSeo } from "next-seo";
 import {connect} from "react-redux";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import {makeStyles} from "@material-ui/styles";
+import MarketplaceCard from "../components/MarketplaceCard";
 
 
 const QUERY = gql`
@@ -21,7 +21,6 @@ const useStyles = makeStyles(() => ({
         flexGrow: 1,
     },
     paper: {
-
         textAlign: 'center',
     },
 }));
@@ -36,30 +35,27 @@ const Marketplace = ({ data, jwt }) => {
     return (
         <PageBase /*background="Landing_body.jpg"*/>
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
-                <Grid style={{padding:'20px'}} container spacing={3}>
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}>xs=12</Paper>
+                <Grid style={{padding:'20px',color:'#434a54', fontWeight:600}} container spacing={3}>
+                    <Grid item xs={12} md={3}>
+                        <Grid container alignContent={"center"} direction={"column"}>
+                            Filters...
+                        </Grid>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Paper className={classes.paper}>xs=6</Paper>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Paper className={classes.paper}>xs=6</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
+                    <Grid item xs={12} md={9}>
+                        <Grid container spacing={3} alignContent={"center"} justify={"center"}>
+                            {[...Array(20).keys()].map((el,i)=>{
+                                return (
+                                    <Grid key={i}  item xs={12} md={6} xl={3} >
+                                        <Grid container justify={"center"}>
+                                            <MarketplaceCard/>
+                                        </Grid>
+                                    </Grid>
+                                )
+                            })}
+                        </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <div style={{color:'#434a54', fontWeight:600}} dangerouslySetInnerHTML={{ __html: data.marketplacePageText.content_ru }} />
+                        <div  dangerouslySetInnerHTML={{ __html: data.marketplacePageText.content_ru }} />
                     </Grid>
                 </Grid>
         </PageBase>

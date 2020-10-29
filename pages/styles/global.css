@@ -1,13 +1,17 @@
+
 body .Index {
     overflow: auto;
 }
-
+html{
+    font-size: 18px;
+}
 body {
     min-height : 100%;
     margin     : 0 !important;
     font-family: Roboto;
 }
 
+/*
 h1,
 h2,
 h3,
@@ -16,6 +20,8 @@ h5,
 h6 {
     font-weight: 300;
 }
+
+*/
 
 a {
     all: unset;
