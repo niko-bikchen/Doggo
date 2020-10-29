@@ -16,10 +16,8 @@ import CenterContent from "./CenterContent";
 import PhoneIcon from '@material-ui/icons/Phone'
 import TelegramIcon from '@material-ui/icons/Telegram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import Icon from "@material-ui/core/Icon";
 import * as _ from "underscore";
 import ViberIcon from "./ViberIcon";
-import {Image} from "@material-ui/icons";
 
 const useStyles = makeStyles({
     root: {
@@ -32,7 +30,7 @@ const textSplit = ({length, text}) => {
     return text.length >= length ? text.substring(0, length) + "..." : text
 }
 
-const defaultRegion = {point: {lng: 30.505835, lat: 50.397912}, radius: 100, text: "Голосіївський район"}
+const defaultRegion = {point: {lng: 30.505835, lat: 50.397912}, radius: 100, name: "Голосіївський район"}
 
 const defaultContacts = [{type: "viber", value: "+380xxxxxxxxx"},{type:"phone",value:"+380xxxxxxxxx"},{type:"telegram",value:"+380xxxxxxxxx"},{type:"whatsapp",value:"+380xxxxxxxxx"}]
 
@@ -48,7 +46,6 @@ const mapContacts = contacts => _.map(contacts, (c, i) => <Button style={{paddin
 
 const MarketplaceCard = ({name = "Name", avatar_url="", contacts = defaultContacts, region = defaultRegion}) => {
     const classes = useStyles();
-    console.log({avatar_url})
     return (
         <Card className={classes.root}>
                 <CardMedia
@@ -74,7 +71,7 @@ const MarketplaceCard = ({name = "Name", avatar_url="", contacts = defaultContac
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <CenterContent>
-                            <LocationLink text={region.text} point={region.point} radius={region.radius}/>
+                            <LocationLink text={region.name} point={region.point} radius={region.radius}/>
                         </CenterContent>
                     </Grid>
                     <Grid item xs={12}>

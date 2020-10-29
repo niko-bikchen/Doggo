@@ -17,7 +17,7 @@ import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
 import DoggoInput from '../components/DoggoInput';
 import { signInUser } from '../lib/authentication';
 import styles from './styles/login.module.css';
-import { ACTION_TYPES, ACTIONS } from "../lib/store";
+import { ACTION_TYPES, ACTIONS } from "../store/jwt";
 import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
