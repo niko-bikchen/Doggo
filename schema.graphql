@@ -1,0 +1,1385 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+union Morph = ComponentContactsContacts | ComponentRegionRegion | DogExchangePageText | DogWalkingRules | DogWalkingRulesAggregator | DogWalkingRulesConnection | DogWalkingRulesConnectionContent_ru | DogWalkingRulesConnectionContent_ua | DogWalkingRulesConnectionCreated_at | DogWalkingRulesConnectionCreated_by | DogWalkingRulesConnectionId | DogWalkingRulesConnectionUpdated_at | DogWalkingRulesConnectionUpdated_by | DogWalkingRulesGroupBy | DogWalkingZones | DogWalkingZonesAggregator | DogWalkingZonesAggregatorAvg | DogWalkingZonesAggregatorMax | DogWalkingZonesAggregatorMin | DogWalkingZonesAggregatorSum | DogWalkingZonesConnection | DogWalkingZonesConnectionAddress | DogWalkingZonesConnectionCreated_at | DogWalkingZonesConnectionCreated_by | DogWalkingZonesConnectionDistrict | DogWalkingZonesConnectionId | DogWalkingZonesConnectionLat | DogWalkingZonesConnectionLng | DogWalkingZonesConnectionUpdated_at | DogWalkingZonesConnectionUpdated_by | DogWalkingZonesGroupBy | Dogwalkers | DogwalkersAggregator | DogwalkersConnection | DogwalkersConnectionCreated_at | DogwalkersConnectionCreated_by | DogwalkersConnectionDescription | DogwalkersConnectionId | DogwalkersConnectionName | DogwalkersConnectionRegion | DogwalkersConnectionUpdated_at | DogwalkersConnectionUpdated_by | DogwalkersConnectionUser | DogwalkersGroupBy | DogwalkingZonesPageText | JobPageText | MainPageText | MarketplacePageText | Test | TestAggregator | TestConnection | TestConnectionCreated_at | TestConnectionCreated_by | TestConnectionId | TestConnectionTest | TestConnectionUpdated_at | TestConnectionUpdated_by | TestGroupBy | UploadFile | UploadFileAggregator | UploadFileAggregatorAvg | UploadFileAggregatorMax | UploadFileAggregatorMin | UploadFileAggregatorSum | UploadFileConnection | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionCreated_at | UploadFileConnectionCreated_by | UploadFileConnectionExt | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionHeight | UploadFileConnectionId | UploadFileConnectionMime | UploadFileConnectionName | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnectionSize | UploadFileConnectionUpdated_at | UploadFileConnectionUpdated_by | UploadFileConnectionUrl | UploadFileConnectionWidth | UploadFileGroupBy | UserPermissionsPasswordPayload | UsersPermissionsLoginPayload | UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleAggregator | UsersPermissionsRoleConnection | UsersPermissionsRoleConnectionCreated_by | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionUpdated_by | UsersPermissionsRoleGroupBy | UsersPermissionsUser | UsersPermissionsUserAggregator | UsersPermissionsUserConnection | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionCreated_by | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUpdated_by | UsersPermissionsUserConnectionUsername | UsersPermissionsUserGroupBy | createDogWalkingRulePayload | createDogWalkingZonePayload | createDogwalkerPayload | createRolePayload | createTestPayload | createUserPayload | deleteDogExchangePageTextPayload | deleteDogWalkingRulePayload | deleteDogWalkingZonePayload | deleteDogwalkerPayload | deleteDogwalkingZonesPageTextPayload | deleteFilePayload | deleteJobPageTextPayload | deleteMainPageTextPayload | deleteMarketplacePageTextPayload | deleteRolePayload | deleteTestPayload | deleteUserPayload | updateDogExchangePageTextPayload | updateDogWalkingRulePayload | updateDogWalkingZonePayload | updateDogwalkerPayload | updateDogwalkingZonesPageTextPayload | updateJobPageTextPayload | updateMainPageTextPayload | updateMarketplacePageTextPayload | updateRolePayload | updateTestPayload | updateUserPayload
+
+type AdminUser {
+    id: ID!
+    username: String
+}
+
+type ComponentContactsContacts {
+    id: ID!
+    type: ENUM_COMPONENTCONTACTSCONTACTS_TYPE
+    value: String
+}
+
+type ComponentRegionRegion {
+    id: ID!
+    lat: Float
+    lng: Float
+    name: String
+    radius: Int
+}
+
+type DogExchangePageText {
+    content_ru: String
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type DogWalkingRules {
+    content_ru: String
+    content_ua: String
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type DogWalkingRulesAggregator {
+    count: Int
+    totalCount: Int
+}
+
+type DogWalkingRulesConnection {
+    aggregate: DogWalkingRulesAggregator
+    groupBy: DogWalkingRulesGroupBy
+    values: [DogWalkingRules]
+}
+
+type DogWalkingRulesConnectionContent_ru {
+    connection: DogWalkingRulesConnection
+    key: String
+}
+
+type DogWalkingRulesConnectionContent_ua {
+    connection: DogWalkingRulesConnection
+    key: String
+}
+
+type DogWalkingRulesConnectionCreated_at {
+    connection: DogWalkingRulesConnection
+    key: DateTime
+}
+
+type DogWalkingRulesConnectionCreated_by {
+    connection: DogWalkingRulesConnection
+    key: ID
+}
+
+type DogWalkingRulesConnectionId {
+    connection: DogWalkingRulesConnection
+    key: ID
+}
+
+type DogWalkingRulesConnectionUpdated_at {
+    connection: DogWalkingRulesConnection
+    key: DateTime
+}
+
+type DogWalkingRulesConnectionUpdated_by {
+    connection: DogWalkingRulesConnection
+    key: ID
+}
+
+type DogWalkingRulesGroupBy {
+    content_ru: [DogWalkingRulesConnectionContent_ru]
+    content_ua: [DogWalkingRulesConnectionContent_ua]
+    created_at: [DogWalkingRulesConnectionCreated_at]
+    created_by: [DogWalkingRulesConnectionCreated_by]
+    id: [DogWalkingRulesConnectionId]
+    updated_at: [DogWalkingRulesConnectionUpdated_at]
+    updated_by: [DogWalkingRulesConnectionUpdated_by]
+}
+
+type DogWalkingZones {
+    address: String
+    created_at: DateTime!
+    created_by: AdminUser
+    district: String
+    id: ID!
+    lat: Float
+    lng: Float
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type DogWalkingZonesAggregator {
+    avg: DogWalkingZonesAggregatorAvg
+    count: Int
+    max: DogWalkingZonesAggregatorMax
+    min: DogWalkingZonesAggregatorMin
+    sum: DogWalkingZonesAggregatorSum
+    totalCount: Int
+}
+
+type DogWalkingZonesAggregatorAvg {
+    lat: Float
+    lng: Float
+}
+
+type DogWalkingZonesAggregatorMax {
+    lat: Float
+    lng: Float
+}
+
+type DogWalkingZonesAggregatorMin {
+    lat: Float
+    lng: Float
+}
+
+type DogWalkingZonesAggregatorSum {
+    lat: Float
+    lng: Float
+}
+
+type DogWalkingZonesConnection {
+    aggregate: DogWalkingZonesAggregator
+    groupBy: DogWalkingZonesGroupBy
+    values: [DogWalkingZones]
+}
+
+type DogWalkingZonesConnectionAddress {
+    connection: DogWalkingZonesConnection
+    key: String
+}
+
+type DogWalkingZonesConnectionCreated_at {
+    connection: DogWalkingZonesConnection
+    key: DateTime
+}
+
+type DogWalkingZonesConnectionCreated_by {
+    connection: DogWalkingZonesConnection
+    key: ID
+}
+
+type DogWalkingZonesConnectionDistrict {
+    connection: DogWalkingZonesConnection
+    key: String
+}
+
+type DogWalkingZonesConnectionId {
+    connection: DogWalkingZonesConnection
+    key: ID
+}
+
+type DogWalkingZonesConnectionLat {
+    connection: DogWalkingZonesConnection
+    key: Float
+}
+
+type DogWalkingZonesConnectionLng {
+    connection: DogWalkingZonesConnection
+    key: Float
+}
+
+type DogWalkingZonesConnectionUpdated_at {
+    connection: DogWalkingZonesConnection
+    key: DateTime
+}
+
+type DogWalkingZonesConnectionUpdated_by {
+    connection: DogWalkingZonesConnection
+    key: ID
+}
+
+type DogWalkingZonesGroupBy {
+    address: [DogWalkingZonesConnectionAddress]
+    created_at: [DogWalkingZonesConnectionCreated_at]
+    created_by: [DogWalkingZonesConnectionCreated_by]
+    district: [DogWalkingZonesConnectionDistrict]
+    id: [DogWalkingZonesConnectionId]
+    lat: [DogWalkingZonesConnectionLat]
+    lng: [DogWalkingZonesConnectionLng]
+    updated_at: [DogWalkingZonesConnectionUpdated_at]
+    updated_by: [DogWalkingZonesConnectionUpdated_by]
+}
+
+type Dogwalkers {
+    avatar(limit: Int, sort: String, start: Int, where: JSON): [UploadFile]
+    contacts: [ComponentContactsContacts]
+    created_at: DateTime!
+    created_by: AdminUser
+    description: String
+    id: ID!
+    name: String
+    region: ComponentRegionRegion
+    updated_at: DateTime!
+    updated_by: AdminUser
+    user: UsersPermissionsUser
+}
+
+type DogwalkersAggregator {
+    count: Int
+    totalCount: Int
+}
+
+type DogwalkersConnection {
+    aggregate: DogwalkersAggregator
+    groupBy: DogwalkersGroupBy
+    values: [Dogwalkers]
+}
+
+type DogwalkersConnectionCreated_at {
+    connection: DogwalkersConnection
+    key: DateTime
+}
+
+type DogwalkersConnectionCreated_by {
+    connection: DogwalkersConnection
+    key: ID
+}
+
+type DogwalkersConnectionDescription {
+    connection: DogwalkersConnection
+    key: String
+}
+
+type DogwalkersConnectionId {
+    connection: DogwalkersConnection
+    key: ID
+}
+
+type DogwalkersConnectionName {
+    connection: DogwalkersConnection
+    key: String
+}
+
+type DogwalkersConnectionRegion {
+    connection: DogwalkersConnection
+    key: ID
+}
+
+type DogwalkersConnectionUpdated_at {
+    connection: DogwalkersConnection
+    key: DateTime
+}
+
+type DogwalkersConnectionUpdated_by {
+    connection: DogwalkersConnection
+    key: ID
+}
+
+type DogwalkersConnectionUser {
+    connection: DogwalkersConnection
+    key: ID
+}
+
+type DogwalkersGroupBy {
+    created_at: [DogwalkersConnectionCreated_at]
+    created_by: [DogwalkersConnectionCreated_by]
+    description: [DogwalkersConnectionDescription]
+    id: [DogwalkersConnectionId]
+    name: [DogwalkersConnectionName]
+    region: [DogwalkersConnectionRegion]
+    updated_at: [DogwalkersConnectionUpdated_at]
+    updated_by: [DogwalkersConnectionUpdated_by]
+    user: [DogwalkersConnectionUser]
+}
+
+type DogwalkingZonesPageText {
+    content_ru: String
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type JobPageText {
+    content_ru: String
+    content_ua: String
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    title_ru: String
+    title_ua: String
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type MainPageText {
+    bottom_content_ru: String
+    bottom_content_ua: String
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    motto_ru: String
+    motto_ua: String
+    step_1_ru: String
+    step_1_ua: String
+    step_2_ru: String
+    step_2_ua: String
+    step_3_ru: String
+    step_3_ua: String
+    steps_title_ru: String
+    top_content_ru: String
+    top_content_ua: String
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type MarketplacePageText {
+    content_ru: String
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type Mutation {
+    createDogWalkingRule(input: createDogWalkingRuleInput): createDogWalkingRulePayload
+    createDogWalkingZone(input: createDogWalkingZoneInput): createDogWalkingZonePayload
+    createDogwalker(input: createDogwalkerInput): createDogwalkerPayload
+    "Create a new role"
+    createRole(input: createRoleInput): createRolePayload
+    createTest(input: createTestInput): createTestPayload
+    "Create a new user"
+    createUser(input: createUserInput): createUserPayload
+    deleteDogExchangePageText: deleteDogExchangePageTextPayload
+    deleteDogWalkingRule(input: deleteDogWalkingRuleInput): deleteDogWalkingRulePayload
+    deleteDogWalkingZone(input: deleteDogWalkingZoneInput): deleteDogWalkingZonePayload
+    deleteDogwalker(input: deleteDogwalkerInput): deleteDogwalkerPayload
+    deleteDogwalkingZonesPageText: deleteDogwalkingZonesPageTextPayload
+    "Delete one file"
+    deleteFile(input: deleteFileInput): deleteFilePayload
+    deleteJobPageText: deleteJobPageTextPayload
+    deleteMainPageText: deleteMainPageTextPayload
+    deleteMarketplacePageText: deleteMarketplacePageTextPayload
+    "Delete an existing role"
+    deleteRole(input: deleteRoleInput): deleteRolePayload
+    deleteTest(input: deleteTestInput): deleteTestPayload
+    "Delete an existing user"
+    deleteUser(input: deleteUserInput): deleteUserPayload
+    emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+    forgotPassword(email: String!): UserPermissionsPasswordPayload
+    login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+    multipleUpload(field: String, files: [Upload]!, ref: String, refId: ID, source: String): [UploadFile]!
+    register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+    resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+    updateDogExchangePageText(input: updateDogExchangePageTextInput): updateDogExchangePageTextPayload
+    updateDogWalkingRule(input: updateDogWalkingRuleInput): updateDogWalkingRulePayload
+    updateDogWalkingZone(input: updateDogWalkingZoneInput): updateDogWalkingZonePayload
+    updateDogwalker(input: updateDogwalkerInput): updateDogwalkerPayload
+    updateDogwalkingZonesPageText(input: updateDogwalkingZonesPageTextInput): updateDogwalkingZonesPageTextPayload
+    updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+    updateJobPageText(input: updateJobPageTextInput): updateJobPageTextPayload
+    updateMainPageText(input: updateMainPageTextInput): updateMainPageTextPayload
+    updateMarketplacePageText(input: updateMarketplacePageTextInput): updateMarketplacePageTextPayload
+    "Update an existing role"
+    updateRole(input: updateRoleInput): updateRolePayload
+    updateTest(input: updateTestInput): updateTestPayload
+    "Update an existing user"
+    updateUser(input: updateUserInput): updateUserPayload
+    upload(field: String, file: Upload!, ref: String, refId: ID, source: String): UploadFile!
+}
+
+type Query {
+    dogExchangePageText: DogExchangePageText
+    dogWalkingRule(id: ID!): DogWalkingRules
+    dogWalkingRules(limit: Int, sort: String, start: Int, where: JSON): [DogWalkingRules]
+    dogWalkingRulesConnection(limit: Int, sort: String, start: Int, where: JSON): DogWalkingRulesConnection
+    dogWalkingZone(id: ID!): DogWalkingZones
+    dogWalkingZones(limit: Int, sort: String, start: Int, where: JSON): [DogWalkingZones]
+    dogWalkingZonesConnection(limit: Int, sort: String, start: Int, where: JSON): DogWalkingZonesConnection
+    dogwalker(id: ID!): Dogwalkers
+    dogwalkers(limit: Int, sort: String, start: Int, where: JSON): [Dogwalkers]
+    dogwalkersConnection(limit: Int, sort: String, start: Int, where: JSON): DogwalkersConnection
+    dogwalkingZonesPageText: DogwalkingZonesPageText
+    files(limit: Int, sort: String, start: Int, where: JSON): [UploadFile]
+    filesConnection(limit: Int, sort: String, start: Int, where: JSON): UploadFileConnection
+    jobPageText: JobPageText
+    mainPageText: MainPageText
+    marketplacePageText: MarketplacePageText
+    me: UsersPermissionsMe
+    role(id: ID!): UsersPermissionsRole
+    "Retrieve all the existing roles. You can't apply filters on this query."
+    roles(limit: Int, sort: String, start: Int, where: JSON): [UsersPermissionsRole]
+    rolesConnection(limit: Int, sort: String, start: Int, where: JSON): UsersPermissionsRoleConnection
+    test(id: ID!): Test
+    tests(limit: Int, sort: String, start: Int, where: JSON): [Test]
+    testsConnection(limit: Int, sort: String, start: Int, where: JSON): TestConnection
+    user(id: ID!): UsersPermissionsUser
+    users(limit: Int, sort: String, start: Int, where: JSON): [UsersPermissionsUser]
+    usersConnection(limit: Int, sort: String, start: Int, where: JSON): UsersPermissionsUserConnection
+}
+
+type Test {
+    created_at: DateTime!
+    created_by: AdminUser
+    id: ID!
+    test: String
+    updated_at: DateTime!
+    updated_by: AdminUser
+}
+
+type TestAggregator {
+    count: Int
+    totalCount: Int
+}
+
+type TestConnection {
+    aggregate: TestAggregator
+    groupBy: TestGroupBy
+    values: [Test]
+}
+
+type TestConnectionCreated_at {
+    connection: TestConnection
+    key: DateTime
+}
+
+type TestConnectionCreated_by {
+    connection: TestConnection
+    key: ID
+}
+
+type TestConnectionId {
+    connection: TestConnection
+    key: ID
+}
+
+type TestConnectionTest {
+    connection: TestConnection
+    key: String
+}
+
+type TestConnectionUpdated_at {
+    connection: TestConnection
+    key: DateTime
+}
+
+type TestConnectionUpdated_by {
+    connection: TestConnection
+    key: ID
+}
+
+type TestGroupBy {
+    created_at: [TestConnectionCreated_at]
+    created_by: [TestConnectionCreated_by]
+    id: [TestConnectionId]
+    test: [TestConnectionTest]
+    updated_at: [TestConnectionUpdated_at]
+    updated_by: [TestConnectionUpdated_by]
+}
+
+type UploadFile {
+    alternativeText: String
+    caption: String
+    created_at: DateTime!
+    created_by: AdminUser
+    ext: String
+    formats: JSON
+    hash: String!
+    height: Int
+    id: ID!
+    mime: String!
+    name: String!
+    previewUrl: String
+    provider: String!
+    provider_metadata: JSON
+    related(limit: Int, sort: String, start: Int, where: JSON): [Morph]
+    size: Float!
+    updated_at: DateTime!
+    updated_by: AdminUser
+    url: String!
+    width: Int
+}
+
+type UploadFileAggregator {
+    avg: UploadFileAggregatorAvg
+    count: Int
+    max: UploadFileAggregatorMax
+    min: UploadFileAggregatorMin
+    sum: UploadFileAggregatorSum
+    totalCount: Int
+}
+
+type UploadFileAggregatorAvg {
+    height: Float
+    size: Float
+    width: Float
+}
+
+type UploadFileAggregatorMax {
+    height: Float
+    size: Float
+    width: Float
+}
+
+type UploadFileAggregatorMin {
+    height: Float
+    size: Float
+    width: Float
+}
+
+type UploadFileAggregatorSum {
+    height: Float
+    size: Float
+    width: Float
+}
+
+type UploadFileConnection {
+    aggregate: UploadFileAggregator
+    groupBy: UploadFileGroupBy
+    values: [UploadFile]
+}
+
+type UploadFileConnectionAlternativeText {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionCaption {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionCreated_at {
+    connection: UploadFileConnection
+    key: DateTime
+}
+
+type UploadFileConnectionCreated_by {
+    connection: UploadFileConnection
+    key: ID
+}
+
+type UploadFileConnectionExt {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionFormats {
+    connection: UploadFileConnection
+    key: JSON
+}
+
+type UploadFileConnectionHash {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionHeight {
+    connection: UploadFileConnection
+    key: Int
+}
+
+type UploadFileConnectionId {
+    connection: UploadFileConnection
+    key: ID
+}
+
+type UploadFileConnectionMime {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionName {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionPreviewUrl {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionProvider {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionProvider_metadata {
+    connection: UploadFileConnection
+    key: JSON
+}
+
+type UploadFileConnectionSize {
+    connection: UploadFileConnection
+    key: Float
+}
+
+type UploadFileConnectionUpdated_at {
+    connection: UploadFileConnection
+    key: DateTime
+}
+
+type UploadFileConnectionUpdated_by {
+    connection: UploadFileConnection
+    key: ID
+}
+
+type UploadFileConnectionUrl {
+    connection: UploadFileConnection
+    key: String
+}
+
+type UploadFileConnectionWidth {
+    connection: UploadFileConnection
+    key: Int
+}
+
+type UploadFileGroupBy {
+    alternativeText: [UploadFileConnectionAlternativeText]
+    caption: [UploadFileConnectionCaption]
+    created_at: [UploadFileConnectionCreated_at]
+    created_by: [UploadFileConnectionCreated_by]
+    ext: [UploadFileConnectionExt]
+    formats: [UploadFileConnectionFormats]
+    hash: [UploadFileConnectionHash]
+    height: [UploadFileConnectionHeight]
+    id: [UploadFileConnectionId]
+    mime: [UploadFileConnectionMime]
+    name: [UploadFileConnectionName]
+    previewUrl: [UploadFileConnectionPreviewUrl]
+    provider: [UploadFileConnectionProvider]
+    provider_metadata: [UploadFileConnectionProvider_metadata]
+    size: [UploadFileConnectionSize]
+    updated_at: [UploadFileConnectionUpdated_at]
+    updated_by: [UploadFileConnectionUpdated_by]
+    url: [UploadFileConnectionUrl]
+    width: [UploadFileConnectionWidth]
+}
+
+type UserPermissionsPasswordPayload {
+    ok: Boolean!
+}
+
+type UsersPermissionsLoginPayload {
+    jwt: String
+    user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+    blocked: Boolean
+    confirmed: Boolean
+    email: String!
+    id: ID!
+    role: UsersPermissionsMeRole
+    username: String!
+}
+
+type UsersPermissionsMeRole {
+    description: String
+    id: ID!
+    name: String!
+    type: String
+}
+
+type UsersPermissionsPermission {
+    action: String!
+    controller: String!
+    created_by: AdminUser
+    enabled: Boolean!
+    id: ID!
+    policy: String
+    role: UsersPermissionsRole
+    type: String!
+    updated_by: AdminUser
+}
+
+type UsersPermissionsRole {
+    created_by: AdminUser
+    description: String
+    id: ID!
+    name: String!
+    permissions(limit: Int, sort: String, start: Int, where: JSON): [UsersPermissionsPermission]
+    type: String
+    updated_by: AdminUser
+    users(limit: Int, sort: String, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+    count: Int
+    totalCount: Int
+}
+
+type UsersPermissionsRoleConnection {
+    aggregate: UsersPermissionsRoleAggregator
+    groupBy: UsersPermissionsRoleGroupBy
+    values: [UsersPermissionsRole]
+}
+
+type UsersPermissionsRoleConnectionCreated_by {
+    connection: UsersPermissionsRoleConnection
+    key: ID
+}
+
+type UsersPermissionsRoleConnectionDescription {
+    connection: UsersPermissionsRoleConnection
+    key: String
+}
+
+type UsersPermissionsRoleConnectionId {
+    connection: UsersPermissionsRoleConnection
+    key: ID
+}
+
+type UsersPermissionsRoleConnectionName {
+    connection: UsersPermissionsRoleConnection
+    key: String
+}
+
+type UsersPermissionsRoleConnectionType {
+    connection: UsersPermissionsRoleConnection
+    key: String
+}
+
+type UsersPermissionsRoleConnectionUpdated_by {
+    connection: UsersPermissionsRoleConnection
+    key: ID
+}
+
+type UsersPermissionsRoleGroupBy {
+    created_by: [UsersPermissionsRoleConnectionCreated_by]
+    description: [UsersPermissionsRoleConnectionDescription]
+    id: [UsersPermissionsRoleConnectionId]
+    name: [UsersPermissionsRoleConnectionName]
+    type: [UsersPermissionsRoleConnectionType]
+    updated_by: [UsersPermissionsRoleConnectionUpdated_by]
+}
+
+type UsersPermissionsUser {
+    blocked: Boolean
+    confirmed: Boolean
+    created_at: DateTime!
+    created_by: AdminUser
+    email: String!
+    id: ID!
+    provider: String
+    role: UsersPermissionsRole
+    updated_at: DateTime!
+    updated_by: AdminUser
+    username: String!
+}
+
+type UsersPermissionsUserAggregator {
+    count: Int
+    totalCount: Int
+}
+
+type UsersPermissionsUserConnection {
+    aggregate: UsersPermissionsUserAggregator
+    groupBy: UsersPermissionsUserGroupBy
+    values: [UsersPermissionsUser]
+}
+
+type UsersPermissionsUserConnectionBlocked {
+    connection: UsersPermissionsUserConnection
+    key: Boolean
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+    connection: UsersPermissionsUserConnection
+    key: Boolean
+}
+
+type UsersPermissionsUserConnectionCreated_at {
+    connection: UsersPermissionsUserConnection
+    key: DateTime
+}
+
+type UsersPermissionsUserConnectionCreated_by {
+    connection: UsersPermissionsUserConnection
+    key: ID
+}
+
+type UsersPermissionsUserConnectionEmail {
+    connection: UsersPermissionsUserConnection
+    key: String
+}
+
+type UsersPermissionsUserConnectionId {
+    connection: UsersPermissionsUserConnection
+    key: ID
+}
+
+type UsersPermissionsUserConnectionProvider {
+    connection: UsersPermissionsUserConnection
+    key: String
+}
+
+type UsersPermissionsUserConnectionRole {
+    connection: UsersPermissionsUserConnection
+    key: ID
+}
+
+type UsersPermissionsUserConnectionUpdated_at {
+    connection: UsersPermissionsUserConnection
+    key: DateTime
+}
+
+type UsersPermissionsUserConnectionUpdated_by {
+    connection: UsersPermissionsUserConnection
+    key: ID
+}
+
+type UsersPermissionsUserConnectionUsername {
+    connection: UsersPermissionsUserConnection
+    key: String
+}
+
+type UsersPermissionsUserGroupBy {
+    blocked: [UsersPermissionsUserConnectionBlocked]
+    confirmed: [UsersPermissionsUserConnectionConfirmed]
+    created_at: [UsersPermissionsUserConnectionCreated_at]
+    created_by: [UsersPermissionsUserConnectionCreated_by]
+    email: [UsersPermissionsUserConnectionEmail]
+    id: [UsersPermissionsUserConnectionId]
+    provider: [UsersPermissionsUserConnectionProvider]
+    role: [UsersPermissionsUserConnectionRole]
+    updated_at: [UsersPermissionsUserConnectionUpdated_at]
+    updated_by: [UsersPermissionsUserConnectionUpdated_by]
+    username: [UsersPermissionsUserConnectionUsername]
+}
+
+type createDogWalkingRulePayload {
+    dogWalkingRule: DogWalkingRules
+}
+
+type createDogWalkingZonePayload {
+    dogWalkingZone: DogWalkingZones
+}
+
+type createDogwalkerPayload {
+    dogwalker: Dogwalkers
+}
+
+type createRolePayload {
+    role: UsersPermissionsRole
+}
+
+type createTestPayload {
+    test: Test
+}
+
+type createUserPayload {
+    user: UsersPermissionsUser
+}
+
+type deleteDogExchangePageTextPayload {
+    dogExchangePageText: DogExchangePageText
+}
+
+type deleteDogWalkingRulePayload {
+    dogWalkingRule: DogWalkingRules
+}
+
+type deleteDogWalkingZonePayload {
+    dogWalkingZone: DogWalkingZones
+}
+
+type deleteDogwalkerPayload {
+    dogwalker: Dogwalkers
+}
+
+type deleteDogwalkingZonesPageTextPayload {
+    dogwalkingZonesPageText: DogwalkingZonesPageText
+}
+
+type deleteFilePayload {
+    file: UploadFile
+}
+
+type deleteJobPageTextPayload {
+    jobPageText: JobPageText
+}
+
+type deleteMainPageTextPayload {
+    mainPageText: MainPageText
+}
+
+type deleteMarketplacePageTextPayload {
+    marketplacePageText: MarketplacePageText
+}
+
+type deleteRolePayload {
+    role: UsersPermissionsRole
+}
+
+type deleteTestPayload {
+    test: Test
+}
+
+type deleteUserPayload {
+    user: UsersPermissionsUser
+}
+
+type updateDogExchangePageTextPayload {
+    dogExchangePageText: DogExchangePageText
+}
+
+type updateDogWalkingRulePayload {
+    dogWalkingRule: DogWalkingRules
+}
+
+type updateDogWalkingZonePayload {
+    dogWalkingZone: DogWalkingZones
+}
+
+type updateDogwalkerPayload {
+    dogwalker: Dogwalkers
+}
+
+type updateDogwalkingZonesPageTextPayload {
+    dogwalkingZonesPageText: DogwalkingZonesPageText
+}
+
+type updateJobPageTextPayload {
+    jobPageText: JobPageText
+}
+
+type updateMainPageTextPayload {
+    mainPageText: MainPageText
+}
+
+type updateMarketplacePageTextPayload {
+    marketplacePageText: MarketplacePageText
+}
+
+type updateRolePayload {
+    role: UsersPermissionsRole
+}
+
+type updateTestPayload {
+    test: Test
+}
+
+type updateUserPayload {
+    user: UsersPermissionsUser
+}
+
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+enum ENUM_COMPONENTCONTACTSCONTACTS_TYPE {
+    phone
+    telegram
+    viber
+    whatsapp
+}
+
+input ComponentContactsContactInput {
+    type: ENUM_COMPONENTCONTACTSCONTACTS_TYPE
+    value: String
+}
+
+input ComponentRegionRegionInput {
+    lat: Float
+    lng: Float
+    name: String
+    radius: Int
+}
+
+input DogExchangePageTextInput {
+    content_ru: String
+    created_by: ID
+    updated_by: ID
+}
+
+input DogWalkingRuleInput {
+    content_ru: String
+    content_ua: String
+    created_by: ID
+    updated_by: ID
+}
+
+input DogWalkingZoneInput {
+    address: String
+    created_by: ID
+    district: String
+    lat: Float
+    lng: Float
+    updated_by: ID
+}
+
+input DogwalkerInput {
+    avatar: [ID]
+    contacts: [ComponentContactsContactInput]
+    created_by: ID
+    description: String
+    name: String
+    region: ComponentRegionRegionInput
+    updated_by: ID
+    user: ID
+}
+
+input DogwalkingZonesPageTextInput {
+    content_ru: String
+    created_by: ID
+    updated_by: ID
+}
+
+input FileInfoInput {
+    alternativeText: String
+    caption: String
+    name: String
+}
+
+input FileInput {
+    alternativeText: String
+    caption: String
+    created_by: ID
+    ext: String
+    formats: JSON
+    hash: String!
+    height: Int
+    mime: String!
+    name: String!
+    previewUrl: String
+    provider: String!
+    provider_metadata: JSON
+    related: [ID]
+    size: Float!
+    updated_by: ID
+    url: String!
+    width: Int
+}
+
+input InputID {
+    id: ID!
+}
+
+input JobPageTextInput {
+    content_ru: String
+    content_ua: String
+    created_by: ID
+    title_ru: String
+    title_ua: String
+    updated_by: ID
+}
+
+input MainPageTextInput {
+    bottom_content_ru: String
+    bottom_content_ua: String
+    created_by: ID
+    motto_ru: String
+    motto_ua: String
+    step_1_ru: String
+    step_1_ua: String
+    step_2_ru: String
+    step_2_ua: String
+    step_3_ru: String
+    step_3_ua: String
+    steps_title_ru: String
+    top_content_ru: String
+    top_content_ua: String
+    updated_by: ID
+}
+
+input MarketplacePageTextInput {
+    content_ru: String
+    created_by: ID
+    updated_by: ID
+}
+
+input RoleInput {
+    created_by: ID
+    description: String
+    name: String!
+    permissions: [ID]
+    type: String
+    updated_by: ID
+    users: [ID]
+}
+
+input TestInput {
+    created_by: ID
+    test: String
+    updated_by: ID
+}
+
+input UserInput {
+    blocked: Boolean
+    confirmed: Boolean
+    created_by: ID
+    email: String!
+    password: String
+    provider: String
+    resetPasswordToken: String
+    role: ID
+    updated_by: ID
+    username: String!
+}
+
+input UsersPermissionsLoginInput {
+    identifier: String!
+    password: String!
+    provider: String = "local"
+}
+
+input UsersPermissionsRegisterInput {
+    email: String!
+    password: String!
+    username: String!
+}
+
+input createDogWalkingRuleInput {
+    data: DogWalkingRuleInput
+}
+
+input createDogWalkingZoneInput {
+    data: DogWalkingZoneInput
+}
+
+input createDogwalkerInput {
+    data: DogwalkerInput
+}
+
+input createRoleInput {
+    data: RoleInput
+}
+
+input createTestInput {
+    data: TestInput
+}
+
+input createUserInput {
+    data: UserInput
+}
+
+input deleteDogWalkingRuleInput {
+    where: InputID
+}
+
+input deleteDogWalkingZoneInput {
+    where: InputID
+}
+
+input deleteDogwalkerInput {
+    where: InputID
+}
+
+input deleteFileInput {
+    where: InputID
+}
+
+input deleteRoleInput {
+    where: InputID
+}
+
+input deleteTestInput {
+    where: InputID
+}
+
+input deleteUserInput {
+    where: InputID
+}
+
+input editComponentContactsContactInput {
+    id: ID
+    type: ENUM_COMPONENTCONTACTSCONTACTS_TYPE
+    value: String
+}
+
+input editComponentRegionRegionInput {
+    id: ID
+    lat: Float
+    lng: Float
+    name: String
+    radius: Int
+}
+
+input editDogExchangePageTextInput {
+    content_ru: String
+    created_by: ID
+    updated_by: ID
+}
+
+input editDogWalkingRuleInput {
+    content_ru: String
+    content_ua: String
+    created_by: ID
+    updated_by: ID
+}
+
+input editDogWalkingZoneInput {
+    address: String
+    created_by: ID
+    district: String
+    lat: Float
+    lng: Float
+    updated_by: ID
+}
+
+input editDogwalkerInput {
+    avatar: [ID]
+    contacts: [editComponentContactsContactInput]
+    created_by: ID
+    description: String
+    name: String
+    region: editComponentRegionRegionInput
+    updated_by: ID
+    user: ID
+}
+
+input editDogwalkingZonesPageTextInput {
+    content_ru: String
+    created_by: ID
+    updated_by: ID
+}
+
+input editFileInput {
+    alternativeText: String
+    caption: String
+    created_by: ID
+    ext: String
+    formats: JSON
+    hash: String
+    height: Int
+    mime: String
+    name: String
+    previewUrl: String
+    provider: String
+    provider_metadata: JSON
+    related: [ID]
+    size: Float
+    updated_by: ID
+    url: String
+    width: Int
+}
+
+input editJobPageTextInput {
+    content_ru: String
+    content_ua: String
+    created_by: ID
+    title_ru: String
+    title_ua: String
+    updated_by: ID
+}
+
+input editMainPageTextInput {
+    bottom_content_ru: String
+    bottom_content_ua: String
+    created_by: ID
+    motto_ru: String
+    motto_ua: String
+    step_1_ru: String
+    step_1_ua: String
+    step_2_ru: String
+    step_2_ua: String
+    step_3_ru: String
+    step_3_ua: String
+    steps_title_ru: String
+    top_content_ru: String
+    top_content_ua: String
+    updated_by: ID
+}
+
+input editMarketplacePageTextInput {
+    content_ru: String
+    created_by: ID
+    updated_by: ID
+}
+
+input editRoleInput {
+    created_by: ID
+    description: String
+    name: String
+    permissions: [ID]
+    type: String
+    updated_by: ID
+    users: [ID]
+}
+
+input editTestInput {
+    created_by: ID
+    test: String
+    updated_by: ID
+}
+
+input editUserInput {
+    blocked: Boolean
+    confirmed: Boolean
+    created_by: ID
+    email: String
+    password: String
+    provider: String
+    resetPasswordToken: String
+    role: ID
+    updated_by: ID
+    username: String
+}
+
+input updateDogExchangePageTextInput {
+    data: editDogExchangePageTextInput
+}
+
+input updateDogWalkingRuleInput {
+    data: editDogWalkingRuleInput
+    where: InputID
+}
+
+input updateDogWalkingZoneInput {
+    data: editDogWalkingZoneInput
+    where: InputID
+}
+
+input updateDogwalkerInput {
+    data: editDogwalkerInput
+    where: InputID
+}
+
+input updateDogwalkingZonesPageTextInput {
+    data: editDogwalkingZonesPageTextInput
+}
+
+input updateJobPageTextInput {
+    data: editJobPageTextInput
+}
+
+input updateMainPageTextInput {
+    data: editMainPageTextInput
+}
+
+input updateMarketplacePageTextInput {
+    data: editMarketplacePageTextInput
+}
+
+input updateRoleInput {
+    data: editRoleInput
+    where: InputID
+}
+
+input updateTestInput {
+    data: editTestInput
+    where: InputID
+}
+
+input updateUserInput {
+    data: editUserInput
+    where: InputID
+}
+
+
+"A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
+scalar DateTime
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
+
+"A time string with format: HH:mm:ss.SSS"
+scalar Time
+
+"A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
+scalar Date
+
+"The `Long` scalar type represents 52-bit integers"
+scalar Long

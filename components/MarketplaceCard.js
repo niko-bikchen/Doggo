@@ -19,6 +19,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import Icon from "@material-ui/core/Icon";
 import * as _ from "underscore";
 import ViberIcon from "./ViberIcon";
+import {Image} from "@material-ui/icons";
 
 const useStyles = makeStyles({
     root: {
@@ -45,16 +46,16 @@ const contactIconsMap = {
 const mapContacts = contacts => _.map(contacts, (c, i) => <Button style={{padding:"2px"}} key={i}
                                                                 startIcon={contactIconsMap[c.type]}>{c.value}</Button>)
 
-const MarketplaceCard = ({name = "Name", contacts = defaultContacts, region = defaultRegion}) => {
+const MarketplaceCard = ({name = "Name", avatar_url="", contacts = defaultContacts, region = defaultRegion}) => {
     const classes = useStyles();
-
+    console.log({avatar_url})
     return (
         <Card className={classes.root}>
                 <CardMedia
                     alt="Contemplative Reptile"
                     height="200"
                     title="Contemplative Reptile"
-                    image={""}
+                    image={avatar_url}
                 >
                     <Skeleton variant="rect" height={200}/>
                 </CardMedia>
@@ -65,7 +66,7 @@ const MarketplaceCard = ({name = "Name", contacts = defaultContacts, region = de
                     <Grid container justify={"space-between"}>
                         {mapContacts(contacts).map((c,i)=>(
                             <Grid style={{}} key={i} sm={12} lg={6} item>
-                                <CenterContent>{c}</CenterContent>
+                                {c}
                             </Grid>))}
                     </Grid>
                 </CardContent>

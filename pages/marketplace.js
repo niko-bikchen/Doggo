@@ -13,9 +13,27 @@ const QUERY = gql`
     query{
       marketplacePageText{
         content_ru
+      },
+      dogwalkers{
+        name,
+        avatar{
+          url
+        },
+        contacts{
+          type,
+          value
+        },
+        region{
+          lat,
+          lng,
+          radius,
+          name
+        }
       }
     }
 `
+
+const mapRegion = ({lng,lat,radius}) => ({point:{lng,lat},radius})
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
@@ -31,6 +49,7 @@ export async function getStaticProps(ctx) {
 const mapStateToProps = ({jwt}) => ({jwt})
 const Marketplace = ({ data, jwt }) => {
     const classes = useStyles();
+    const {marketplacePageText,dogwalkers} = {...data}
     console.log(jwt)
     return (
         <PageBase /*background="Landing_body.jpg"*/>
@@ -42,12 +61,13 @@ const Marketplace = ({ data, jwt }) => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12} md={9}>
-                        <Grid container spacing={3} alignContent={"center"} justify={"center"}>
-                            {[...Array(20).keys()].map((el,i)=>{
+                        <Grid container spacing={3} alignContent={"center"} justify={"center"} >
+                            {dogwalkers.map((el,i)=>{
+                                console.log(el)
                                 return (
                                     <Grid key={i}  item xs={12} md={6} xl={3} >
                                         <Grid container justify={"center"}>
-                                            <MarketplaceCard/>
+                                            <MarketplaceCard name={el.name} avatar_url={el.avatar[0].url} contacts={el.contacts} region={mapRegion(el.region)}/>
                                         </Grid>
                                     </Grid>
                                 )
@@ -55,7 +75,7 @@ const Marketplace = ({ data, jwt }) => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12}>
-                        <div  dangerouslySetInnerHTML={{ __html: data.marketplacePageText.content_ru }} />
+                        <div  dangerouslySetInnerHTML={{ __html: marketplacePageText.content_ru }} />
                     </Grid>
                 </Grid>
         </PageBase>
