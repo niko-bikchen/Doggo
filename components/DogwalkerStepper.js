@@ -7,16 +7,21 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-import DoggoInput from '../components/DoggoInput';
-import DoggoBtn from '../components/DoggoBtn/DoggoBtn';
+import DoggoInput from './DoggoInput';
+import DoggoBtn from './DoggoBtn/DoggoBtn';
+import Map from './Map';
 
 const useStyles = makeStyles(() => ({
-    root: {
+    stepper: {
         marginTop: '15px',
         backgroundColor: 'white'
     },
     dotActive: {
         backgroundColor: '#E0802B'
+    },
+    card: {
+        border: 'none',
+        height: '320px'
     }
 }));
 
@@ -25,12 +30,12 @@ const DogownerStepper = (props) => {
     const classes = useStyles();
     const theme = useTheme();
     const [activeStep, setActiveStep] = useState(0);
-    const maxSteps = 5;
+    const [userData, setUserData] = useState({ firstName: '', lastName: '', description: '' });
+    const maxSteps = 3;
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
-
     const handleBack = () => {
         if (activeStep === 0) {
             props.revertRole();
@@ -38,25 +43,36 @@ const DogownerStepper = (props) => {
             setActiveStep((prevActiveStep) => prevActiveStep - 1);
         }
     };
+    const handleInputChange = (event) => {
+        setUserData({ ...userData, [event.target.name]: event.target.value });
+    };
 
     return (
-        <div>
-            <Card variant="outlined">
-                <CardContent>
-                    <form autoComplete="off">
-                        <Grid container spacing={2} justify="center">
-                            <Grid item xs={12}>
-                                <DoggoInput name="name" fullWidth variant="outlined" label="Ваше Ім'я" type="text" />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <DoggoInput name="surname" fullWidth variant="outlined" label="Ваша Фамілія" type="text" />
-                            </Grid>
+        <div className="DogwalkerStepper">
+            <Card variant="outlined" classes={{ root: classes.card }}>
+                <CardContent style={{ display: activeStep === 0 ? 'block' : 'none' }}>
+                    <Grid container spacing={2} justify="center" alignItems="center">
+                        <Grid item xs={12}>
+                            <DoggoInput onChange={handleInputChange} name="firstName" fullWidth variant="outlined" label="Ваше ім'я" type="text" />
                         </Grid>
-                    </form>
+                        <Grid item xs={12}>
+                            <DoggoInput onChange={handleInputChange} name="lastName" fullWidth variant="outlined" label="Ваша фамілія" type="text" />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <DoggoInput rows={5} name="description" fullWidth multiline variant="outlined" label="Декілька слів про себе" />
+                        </Grid>
+                    </Grid>
+                </CardContent>
+                <CardContent style={{ display: activeStep === 1 ? 'block' : 'none' }}>
+                    <Grid container spacing={2} justify="center" alignItems="center">
+                        <Grid item xs={12}>
+                            <Map containerStyle={{ width: "100%", height: "250px" }}></Map>
+                        </Grid>
+                    </Grid>
                 </CardContent>
             </Card>
             <MobileStepper
-                classes={{ root: classes.root, dotActive: classes.dotActive }}
+                classes={{ root: classes.stepper, dotActive: classes.dotActive }}
                 steps={maxSteps}
                 position="static"
                 variant="dots"
