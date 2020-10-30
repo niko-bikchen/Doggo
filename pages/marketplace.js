@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import {connect} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from '@material-ui/core/styles';
-import MarketplaceCard from "../components/MarketplaceCard";
+import DogwalkerCard from "../components/marketplace/DogwalkerCard";
 import {ACTION_TYPES, ACTIONS} from "../store/marketplace_store";
 
 
@@ -52,7 +52,7 @@ const Marketplace = ({ data, jwt, dogwalkers, fetchDogwalkers }) => {
                                 return (
                                     <Grid key={i}  item xs={12} md={6} xl={3} >
                                         <Grid container justify={"center"}>
-                                            <MarketplaceCard name={el.name} avatar_url={el.avatar[0].url} contacts={el.contacts} region={mapRegion(el.region)}/>
+                                            <DogwalkerCard name={el.name} avatar_url={el.avatar[0].url} contacts={el.contacts} region={mapRegion(el.region)}/>
                                         </Grid>
                                     </Grid>
                                 )
