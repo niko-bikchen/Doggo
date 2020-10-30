@@ -87,7 +87,7 @@ const Header = () => {
                 </Link>
             </MenuItem>
             <MenuItem className={classes.menuItem}>
-                <Link href='/marketplace' passHref>
+                <Link href='/petAdoption' passHref>
                     <a className={classes.link}>Прихисти тварину</a>
                 </Link>
             </MenuItem>
