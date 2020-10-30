@@ -66,7 +66,7 @@ const Marketplace = ({ data, jwt, dogwalkers, fetchDogwalkers }) => {
         </PageBase>
     )
 }
-const mapStateToProps = ({jwt,marketplace}) => {/*console.log({...jwt,...marketplace});*/return {...jwt,...marketplace}}
+const mapStateToProps = ({jwt,marketplace}) => {return {...jwt,...marketplace}}
 const mapDispatchToProps = dispatch => {
     return {
         fetchDogwalkers: () => dispatch(ACTIONS[ACTION_TYPES.FETCH_DOGWALKERS]())

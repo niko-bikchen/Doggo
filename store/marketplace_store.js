@@ -39,7 +39,6 @@ export const ACTIONS = {
     [ACTION_TYPES.TEST]:()=>({type:ACTION_TYPES.TEST}),
     [ACTION_TYPES.SET_DOGWALKERS]:({dogwalkers})=>({type:ACTION_TYPES.SET_DOGWALKERS,dogwalkers}),
     [ACTION_TYPES.FETCH_DOGWALKERS]: ()=>{
-        console.log("fetching")
         return (dispatch)=>{
             Client.query({query:QUERY}).then(({data})=>{
                 dispatch(ACTIONS[ACTION_TYPES.SET_DOGWALKERS]({...data}))

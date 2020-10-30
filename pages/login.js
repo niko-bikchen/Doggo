@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useCallback, useState} from "react";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 import Card from '@material-ui/core/Card';
@@ -19,6 +19,8 @@ import { signInUser } from '../lib/authentication';
 import styles from './styles/login.module.css';
 import { ACTION_TYPES, ACTIONS } from "../store/jwt";
 import { connect } from "react-redux";
+import {TextFields} from "@material-ui/icons";
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,13 +36,8 @@ const Login = ({ setJwt }) => {
     const [credentialsValidated, setCredentialsValidated] = useState({ email: true, password: true });
     const [toast, setToast] = useState(null);
     const classes = useStyles();
-
-    const onInputChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        setUserCredentials({ ...userCredentials, [name]: value });
-
+    const onInputChange = useCallback(({name,value}) => {
+        setUserCredentials({ ...userCredentials, [name]: value })
         {
             let regex = '';
 
@@ -50,9 +47,9 @@ const Login = ({ setJwt }) => {
                 regex = /.+/;
             }
 
-            setCredentialsValidated({ ...credentialsValidated, [name]: regex.test(value) });
+           setCredentialsValidated({ ...credentialsValidated, [name]: regex.test(value) });
         }
-    };
+    },[]);
     const handleSignIn = async () => {
         if (userCredentials.email && credentialsValidated.email && credentialsValidated.password) {
             const response = await signInUser(userCredentials);
@@ -95,10 +92,10 @@ const Login = ({ setJwt }) => {
                         <form autoComplete="off">
                             <Grid container spacing={5} justify="center">
                                 <Grid item xs={12}>
-                                    <DoggoInput helperText={!credentialsValidated.email && "Пошта не відповідає стандартному формату"} error={!credentialsValidated.email} onChange={onInputChange} name="email" fullWidth variant="outlined" label="Пошта" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><MailOutlineIcon /></InputAdornment>) }} />
+                                    <DoggoInput onChange={({target})=>onInputChange({...target,name:"email"})} helperText={!credentialsValidated.email && "Пошта не відповідає стандартному формату"} error={!credentialsValidated.email}  name="email" fullWidth variant="outlined" label="Пошта" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><MailOutlineIcon /></InputAdornment>) }} />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <DoggoInput helperText={!credentialsValidated.password && "Поле не має бути порожнім"} error={!credentialsValidated.password} onChange={onInputChange} name="password" fullWidth variant="outlined" label="Пароль" type="password" InputProps={{ startAdornment: (<InputAdornment position="start"><LockOutlinedIcon /></InputAdornment>) }} />
+                                    <DoggoInput onChange={({target})=>onInputChange({...target,name:"password"})} helperText={!credentialsValidated.password && "Поле не має бути порожнім"} error={!credentialsValidated.password} onChange={onInputChange} name="password" fullWidth variant="outlined" label="Пароль" type="password" InputProps={{ startAdornment: (<InputAdornment position="start"><LockOutlinedIcon /></InputAdornment>) }} />
                                 </Grid>
                             </Grid>
                         </form>
