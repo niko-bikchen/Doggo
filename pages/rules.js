@@ -20,7 +20,7 @@ export async function getStaticProps(ctx) {
 
 const Rules = ({data}) => {
     return (
-        <PageBase background="Landing_body.jpg">
+        <PageBase background="Landing_body.jpg" footerParams={{/*backgroundColor:"#2B2B3B",*/theme:"dark"}}>
             <NextSeo canonical="https://doggo.co.ua/rules" title="Doggo | Правила выгула"/>
             <PageCard>
                 {data.dogWalkingRules.map((r, i) => (
