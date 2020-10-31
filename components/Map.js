@@ -11,20 +11,24 @@ const defaultCenter = {
     lng: -38.523
 };
 
-function MyComponent({containerStyle,center,children,zoom=16}) {
+const libraries = ["places"];
+
+function MyComponent({ containerStyle, center, children, zoom = 16, options }) {
     return (
         <LoadScript
             googleMapsApiKey="AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"
+            libraries={libraries}
         >
             <GoogleMap
-                mapContainerStyle={{...defaultContainerStyle,...containerStyle}}
-                center={{...defaultCenter,...center}}
+                mapContainerStyle={{ ...defaultContainerStyle, ...containerStyle }}
+                center={{ ...defaultCenter, ...center }}
                 zoom={zoom}
+                options={options}
             >
-                { /* Child components, such as markers, info windows, etc. */ }
+                { /* Child components, such as markers, info windows, etc. */}
                 {children}
             </GoogleMap>
-        </LoadScript>
+        </LoadScript >
     )
 }
 

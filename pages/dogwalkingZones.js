@@ -75,7 +75,6 @@ const DogwalkingZones = ({ dogWalkingZones, dogwalkingZonesPageText }) => {
     const [currLocation, setCurrLocation] = useState({ lat: dogWalkingZones[0].lat, lng: dogWalkingZones[0].lng })
     const onAddressClick = ({ lng, lat }) => {
         return () => {
-            console.log("click")
             setCurrLocation({ lng, lat })
         }
     }
