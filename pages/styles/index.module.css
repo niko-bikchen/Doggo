@@ -3,30 +3,27 @@
     background-size: cover;
 }
 
-.paper-text{
+.paper-text {
     font-size: 25px;
 }
 
 .Index-top {
-    margin-top: -1px;
-    padding            : 0;
-    padding-top        : 100rem;
+    padding-top        : 53rem;
     background-image   : url('../../public/Landing_top.png');
     background-repeat  : no-repeat;
     background-size    : cover;
-    background-position: top;
+    background-position: bottom;
 }
 
 .Index-top--content {
-    margin-top: -60rem;
+    margin-top: -29rem;
 }
 
 .Index-top--content img {
-    width     : 13rem;
-    height    : auto;
-    margin-top: 5rem;
-    padding   : 15px;
-    border    : 5px solid rgb(206, 206, 206);
+    width  : 13rem;
+    height : auto;
+    padding: 15px;
+    border : 5px solid rgb(206, 206, 206);
 }
 
 .Index-body {
@@ -36,7 +33,6 @@
 
 .Index-body--card-content {
     padding: 15%;
-    margin : 9% 0;
 }
 
 .Index-body--card-1 {
@@ -46,23 +42,17 @@
 }
 
 .Index-body--card-2 {
-    position     : relative;
-    margin-top   : 8rem;
-    padding-right: 40%;
-    padding-left : 15%;
+    position  : relative;
+    margin-top: 8rem;
 }
 
-.Index-body--card-3 {
-    position    : relative;
-    padding     : 9% 0;
-    margin-top  : 8rem;
-    padding-left: 50%;
+.Index-body--card-2 .Index-body--card-content {
+    padding: 5% 7%;
 }
 
 .Index-body--card-4 {
     position     : relative;
     margin-top   : 8rem;
-    padding-right: 40%;
 }
 
 .blob-2 {
@@ -70,81 +60,25 @@
     left    : 0;
     top     : -5rem;
     width   : auto;
-    height  : 130%;
-}
-
-.blob-3 {
-    z-index : 3;
-    position: absolute;
-    right   : 0;
-    top     : 0;
-    width   : auto;
     height  : 120%;
 }
 
-.blob-1 {
-    z-index : 3;
-    position: absolute;
-    left    : 0;
-    top     : -7rem;
-    width   : 40%;
-    height  : auto;
-}
-
-.blob-4 {
-    position: absolute;
-    right   : 1rem;
-    top     : 1rem;
-    width   : 40%;
-    height  : auto;
-}
-
-.step-1 {
-    z-index : 2;
-    position: absolute;
-    left    : 5rem;
-    bottom  : 0;
-    width   : 35%;
-    height  : auto;
-}
-
-.step-2 {
-    z-index : 2;
-    position: absolute;
-    top     : 0;
-    right   : 5rem;
-    width   : 60%;
-    height  : auto;
-}
-
-.text-1 {
-    z-index : 4;
-    position: absolute;
-    top     : 6rem;
-    right   : 16rem;
-    width   : 40%;
-}
-
-.text-2 {
-    z-index : 4;
-    position: absolute;
-    bottom  : 5rem;
-    right   : 8rem;
-    width   : 40%;
-}
-
-.text-1,
-.text-2 {
-    display: block;
+.Index--round-number {
+    padding         : 20px 27px;
+    font-size       : larger;
+    color           : white;
+    font-weight     : bolder;
+    background-color: #E79247;
+    border-radius   : 50%;
 }
 
 .Index-bottom {
-    position   : relative;
-    overflow   : hidden;
-    margin-top : 5rem;
-    margin-left: -5px;
+    position     : relative;
+    overflow     : hidden;
+    margin-top   : 5rem;
+    margin-left  : -5px;
     margin-bottom: -5px;
-    text-align : center;
+    text-align   : center;
 }
 
 .Index-bottom--text {
