@@ -5,7 +5,7 @@ import PageBase from "../components/PageBase/PageBase";
 
 import { NextSeo } from "next-seo";
 import { makeStyles } from '@material-ui/core/styles';
-import Map from "../components/Map"
+import Map from "../components/map/Map"
 import _ from "underscore"
 import { Marker } from "@react-google-maps/api";
 import StyledTreeView, { StyledTreeItem } from "../components/StyledTreeView";

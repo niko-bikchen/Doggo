@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
@@ -30,7 +30,6 @@ const LocationLink = ({text="Location", point, radius}) => {
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
-
     return (
         <div>
             <Button color={"primary"} onClick={handleClick}>

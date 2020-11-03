@@ -12,7 +12,7 @@ import { Autocomplete, Circle, Marker } from '@react-google-maps/api';
 
 import DoggoInput from './DoggoInput';
 import DoggoBtn from './DoggoBtn/DoggoBtn';
-import Map from './Map';
+import Map from './map/Map';
 
 const useStyles = makeStyles(() => ({
     stepper: {

@@ -11,14 +11,24 @@ const defaultCenter = {
     lng: -38.523
 };
 
-const libraries = ["places"];
-
-function MyComponent({ containerStyle, center, children, zoom = 16, options }) {
-    return (
+const libraries = ["places","drawing"];
+const LS = ({children})=>{
+    if(typeof window !== "undefined" && window.google != undefined){
+        console.log(window.google.maps)
+        return children
+    }
+    return(
         <LoadScript
             googleMapsApiKey="AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"
             libraries={libraries}
         >
+            {children}
+        </LoadScript>
+    )
+}
+const Map = ({ containerStyle, center, children, zoom = 16, options }) => {
+    return (
+        <LS>
             <GoogleMap
                 mapContainerStyle={{ ...defaultContainerStyle, ...containerStyle }}
                 center={{ ...defaultCenter, ...center }}
@@ -28,8 +38,9 @@ function MyComponent({ containerStyle, center, children, zoom = 16, options }) {
                 { /* Child components, such as markers, info windows, etc. */}
                 {children}
             </GoogleMap>
-        </LoadScript >
+        </LS>
+
     )
 }
 
-export default React.memo(MyComponent)
+export default React.memo(Map)
