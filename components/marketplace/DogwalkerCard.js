@@ -37,7 +37,7 @@ const defaultContacts = [{type: "viber", value: "+380xxxxxxxxx"}, {
 const mapContacts = contacts => _.map(contacts, (c, i) => <Button style={{padding: "2px"}} key={i}
                                                                   startIcon={contactIconsMap[c.type]}>{c.value}</Button>)
 
-const DogwalkerCard = ({name = "Name", avatar_url = "", description = "", contacts = defaultContacts, region = defaultRegion}) => {
+const DogwalkerCard = ({onDetails, name = "Name", avatar_url = "", description = "", contacts = defaultContacts, region = defaultRegion}) => {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
@@ -77,10 +77,7 @@ const DogwalkerCard = ({name = "Name", avatar_url = "", description = "", contac
                     </Grid>
                     <Grid xs={12} md={6} item>
                         <CenterContent>
-                            <Button onClick={() => {
-                                setTimeout(()=>setOpen(true),0)
-                                // setOpen(true)
-                            }} color="primary">
+                            <Button onClick={onDetails} color="primary">
                                 Детальніше
                             </Button>
                         </CenterContent>

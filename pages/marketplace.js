@@ -45,7 +45,7 @@ const Marketplace = ({ data, jwt, dogwalkers=[], fetchDogwalkers }) => {
     })
     const {marketplacePageText} = {...data}
     const dwModal = useRef()
-    const onRegionClick = useCallback(({index})=>{
+    const onDetails = useCallback(({index})=>{
         const dogwalker = mapDogwalker(dogwalkers[index])
         dwModal.current.open({dogwalker})
     },[dogwalkers])
@@ -57,7 +57,7 @@ const Marketplace = ({ data, jwt, dogwalkers=[], fetchDogwalkers }) => {
                     <Grid item xs={12} md={8}>
                         <Grid container alignContent={"center"} direction={"column"}>
                             <Regions
-                                onRegionClick={onRegionClick}
+                                onRegionClick={onDetails}
                                 regions={regions}
                                 mapProps={
                                  {
@@ -73,7 +73,12 @@ const Marketplace = ({ data, jwt, dogwalkers=[], fetchDogwalkers }) => {
                                 return (
                                     <Grid key={i}  item xs={12}>
                                         <Grid container justify={"center"}>
-                                            <DogwalkerCard name={el.name} avatar_url={el.avatar[0].url} contacts={el.contacts} region={mapRegion(el.region)}/>
+                                            <DogwalkerCard
+                                                onDetails={()=>onDetails({index:i})}
+                                                name={el.name}
+                                                avatar_url={el.avatar[0].url}
+                                                contacts={el.contacts}
+                                                region={mapRegion(el.region)}/>
                                         </Grid>
                                     </Grid>
                                 )
