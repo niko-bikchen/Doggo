@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import {GoogleMap, LoadScript, useJsApiLoader} from '@react-google-maps/api';
 
 const defaultContainerStyle = {
     width: '400px',
@@ -12,35 +12,24 @@ const defaultCenter = {
 };
 
 const libraries = ["places","drawing"];
-const LS = ({children})=>{
-    if(typeof window !== "undefined" && window.google != undefined){
-        console.log(window.google.maps)
-        return children
-    }
-    return(
-        <LoadScript
-            googleMapsApiKey="AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"
-            libraries={libraries}
-        >
-            {children}
-        </LoadScript>
-    )
-}
+const API_KEY = "AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"
 const Map = ({ containerStyle, center, children, zoom = 16, options }) => {
-    return (
-        <LS>
-            <GoogleMap
-                mapContainerStyle={{ ...defaultContainerStyle, ...containerStyle }}
-                center={{ ...defaultCenter, ...center }}
-                zoom={zoom}
-                options={options}
-            >
-                { /* Child components, such as markers, info windows, etc. */}
-                {children}
-            </GoogleMap>
-        </LS>
-
+    const { isLoaded, loadError } = useJsApiLoader({
+        googleMapsApiKey: API_KEY,
+        libraries
+    })
+    const renderMap = () => (
+        <GoogleMap
+            mapContainerStyle={{ ...defaultContainerStyle, ...containerStyle }}
+            center={{ ...defaultCenter, ...center }}
+            zoom={zoom}
+            options={options}
+        >
+            { /* Child components, such as markers, info windows, etc. */}
+            {children}
+        </GoogleMap>
     )
+    return isLoaded ? renderMap(): <p>Loading...</p>
 }
 
 export default React.memo(Map)

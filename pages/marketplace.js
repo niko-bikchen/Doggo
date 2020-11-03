@@ -10,6 +10,7 @@ import DogwalkerCard from "../components/marketplace/DogwalkerCard";
 import {ACTION_TYPES, ACTIONS} from "../store/marketplace_store";
 import Regions from "../components/map/Regions";
 import DogwalkerDetailedCard, {DogWalkerDetailedCardModal} from "../components/marketplace/DogwalkerDetailedCard";
+import SimpleBar from "simplebar-react";
 
 
 const QUERY = gql`
@@ -61,29 +62,31 @@ const Marketplace = ({ data, jwt, dogwalkers=[], fetchDogwalkers }) => {
                                 regions={regions}
                                 mapProps={
                                  {
-                                     containerStyle:{width: "100%", height:"80vh",borderRadius:"4px"},
+                                     containerStyle:{width: "100%", height:"calc(100vh - 110px)",borderRadius:"4px"},
                                      center: regions.length>0?regions[0].center:{lat:50.488917, lng:30.481178}
                                  }
                                 } />
                         </Grid>
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Grid container spacing={3} alignContent={"center"} justify={"center"} >
-                            {dogwalkers.map((el,i)=>{
-                                return (
-                                    <Grid key={i}  item xs={12}>
-                                        <Grid container justify={"center"}>
-                                            <DogwalkerCard
-                                                onDetails={()=>onDetails({index:i})}
-                                                name={el.name}
-                                                avatar_url={el.avatar[0].url}
-                                                contacts={el.contacts}
-                                                region={mapRegion(el.region)}/>
+                        <SimpleBar style={{ maxHeight: "calc(100vh - 110px)" }}>
+                            <Grid container spacing={3} alignContent={"center"} justify={"center"} >
+                                {dogwalkers.map((el,i)=>{
+                                    return (
+                                        <Grid key={i}  item xs={12}>
+                                            <Grid container justify={"center"}>
+                                                <DogwalkerCard
+                                                    onDetails={()=>onDetails({index:i})}
+                                                    name={el.name}
+                                                    avatar_url={el.avatar[0].url}
+                                                    contacts={el.contacts}
+                                                    region={mapRegion(el.region)}/>
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                )
-                            })}
-                        </Grid>
+                                    )
+                                })}
+                            </Grid>
+                        </SimpleBar>
                     </Grid>
                     <Grid item xs={12}>
                         <div  dangerouslySetInnerHTML={{ __html: marketplacePageText.content_ru }} />
