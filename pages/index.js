@@ -87,7 +87,7 @@ const Index = ({ data }) => {
                             <Typography variant="h4" className="h1-responsive" dangerouslySetInnerHTML={{ __html: data.mainPageText.steps_title_ru }} />
                         </Box>
                         <Box textAlign="left">
-                            <Grid container spacing={4}>
+                            <Grid container spacing={6}>
                                 <Grid xs={12} item container>
                                     <Grid xs={12} md={1} item container alignItems="center" classes={{ root: classes.gridContainer }}>
                                         <Box className={styles["Index--round-number"]}>1</Box>
@@ -128,13 +128,13 @@ const Index = ({ data }) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
+                            <Box textAlign="center" mt={3}>
+                                <DoggoBtn style={{ marginTop: "20px" }} size="large" >
+                                    Найти догвокера
+                                </DoggoBtn>
+                            </Box>
                         </Box>
                     </Box>
-                </Paper>
-                <Paper className={styles["Index-body--card-4"]}>
-                    <DoggoBtn style={{ marginTop: "20px" }} size="large" >
-                        Найти догвокера
-                    </DoggoBtn>
                 </Paper>
             </div>
             <div className={styles["Index-bottom"]}>

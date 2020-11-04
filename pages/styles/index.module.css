@@ -51,8 +51,8 @@
 }
 
 .Index-body--card-4 {
-    position     : relative;
-    margin-top   : 8rem;
+    position  : relative;
+    margin-top: 8rem;
 }
 
 .blob-2 {
@@ -88,4 +88,22 @@
     width    : 35%;
     font-size: x-large;
     color    : white;
+}
+
+@media(max-width: 960px) {
+    .blob-2 {
+        display: none;
+    }
+
+    .Index-body--card-1 {
+        padding: 0;
+    }
+
+    .Index-body--card-content {
+        padding: 10%;
+    }
+
+    .Index-body--card-2 .Index-body--card-content {
+        padding: 7% 7%;
+    }
 }
