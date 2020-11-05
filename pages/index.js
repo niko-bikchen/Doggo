@@ -63,7 +63,7 @@ const Index = ({ data }) => {
                         <h1 className="h1-responsive m-5 font-bold">
                             {data.mainPageText.motto_ru}
                         </h1>
-                        <DoggoBtn size={"large"}>
+                        <DoggoBtn size={"large"} id="find-walker-1">
                             Найти догвокера
                         </DoggoBtn>
                     </div>
@@ -129,7 +129,7 @@ const Index = ({ data }) => {
                                 </Grid>
                             </Grid>
                             <Box textAlign="center" mt={3}>
-                                <DoggoBtn style={{ marginTop: "20px" }} size="large" >
+                                <DoggoBtn style={{ marginTop: "20px" }} size="large" id="find-walker-2">
                                     Найти догвокера
                                 </DoggoBtn>
                             </Box>

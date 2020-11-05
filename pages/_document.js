@@ -5,12 +5,15 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180612492-1"></script>
                     <script async src="/gtag.js"></script>
-
+                    {/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180612492-1"></script> */}
                     {/* <meta name="robots" content="noindex"></meta> */}
                 </Head>
                 <body>
+                    <noscript>
+                        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXJKGCV"
+                            height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe>
+                    </noscript>
                     <Main />
                     <NextScript />
                 </body>
