@@ -13,6 +13,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import RoomIcon from '@material-ui/icons/Room';
+import Box from '@material-ui/core/Box';
 
 const QUERY = gql`
     query{
@@ -80,15 +81,17 @@ const DogwalkingZones = ({ dogWalkingZones, dogwalkingZonesPageText }) => {
     }
     const classes = useStyles();
     return (
-        <PageBase background="Landing_body.jpg">
+        <PageBase background="Landing_body.jpg" footerParams={{ theme: 'light' }}>
             <NextSeo canonical="https://doggo.co.ua/dogwalkingZones" title="Doggo | Места для выгула" />
-            <Grid style={{ padding: '20px' }} container spacing={3}>
+            <Box textAlign="center" style={{ color: '#2B2B3B' }}>
+                <h1>Места для выгула</h1>
+            </Box>
+            <Grid style={{ padding: '20px' }} container>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <div style={{ padding: "20px" }}>
                             <LocationsToTree locations={locations} onAddressClick={onAddressClick} />
                         </div>
-
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>

@@ -24,12 +24,12 @@ export async function getStaticProps(ctx) {
 
 const Job = ({ data }) => {
     return (
-        <PageBase>
+        <PageBase footerParams={{ theme: 'dark' }}>
             <NextSeo canonical="https://doggo.co.ua/job" title="Doggo | Работа догвокером" description="У вас есть собака и вы обожаете гулять с ней? Это очень здорово! Возможно, вы уже слышали про работу выгульщика собак, если нет, то мы с удовольствием расскажем. Как бы банально это не звучало, но это тот самый человек который гуляет с питомцем, когда его хозяин вынужден отсутствовать." />
             <div className={styles["Job"]}>
                 <div className={styles["Job-promo"]}>
                     <div className={styles["Job-promo--content"]}>
-                        <h2 style={{fontWeight:"300"}}>Хочешь стать частью команды?</h2>
+                        <h2 style={{ fontWeight: "300" }}>Хочешь стать частью команды?</h2>
                         <DoggoBtn size="large" className="mt-5">Начать работу</DoggoBtn>
                     </div>
                 </div>

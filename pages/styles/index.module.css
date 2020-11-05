@@ -42,8 +42,9 @@
 }
 
 .Index-body--card-2 {
-    position  : relative;
-    margin-top: 8rem;
+    position     : relative;
+    margin-top   : 8rem;
+    margin-bottom: 8rem;
 }
 
 .Index-body--card-2 .Index-body--card-content {

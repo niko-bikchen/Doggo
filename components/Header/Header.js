@@ -80,35 +80,35 @@ const Header = () => {
                 <img className={styles['Header-logo']} src="Doggo_light.png" alt="Логотип Doggo" />
             </Button>
         </Link>,
-        <DropdownBtn buttonProps={{size:"large"}} key={2} text={'Послуги'}>
+        <DropdownBtn buttonProps={{size:"large"}} key={2} text={'Услуги'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/marketplace' passHref>
-                    <a className={classes.link}>Вигул</a>
+                    <a className={classes.link}>Выгул</a>
                 </Link>
             </MenuItem>
             <MenuItem className={classes.menuItem}>
                 <Link href='/petAdoption' passHref>
-                    <a className={classes.link}>Прихисти тварину</a>
+                    <a className={classes.link}>Приюти питомца</a>
                 </Link>
             </MenuItem>
         </DropdownBtn>,
         <Link key={3} href='/job' passHref>
-            <Button size={"large"} style={{ color: 'white' }}>Робота</Button>
+            <Button size={"large"} style={{ color: 'white' }}>Работа</Button>
         </Link>,
-        <DropdownBtn buttonProps={{size:"large"}} key={4} text={'Інформація'}>
+        <DropdownBtn buttonProps={{size:"large"}} key={4} text={'Информация'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/rules' passHref>
-                    <a className={classes.link}>Правила вигулу</a>
+                    <a className={classes.link}>Правила выгула</a>
                 </Link>
             </MenuItem>
             <MenuItem className={classes.menuItem}>
                 <Link href='/dogwalkingZones' passHref>
-                    <a className={classes.link}>Місця для вигулу</a>
+                    <a className={classes.link}>Места для выгула</a>
                 </Link>
             </MenuItem>
         </DropdownBtn>,
         <Link key={5} href='/login' passHref>
-            <DoggoBtn size={"large"}>Увійти</DoggoBtn>
+            <DoggoBtn size={"large"}>Войти</DoggoBtn>
         </Link>
     ]
     return (

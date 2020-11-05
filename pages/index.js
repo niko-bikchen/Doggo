@@ -52,7 +52,7 @@ const Index = ({ data }) => {
     const classes = useStyles();
 
     return (
-        <PageBase background="Landing_body.jpg" footerParams={{ backgroundColor: "#2B2B3B", theme: "dark" }} >
+        <PageBase background="Landing_body.jpg" footerParams={{ backgroundColor: "#2B2B3B", theme: "light" }} >
             <NextSeo canonical="https://doggo.co.ua/" title="Doggo | Сервис выгула собак" description="Не держите своего питомца дома в четырех стенах! DOGGO - сервис, где вы сможете найти идеального выгульщика, или стать им." />
             <Grid container alignItems={"center"} justify={"center"} className={styles["Index-top"]}>
                 <div style={{ color: "white", textAlign: "center" }}>
@@ -94,9 +94,6 @@ const Index = ({ data }) => {
                                     </Grid>
                                     <Grid xs={12} md={11} item container>
                                         <Grid xs={12} item>
-                                            <Typography classes={{ root: classes.headRoot }} variant="h4" className="h1-responsive">Перший крок</Typography>
-                                        </Grid>
-                                        <Grid xs={12} item>
                                             <Box className={styles["paper-text"]} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_1_ru }} />
                                         </Grid>
                                     </Grid>
@@ -107,9 +104,6 @@ const Index = ({ data }) => {
                                     </Grid>
                                     <Grid xs={12} md={11} item container>
                                         <Grid xs={12} item>
-                                            <Typography classes={{ root: classes.headRoot }} variant="h4" className="h1-responsive">Перший крок</Typography>
-                                        </Grid>
-                                        <Grid xs={12} item>
                                             <Box className={styles["paper-text"]} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_2_ru }} />
                                         </Grid>
                                     </Grid>
@@ -119,9 +113,6 @@ const Index = ({ data }) => {
                                         <Box className={styles["Index--round-number"]}>3</Box>
                                     </Grid>
                                     <Grid xs={12} md={11} item container>
-                                        <Grid xs={12} item>
-                                            <Typography classes={{ root: classes.headRoot }} variant="h4" className="h1-responsive">Перший крок</Typography>
-                                        </Grid>
                                         <Grid xs={12} item>
                                             <Box className={styles["paper-text"]} dangerouslySetInnerHTML={{ __html: data.mainPageText.step_3_ru }} />
                                         </Grid>
@@ -137,12 +128,12 @@ const Index = ({ data }) => {
                     </Box>
                 </Paper>
             </div>
-            <div className={styles["Index-bottom"]}>
+            {/* <div className={styles["Index-bottom"]}>
                 <div className={styles["Index-bottom--text"]}>
                     {data.mainPageText.bottom_content_ru}
                 </div>
                 <img style={{ width: "100%" }} src="Landing_bottom.png" alt="A picture of a dog" />
-            </div>
+            </div> */}
         </PageBase>
     )
 };
