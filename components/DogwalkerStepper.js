@@ -9,6 +9,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import { Autocomplete, Circle, Marker } from '@react-google-maps/api';
+import Cropper from 'react-easy-crop';
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
+import ZoomOutIcon from '@material-ui/icons/ZoomOut';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import RotateRightIcon from '@material-ui/icons/RotateRight';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import DoggoInput from './DoggoInput';
 import DoggoBtn from './DoggoBtn/DoggoBtn';
@@ -34,12 +41,16 @@ const DogownerStepper = (props) => {
     const theme = useTheme();
     const [autocomplete, setAutocomplete] = useState(null);
     const [activeStep, setActiveStep] = useState(0);
+    const [crop, setCrop] = useState({ x: 0, y: 0 });
+    const [zoom, setZoom] = useState(1);
+    const [rotation, setRotation] = useState(0);
     const [userData, setUserData] = useState({
         firstName: '',
         lastName: '',
         description: '',
         position: { lat: 0, lng: 0 },
-        radius: 100
+        radius: 100,
+        avatar: null
     });
     const maxSteps = 3;
     const marks = [
@@ -83,7 +94,37 @@ const DogownerStepper = (props) => {
                 });
             }
         }
+    };
+    const onCropChange = (crop) => {
+        setCrop(crop);
+    };
+    const handleRotateRight = () => {
+        setRotation(rotation + 90);
     }
+    const handleDelete = () => {
+        setUserData({ ...userData, avatar: null });
+    }
+    const handleZoom = (val) => () => {
+        if (!(zoom + val > 3) && !(zoom + val < 1)) {
+            setZoom(zoom + val);
+        }
+    }
+
+    const readFile = (file) => {
+        return new Promise(resolve => {
+            const reader = new FileReader()
+            reader.addEventListener('load', () => resolve(reader.result), false)
+            reader.readAsDataURL(file)
+        });
+    }
+    const loadImage = async e => {
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            let imageDataUrl = await readFile(file);
+
+            setUserData({ ...userData, avatar: imageDataUrl });
+        }
+    };
 
     return (
         <div className="DogwalkerStepper">
@@ -146,6 +187,34 @@ const DogownerStepper = (props) => {
                                 min={100}
                                 max={5000}
                             />
+                        </Grid>
+                    </Grid>
+                </CardContent>
+                <CardContent style={{ display: activeStep === 2 ? 'block' : 'none' }}>
+                    <Grid container>
+                        <Grid item container xs={12} alignItems="center" justify="center">
+                            <input type="file" onChange={loadImage} accept="image/*" style={{ display: userData.avatar ? 'none' : 'block' }} />
+                            <Box display={userData.avatar ? 'block' : 'none'}>
+                                <Box position="relative" width={250} height={250}>
+                                    <Cropper
+                                        image={userData.avatar}
+                                        crop={crop}
+                                        aspect={1}
+                                        onCropChange={onCropChange}
+                                        cropShape='round'
+                                        zoom={zoom}
+                                        rotation={rotation}
+                                        showGrid={false}
+                                        restrictPosition={true}
+                                    />
+                                </Box>
+                                <Box textAlign="center" mt={1}>
+                                    <Button color="primary" onClick={handleZoom(-0.5)}><ZoomOutIcon /></Button>
+                                    <Button color="primary" onClick={handleZoom(0.5)}><ZoomInIcon /></Button>
+                                    <Button color="primary" onClick={handleRotateRight}><RotateRightIcon /></Button>
+                                    <Button variant="contained" color="secondary" onClick={handleDelete}><DeleteIcon /></Button>
+                                </Box>
+                            </Box>
                         </Grid>
                     </Grid>
                 </CardContent>
