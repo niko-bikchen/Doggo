@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -12,16 +12,19 @@ import { Autocomplete, Circle, Marker } from '@react-google-maps/api';
 import Cropper from 'react-easy-crop';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
 import ZoomOutIcon from '@material-ui/icons/ZoomOut';
+import DoneIcon from '@material-ui/icons/Done';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import RotateRightIcon from '@material-ui/icons/RotateRight';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { green } from '@material-ui/core/colors';
 
 import DoggoInput from './DoggoInput';
 import DoggoBtn from './DoggoBtn/DoggoBtn';
 import Map from './map/Map';
+import { loadImage, getCroppedImg } from '../lib/image';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     stepper: {
         marginTop: '15px',
         backgroundColor: 'white'
@@ -32,26 +35,33 @@ const useStyles = makeStyles(() => ({
     card: {
         border: 'none',
         height: '320px'
+    },
+    greenBtn: {
+        color: 'white',
+        backgroundColor: green[600],
+        '&:hover': {
+            backgroundColor: green[800],
+        }
     }
 }));
 
 
 const DogownerStepper = (props) => {
+    const fileInput = useRef(null);
+
     const classes = useStyles();
     const theme = useTheme();
+
     const [autocomplete, setAutocomplete] = useState(null);
-    const [activeStep, setActiveStep] = useState(0);
+
+    const [isCropped, setIsCropped] = useState(false);
+    const [cropDimensions, setCropDimensions] = useState({});
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [rotation, setRotation] = useState(0);
-    const [userData, setUserData] = useState({
-        firstName: '',
-        lastName: '',
-        description: '',
-        position: { lat: 0, lng: 0 },
-        radius: 100,
-        avatar: null
-    });
+    const [croppedAvatar, setCroppedAvatar] = useState("");
+
+    const [activeStep, setActiveStep] = useState(0);
     const maxSteps = 3;
     const marks = [
         { value: 0, label: '0' },
@@ -60,7 +70,17 @@ const DogownerStepper = (props) => {
         { value: 3000, label: '3 км' },
         { value: 4000, label: '4 км' },
         { value: 5000, label: '5 км' }
-    ]
+    ];
+
+    const [userData, setUserData] = useState({
+        firstName: '',
+        lastName: '',
+        description: '',
+        position: { lat: 0, lng: 0 },
+        radius: 100,
+        avatar: null,
+        croppedAvatar: null
+    });
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -102,29 +122,33 @@ const DogownerStepper = (props) => {
         setRotation(rotation + 90);
     }
     const handleDelete = () => {
-        setUserData({ ...userData, avatar: null });
+        setUserData({ ...userData, avatar: null, croppedAvatar: null });
+        setCroppedAvatar("");
+        setRotation(0);
+        setZoom(1);
+        setCrop({ x: 0, y: 0 });
+        setIsCropped(false);
+        fileInput.current.value = "";
     }
     const handleZoom = (val) => () => {
         if (!(zoom + val > 3) && !(zoom + val < 1)) {
             setZoom(zoom + val);
         }
     }
-
-    const readFile = (file) => {
-        return new Promise(resolve => {
-            const reader = new FileReader()
-            reader.addEventListener('load', () => resolve(reader.result), false)
-            reader.readAsDataURL(file)
-        });
+    const handleCrop = (_, croppedAreaInPixels) => {
+        setCropDimensions(croppedAreaInPixels)
     }
-    const loadImage = async e => {
-        if (e.target.files && e.target.files.length > 0) {
-            const file = e.target.files[0];
-            let imageDataUrl = await readFile(file);
-
-            setUserData({ ...userData, avatar: imageDataUrl });
-        }
+    const handleLoad = async e => {
+        const imageBASE = await loadImage(e);
+        setUserData({ ...userData, avatar: imageBASE });
     };
+    const wasCropped = async () => {
+        const { blob, base64 } = await getCroppedImg(userData.avatar, cropDimensions, rotation);
+
+        setIsCropped(true);
+        setUserData({ ...userData, croppedAvatar: blob });
+        setCroppedAvatar(base64);
+    }
 
     return (
         <div className="DogwalkerStepper">
@@ -193,26 +217,37 @@ const DogownerStepper = (props) => {
                 <CardContent style={{ display: activeStep === 2 ? 'block' : 'none' }}>
                     <Grid container>
                         <Grid item container xs={12} alignItems="center" justify="center">
-                            <input type="file" onChange={loadImage} accept="image/*" style={{ display: userData.avatar ? 'none' : 'block' }} />
-                            <Box display={userData.avatar ? 'block' : 'none'}>
+                            <Box>
+                                <input type="file" onChange={handleLoad} accept="image/*" style={{ display: userData.avatar ? 'none' : 'block' }} ref={fileInput} />
+                            </Box>
+                            <Box display={userData.avatar ? 'flex' : 'none'} flexDirection="column" alignItems="center" justify="center">
                                 <Box position="relative" width={250} height={250}>
-                                    <Cropper
-                                        image={userData.avatar}
-                                        crop={crop}
-                                        aspect={1}
-                                        onCropChange={onCropChange}
-                                        cropShape='round'
-                                        zoom={zoom}
-                                        rotation={rotation}
-                                        showGrid={false}
-                                        restrictPosition={true}
-                                    />
+                                    <Box display={!isCropped ? 'block' : 'none'}>
+                                        <Cropper
+                                            image={userData.avatar}
+                                            crop={crop}
+                                            aspect={1}
+                                            onCropChange={onCropChange}
+                                            cropShape='round'
+                                            zoom={zoom}
+                                            rotation={rotation}
+                                            showGrid={false}
+                                            restrictPosition={true}
+                                            onCropComplete={handleCrop}
+                                        />
+                                    </Box>
+                                    <Box display={isCropped ? 'block' : 'none'} textAlign="center">
+                                        <img src={croppedAvatar} style={{ borderRadius: '50%', width: '250px', height: 'auto' }} />
+                                    </Box>
                                 </Box>
-                                <Box textAlign="center" mt={1}>
-                                    <Button color="primary" onClick={handleZoom(-0.5)}><ZoomOutIcon /></Button>
-                                    <Button color="primary" onClick={handleZoom(0.5)}><ZoomInIcon /></Button>
-                                    <Button color="primary" onClick={handleRotateRight}><RotateRightIcon /></Button>
+                                <Box textAlign="center" mt={2}>
                                     <Button variant="contained" color="secondary" onClick={handleDelete}><DeleteIcon /></Button>
+                                    <Box display={!isCropped ? 'inline' : 'none'}>
+                                        <Button color="primary" onClick={handleZoom(-0.5)}><ZoomOutIcon /></Button>
+                                        <Button color="primary" onClick={handleZoom(0.5)}><ZoomInIcon /></Button>
+                                        <Button color="primary" onClick={handleRotateRight}><RotateRightIcon /></Button>
+                                        <Button color="primary" variant="contained" onClick={wasCropped} classes={{ root: classes.greenBtn }}><DoneIcon /></Button>
+                                    </Box>
                                 </Box>
                             </Box>
                         </Grid>
