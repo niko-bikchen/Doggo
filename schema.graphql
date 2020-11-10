@@ -5,7 +5,7 @@ schema {
     mutation: Mutation
 }
 
-union Morph = ComponentContactsContacts | ComponentRegionRegion | DogExchangePageText | DogWalkingRules | DogWalkingRulesAggregator | DogWalkingRulesConnection | DogWalkingRulesConnectionContent_ru | DogWalkingRulesConnectionContent_ua | DogWalkingRulesConnectionCreated_at | DogWalkingRulesConnectionCreated_by | DogWalkingRulesConnectionId | DogWalkingRulesConnectionUpdated_at | DogWalkingRulesConnectionUpdated_by | DogWalkingRulesGroupBy | DogWalkingZones | DogWalkingZonesAggregator | DogWalkingZonesAggregatorAvg | DogWalkingZonesAggregatorMax | DogWalkingZonesAggregatorMin | DogWalkingZonesAggregatorSum | DogWalkingZonesConnection | DogWalkingZonesConnectionAddress | DogWalkingZonesConnectionCreated_at | DogWalkingZonesConnectionCreated_by | DogWalkingZonesConnectionDistrict | DogWalkingZonesConnectionId | DogWalkingZonesConnectionLat | DogWalkingZonesConnectionLng | DogWalkingZonesConnectionUpdated_at | DogWalkingZonesConnectionUpdated_by | DogWalkingZonesGroupBy | Dogwalkers | DogwalkersAggregator | DogwalkersConnection | DogwalkersConnectionCreated_at | DogwalkersConnectionCreated_by | DogwalkersConnectionDescription | DogwalkersConnectionId | DogwalkersConnectionName | DogwalkersConnectionRegion | DogwalkersConnectionUpdated_at | DogwalkersConnectionUpdated_by | DogwalkersConnectionUser | DogwalkersGroupBy | DogwalkingZonesPageText | JobPageText | MainPageText | MarketplacePageText | Test | TestAggregator | TestConnection | TestConnectionCreated_at | TestConnectionCreated_by | TestConnectionId | TestConnectionTest | TestConnectionUpdated_at | TestConnectionUpdated_by | TestGroupBy | UploadFile | UploadFileAggregator | UploadFileAggregatorAvg | UploadFileAggregatorMax | UploadFileAggregatorMin | UploadFileAggregatorSum | UploadFileConnection | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionCreated_at | UploadFileConnectionCreated_by | UploadFileConnectionExt | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionHeight | UploadFileConnectionId | UploadFileConnectionMime | UploadFileConnectionName | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnectionSize | UploadFileConnectionUpdated_at | UploadFileConnectionUpdated_by | UploadFileConnectionUrl | UploadFileConnectionWidth | UploadFileGroupBy | UserPermissionsPasswordPayload | UsersPermissionsLoginPayload | UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleAggregator | UsersPermissionsRoleConnection | UsersPermissionsRoleConnectionCreated_by | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionUpdated_by | UsersPermissionsRoleGroupBy | UsersPermissionsUser | UsersPermissionsUserAggregator | UsersPermissionsUserConnection | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionCreated_by | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUpdated_by | UsersPermissionsUserConnectionUsername | UsersPermissionsUserGroupBy | createDogWalkingRulePayload | createDogWalkingZonePayload | createDogwalkerPayload | createRolePayload | createTestPayload | createUserPayload | deleteDogExchangePageTextPayload | deleteDogWalkingRulePayload | deleteDogWalkingZonePayload | deleteDogwalkerPayload | deleteDogwalkingZonesPageTextPayload | deleteFilePayload | deleteJobPageTextPayload | deleteMainPageTextPayload | deleteMarketplacePageTextPayload | deleteRolePayload | deleteTestPayload | deleteUserPayload | updateDogExchangePageTextPayload | updateDogWalkingRulePayload | updateDogWalkingZonePayload | updateDogwalkerPayload | updateDogwalkingZonesPageTextPayload | updateJobPageTextPayload | updateMainPageTextPayload | updateMarketplacePageTextPayload | updateRolePayload | updateTestPayload | updateUserPayload
+union Morph = ComponentContactsContacts | ComponentRegionRegion | ComponentScheduleSchedule | DogExchangePageText | DogWalkingRules | DogWalkingRulesAggregator | DogWalkingRulesConnection | DogWalkingRulesConnectionContent_ru | DogWalkingRulesConnectionContent_ua | DogWalkingRulesConnectionCreated_at | DogWalkingRulesConnectionCreated_by | DogWalkingRulesConnectionId | DogWalkingRulesConnectionUpdated_at | DogWalkingRulesConnectionUpdated_by | DogWalkingRulesGroupBy | DogWalkingZones | DogWalkingZonesAggregator | DogWalkingZonesAggregatorAvg | DogWalkingZonesAggregatorMax | DogWalkingZonesAggregatorMin | DogWalkingZonesAggregatorSum | DogWalkingZonesConnection | DogWalkingZonesConnectionAddress | DogWalkingZonesConnectionCreated_at | DogWalkingZonesConnectionCreated_by | DogWalkingZonesConnectionDistrict | DogWalkingZonesConnectionId | DogWalkingZonesConnectionLat | DogWalkingZonesConnectionLng | DogWalkingZonesConnectionUpdated_at | DogWalkingZonesConnectionUpdated_by | DogWalkingZonesGroupBy | Dogwalkers | DogwalkersAggregator | DogwalkersConnection | DogwalkersConnectionCreated_at | DogwalkersConnectionCreated_by | DogwalkersConnectionDescription | DogwalkersConnectionId | DogwalkersConnectionName | DogwalkersConnectionRegion | DogwalkersConnectionSchedule | DogwalkersConnectionUpdated_at | DogwalkersConnectionUpdated_by | DogwalkersConnectionUser | DogwalkersGroupBy | DogwalkingZonesPageText | JobPageText | MainPageText | MarketplacePageText | Test | TestAggregator | TestConnection | TestConnectionCreated_at | TestConnectionCreated_by | TestConnectionId | TestConnectionTest | TestConnectionUpdated_at | TestConnectionUpdated_by | TestGroupBy | UploadFile | UploadFileAggregator | UploadFileAggregatorAvg | UploadFileAggregatorMax | UploadFileAggregatorMin | UploadFileAggregatorSum | UploadFileConnection | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionCreated_at | UploadFileConnectionCreated_by | UploadFileConnectionExt | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionHeight | UploadFileConnectionId | UploadFileConnectionMime | UploadFileConnectionName | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnectionSize | UploadFileConnectionUpdated_at | UploadFileConnectionUpdated_by | UploadFileConnectionUrl | UploadFileConnectionWidth | UploadFileGroupBy | UserPermissionsPasswordPayload | UsersPermissionsLoginPayload | UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleAggregator | UsersPermissionsRoleConnection | UsersPermissionsRoleConnectionCreated_by | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnectionUpdated_by | UsersPermissionsRoleGroupBy | UsersPermissionsUser | UsersPermissionsUserAggregator | UsersPermissionsUserConnection | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionCreated_by | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUpdated_by | UsersPermissionsUserConnectionUsername | UsersPermissionsUserGroupBy | createDogWalkingRulePayload | createDogWalkingZonePayload | createDogwalkerPayload | createRolePayload | createTestPayload | createUserPayload | deleteDogExchangePageTextPayload | deleteDogWalkingRulePayload | deleteDogWalkingZonePayload | deleteDogwalkerPayload | deleteDogwalkingZonesPageTextPayload | deleteFilePayload | deleteJobPageTextPayload | deleteMainPageTextPayload | deleteMarketplacePageTextPayload | deleteRolePayload | deleteTestPayload | deleteUserPayload | updateDogExchangePageTextPayload | updateDogWalkingRulePayload | updateDogWalkingZonePayload | updateDogwalkerPayload | updateDogwalkingZonesPageTextPayload | updateJobPageTextPayload | updateMainPageTextPayload | updateMarketplacePageTextPayload | updateRolePayload | updateTestPayload | updateUserPayload
 
 type AdminUser {
     id: ID!
@@ -26,8 +26,20 @@ type ComponentRegionRegion {
     radius: Int
 }
 
+type ComponentScheduleSchedule {
+    Friday: String
+    Monday: String
+    Saturday: String
+    Sunday: String
+    Thursday: String
+    Tuesday: String
+    Wednesday: String
+    id: ID!
+}
+
 type DogExchangePageText {
     content_ru: String
+    content_ua: String
     created_at: DateTime!
     created_by: AdminUser
     id: ID!
@@ -214,6 +226,7 @@ type Dogwalkers {
     id: ID!
     name: String
     region: ComponentRegionRegion
+    schedule: ComponentScheduleSchedule
     updated_at: DateTime!
     updated_by: AdminUser
     user: UsersPermissionsUser
@@ -260,6 +273,11 @@ type DogwalkersConnectionRegion {
     key: ID
 }
 
+type DogwalkersConnectionSchedule {
+    connection: DogwalkersConnection
+    key: ID
+}
+
 type DogwalkersConnectionUpdated_at {
     connection: DogwalkersConnection
     key: DateTime
@@ -282,6 +300,7 @@ type DogwalkersGroupBy {
     id: [DogwalkersConnectionId]
     name: [DogwalkersConnectionName]
     region: [DogwalkersConnectionRegion]
+    schedule: [DogwalkersConnectionSchedule]
     updated_at: [DogwalkersConnectionUpdated_at]
     updated_by: [DogwalkersConnectionUpdated_by]
     user: [DogwalkersConnectionUser]
@@ -289,6 +308,7 @@ type DogwalkersGroupBy {
 
 type DogwalkingZonesPageText {
     content_ru: String
+    content_ua: String
     created_at: DateTime!
     created_by: AdminUser
     id: ID!
@@ -331,6 +351,7 @@ type MainPageText {
 
 type MarketplacePageText {
     content_ru: String
+    content_ua: String
     created_at: DateTime!
     created_by: AdminUser
     id: ID!
@@ -985,8 +1006,19 @@ input ComponentRegionRegionInput {
     radius: Int
 }
 
+input ComponentScheduleScheduleInput {
+    Friday: String
+    Monday: String
+    Saturday: String
+    Sunday: String
+    Thursday: String
+    Tuesday: String
+    Wednesday: String
+}
+
 input DogExchangePageTextInput {
     content_ru: String
+    content_ua: String
     created_by: ID
     updated_by: ID
 }
@@ -1014,12 +1046,14 @@ input DogwalkerInput {
     description: String
     name: String
     region: ComponentRegionRegionInput
+    schedule: ComponentScheduleScheduleInput
     updated_by: ID
     user: ID
 }
 
 input DogwalkingZonesPageTextInput {
     content_ru: String
+    content_ua: String
     created_by: ID
     updated_by: ID
 }
@@ -1083,6 +1117,7 @@ input MainPageTextInput {
 
 input MarketplacePageTextInput {
     content_ru: String
+    content_ua: String
     created_by: ID
     updated_by: ID
 }
@@ -1194,8 +1229,20 @@ input editComponentRegionRegionInput {
     radius: Int
 }
 
+input editComponentScheduleScheduleInput {
+    Friday: String
+    Monday: String
+    Saturday: String
+    Sunday: String
+    Thursday: String
+    Tuesday: String
+    Wednesday: String
+    id: ID
+}
+
 input editDogExchangePageTextInput {
     content_ru: String
+    content_ua: String
     created_by: ID
     updated_by: ID
 }
@@ -1223,12 +1270,14 @@ input editDogwalkerInput {
     description: String
     name: String
     region: editComponentRegionRegionInput
+    schedule: editComponentScheduleScheduleInput
     updated_by: ID
     user: ID
 }
 
 input editDogwalkingZonesPageTextInput {
     content_ru: String
+    content_ua: String
     created_by: ID
     updated_by: ID
 }
@@ -1282,6 +1331,7 @@ input editMainPageTextInput {
 
 input editMarketplacePageTextInput {
     content_ru: String
+    content_ua: String
     created_by: ID
     updated_by: ID
 }

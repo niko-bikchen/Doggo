@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const LocationLink = ({text="Location", point, radius}) => {
+const LocationLink = ({text="Location", center, radius}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -41,7 +41,7 @@ const LocationLink = ({text="Location", point, radius}) => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                    <Map zoom={16} containerStyle={{width: "500px", height:"500px",borderRadius:"4px"}} center={point}>
+                    <Map zoom={16} containerStyle={{width: "500px", height:"500px",borderRadius:"4px"}} center={center}>
                         <Circle
                             options={
                                 {
@@ -50,7 +50,7 @@ const LocationLink = ({text="Location", point, radius}) => {
                                     strokeWeight: 10,
                                     fillColor:"#3573FF"}
                             }
-                            center={point}
+                            center={center}
                             radius={radius}/>
                     </Map>
             </Dialog>

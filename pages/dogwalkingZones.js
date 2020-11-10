@@ -81,12 +81,12 @@ const DogwalkingZones = ({ dogWalkingZones, dogwalkingZonesPageText }) => {
     }
     const classes = useStyles();
     return (
-        <PageBase background="Landing_body.jpg" footerParams={{ theme: 'light' }}>
+        <PageBase footerParams={{ theme: 'dark' }}>
             <NextSeo canonical="https://doggo.co.ua/dogwalkingZones" title="Doggo | Места для выгула" />
             <Box textAlign="center" style={{ color: '#2B2B3B' }}>
                 <h1>Места для выгула</h1>
             </Box>
-            <Grid style={{ padding: '20px' }} container>
+            <Grid style={{ padding: '20px' }} spacing={3} container>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <div style={{ padding: "20px" }}>

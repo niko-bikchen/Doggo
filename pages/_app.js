@@ -7,12 +7,15 @@ import 'fontsource-roboto/700.css';
 import './styles/global.css';
 import { Provider } from 'react-redux'
 import {useStore} from "../store/index";
+import {SnackbarProvider} from "notistack";
 
 export default function MyApp({ Component, pageProps }) {
     const store = useStore({jwt:''})
     return (
             <Provider store={store}>
-                <Component {...pageProps} />
+                <SnackbarProvider>
+                    <Component {...pageProps} />
+                </SnackbarProvider>
             </Provider>
         )
 }

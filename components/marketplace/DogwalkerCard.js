@@ -13,8 +13,7 @@ import LocationLink from "../map/LocationLink";
 import {Grid} from "@material-ui/core";
 import CenterContent from "../CenterContent";
 
-import {contactIconsMap} from "./lib";
-import * as _ from "underscore";
+import {mapContacts} from "./lib";
 
 
 const useStyles = makeStyles(theme => ({
@@ -34,8 +33,6 @@ const defaultContacts = [{type: "viber", value: "+380xxxxxxxxx"}, {
     value: "+380xxxxxxxxx"
 }, {type: "telegram", value: "+380xxxxxxxxx"}, {type: "whatsapp", value: "+380xxxxxxxxx"}]
 
-const mapContacts = contacts => _.map(contacts, (c, i) => <Button style={{padding: "2px"}} key={i}
-                                                                  startIcon={contactIconsMap[c.type]}>{c.value}</Button>)
 
 const DogwalkerCard = ({onDetails, name = "Name", avatar_url = "", description = "", contacts = defaultContacts, region = defaultRegion}) => {
     const classes = useStyles();
@@ -64,7 +61,7 @@ const DogwalkerCard = ({onDetails, name = "Name", avatar_url = "", description =
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <CenterContent>
-                            <LocationLink text={region.name} point={region.point} radius={region.radius}/>
+                            <LocationLink text={region.name} center={region.center} radius={region.radius}/>
                         </CenterContent>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -84,8 +81,6 @@ const DogwalkerCard = ({onDetails, name = "Name", avatar_url = "", description =
                     </Grid>
                 </Grid>
             </CardActions>
-
-
 
         </Card>
 

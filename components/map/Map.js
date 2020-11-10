@@ -1,5 +1,5 @@
 import React from 'react'
-import {GoogleMap, LoadScript, useJsApiLoader} from '@react-google-maps/api';
+import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 
 const defaultContainerStyle = {
     width: '400px',
@@ -29,7 +29,7 @@ const Map = ({ containerStyle, center, children, zoom = 16, options }) => {
             {children}
         </GoogleMap>
     )
-    return isLoaded ? renderMap(): <p>Loading...</p>
+    return isLoaded ? renderMap() : <p>Loading...</p>
 }
 
 export default React.memo(Map)

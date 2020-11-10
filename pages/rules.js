@@ -23,7 +23,7 @@ const Rules = ({ data }) => {
     console.log(data.dogWalkingRules);
 
     return (
-        <PageBase background="Landing_body.jpg" footerParams={{ theme: "light" }}>
+        <PageBase footerParams={{ theme: "dark" }}>
             <NextSeo canonical="https://doggo.co.ua/rules" title="Doggo | Правила выгула" />
             <PageCard>
                 <Box textAlign="center" mb={3}>

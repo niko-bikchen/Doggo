@@ -29,6 +29,16 @@ const QUERY = gql`
                 lng,
                 radius,
                 name
+            },
+            description,
+            schedule{
+                Monday,
+                Tuesday,
+                Wednesday,
+                Thursday,
+                Friday,
+                Saturday,
+                Sunday
             }
         }
     }

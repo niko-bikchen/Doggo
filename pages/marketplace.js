@@ -21,7 +21,7 @@ const QUERY = gql`
     }
 `
 
-const mapRegion = ({ lng, lat, radius, name }) => ({ point: { lng, lat }, radius, name })
+const mapRegion = ({ lng, lat, radius, name }) => ({ center: { lng, lat }, radius, name })
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
     },
 }));
-const mapDogwalker = (dogwalker) => dogwalker != undefined ? { ...dogwalker, avatar_url: dogwalker.avatar[0].url } : {}
+const mapDogwalker = (dogwalker) => dogwalker != undefined ? { ...dogwalker, avatar_url: dogwalker.avatar[0].url, region: mapRegion(dogwalker.region) } : {}
 export async function getStaticProps(ctx) {
     const { data } = await Client.query({ query: QUERY })
     return { props: { data } }
@@ -42,6 +42,7 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
     }, [])
     const regions = dogwalkers.map((el) => {
         const { region } = el;
+        console.log(mapRegion(region))
         return { center: { lat: region.lat, lng: region.lng }, radius: region.radius }
     })
     const { marketplacePageText } = { ...data }
@@ -53,6 +54,7 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
     const [regionIndex, setRegionIndex] = useState(0)
     return (
         <PageBase footerParams={{ theme: 'dark' }}>
+            <DogWalkerDetailedCardModal ref={dwModal} dogwalker={dogwalkers[regionIndex]} />
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
             <Grid style={{ padding: '20px', color: '#434a54', fontWeight: 600 }} container>
                 <Grid item xs={12} md={8}>
@@ -92,7 +94,7 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
                     <div dangerouslySetInnerHTML={{ __html: marketplacePageText.content_ru }} />
                 </Grid>
             </Grid>
-            <DogWalkerDetailedCardModal ref={dwModal} dogwalker={mapDogwalker(dogwalkers[regionIndex])} />
+
         </PageBase>
     )
 }
