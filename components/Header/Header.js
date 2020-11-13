@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.css'
-import { useState, useCallback } from 'react';
+import logo from "public/Doggo_light.png" //http://localhost:3000/rules/Doggo_light.png
 import Link from "next/link";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -77,38 +77,38 @@ const Header = () => {
     const content = [
         <Link key={1} href="/" className={classes.title} passHref>
             <Button>
-                <img className={styles['Header-logo']} src="Doggo_light.png" alt="Логотип Doggo" />
+                <img className={styles['Header-logo']} src={logo} alt="Логотип Doggo" />
             </Button>
         </Link>,
         <DropdownBtn buttonProps={{size:"large"}} key={2} text={'Услуги'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/marketplace' passHref>
-                    <a className={classes.link}>Выгул</a>
+                    <a className={classes.link}>Вигул</a>
                 </Link>
             </MenuItem>
             <MenuItem className={classes.menuItem}>
                 <Link href='/petAdoption' passHref>
-                    <a className={classes.link}>Приюти питомца</a>
+                    <a className={classes.link}>Прихисти тварину</a>
                 </Link>
             </MenuItem>
         </DropdownBtn>,
         <Link key={3} href='/job' passHref>
-            <Button size={"large"} style={{ color: 'white' }}>Работа</Button>
+            <Button size={"large"} style={{ color: 'white' }}>Робота</Button>
         </Link>,
-        <DropdownBtn buttonProps={{size:"large"}} key={4} text={'Информация'}>
+        <DropdownBtn buttonProps={{size:"large"}} key={4} text={'Інформація'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/rules' passHref>
-                    <a className={classes.link}>Правила выгула</a>
+                    <a className={classes.link}>Правила вигулу</a>
                 </Link>
             </MenuItem>
             <MenuItem className={classes.menuItem}>
                 <Link href='/dogwalkingZones' passHref>
-                    <a className={classes.link}>Места для выгула</a>
+                    <a className={classes.link}>Місця выгулу</a>
                 </Link>
             </MenuItem>
         </DropdownBtn>,
         <Link key={5} href='/login' passHref>
-            <DoggoBtn size={"large"}>Войти</DoggoBtn>
+            <DoggoBtn size={"large"}>Увійти</DoggoBtn>
         </Link>
     ]
     return (

@@ -343,6 +343,7 @@ type MainPageText {
     step_3_ru: String
     step_3_ua: String
     steps_title_ru: String
+    steps_title_ua: String
     top_content_ru: String
     top_content_ua: String
     updated_at: DateTime!
@@ -1110,6 +1111,7 @@ input MainPageTextInput {
     step_3_ru: String
     step_3_ua: String
     steps_title_ru: String
+    steps_title_ua: String
     top_content_ru: String
     top_content_ua: String
     updated_by: ID
@@ -1324,6 +1326,7 @@ input editMainPageTextInput {
     step_3_ru: String
     step_3_ua: String
     steps_title_ru: String
+    steps_title_ua: String
     top_content_ru: String
     top_content_ua: String
     updated_by: ID

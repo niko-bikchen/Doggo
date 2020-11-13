@@ -1,7 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-
+import logoDark from "public/Doggo_dark.png"
+import logoLight from "public/Doggo_light.png"
 import style from './Footer.module.css';
 import { Button } from "@material-ui/core";
 export const LIGHT_THEME = "light"
@@ -18,7 +19,7 @@ const Footer = ({ backgroundColor = "transparent", theme = LIGHT_THEME }) => {
                 </Grid>
                 <Grid item xs={12} md={4}>
                     <Box textAlign="center">
-                        <img src={theme === LIGHT_THEME ? "Doggo_light.png" : "Doggo_dark.png"} />
+                        <img src={theme === LIGHT_THEME ? logoLight : logoDark} />
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={4}>
