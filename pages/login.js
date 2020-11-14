@@ -19,8 +19,6 @@ import { signInUser } from '../lib/authentication';
 import styles from './styles/login.module.css';
 import { ACTION_TYPES, ACTIONS } from "../store/jwt";
 import { connect } from "react-redux";
-import { TextFields } from "@material-ui/icons";
-import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
     root: {

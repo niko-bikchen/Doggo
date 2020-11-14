@@ -1,5 +1,5 @@
 import React from 'react'
-import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const defaultContainerStyle = {
     width: '400px',
@@ -11,10 +11,12 @@ const defaultCenter = {
     lng: -38.523
 };
 
-const libraries = ["places","drawing"];
+const libraries = ["places", "drawing"];
 const API_KEY = "AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"
 const Map = ({ containerStyle, center, children, zoom = 12, options }) => {
     const { isLoaded, loadError } = useJsApiLoader({
+        language: 'uk',
+        region: 'UA',
         googleMapsApiKey: API_KEY,
         libraries
     })

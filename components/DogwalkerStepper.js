@@ -17,6 +17,11 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import RotateRightIcon from '@material-ui/icons/RotateRight';
 import DeleteIcon from '@material-ui/icons/Delete';
+import PhoneIcon from '@material-ui/icons/Phone';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TelegramIcon from '@material-ui/icons/Telegram';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import { green } from '@material-ui/core/colors';
 
 import DoggoInput from './DoggoInput';
@@ -34,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         border: 'none',
-        height: '320px'
+        height: '370px'
     },
     greenBtn: {
         color: 'white',
@@ -62,7 +67,7 @@ const DogownerStepper = (props) => {
     const [croppedAvatar, setCroppedAvatar] = useState("");
 
     const [activeStep, setActiveStep] = useState(0);
-    const maxSteps = 3;
+    const maxSteps = 4;
     const marks = [
         { value: 0, label: '0' },
         { value: 1000, label: '1 км' },
@@ -79,7 +84,10 @@ const DogownerStepper = (props) => {
         position: { lat: 0, lng: 0 },
         radius: 100,
         avatar: null,
-        croppedAvatar: null
+        croppedAvatar: null,
+        phone: '',
+        telegram: '',
+        viber: false
     });
 
     const handleNext = () => {
@@ -95,6 +103,9 @@ const DogownerStepper = (props) => {
     const handleInputChange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value });
     };
+    const setViber = () => {
+        setUserData({ ...userData, viber: !userData.viber });
+    }
     const handleRadiusChange = (_, value) => {
         setUserData({ ...userData, radius: value });
     };
@@ -156,6 +167,9 @@ const DogownerStepper = (props) => {
                 <CardContent style={{ display: activeStep === 0 ? 'block' : 'none' }}>
                     <Grid container spacing={2} justify="center" alignItems="center">
                         <Grid item xs={12}>
+                            <Typography component="h3" variant="h5">Загальна інформація</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
                             <DoggoInput onChange={handleInputChange} name="firstName" fullWidth variant="outlined" label="Ваше ім'я" type="text" />
                         </Grid>
                         <Grid item xs={12}>
@@ -168,6 +182,35 @@ const DogownerStepper = (props) => {
                 </CardContent>
                 <CardContent style={{ display: activeStep === 1 ? 'block' : 'none' }}>
                     <Grid container spacing={2} justify="center" alignItems="center">
+                        <Grid item xs={12}>
+                            <Typography component="h3" variant="h5">Контактні дані</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <DoggoInput onChange={handleInputChange} name="phone" fullWidth variant="outlined" label="Номер телефону" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><PhoneIcon /></InputAdornment>) }} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <DoggoInput onChange={handleInputChange} name="telegram" fullWidth variant="outlined" label="Telegram" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><TelegramIcon /></InputAdornment>) }} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={userData.viber}
+                                        onChange={setViber}
+                                        name="viber"
+                                        color="primary"
+                                    />
+                                }
+                                label="У мене є Viber"
+                            />
+                        </Grid>
+                    </Grid>
+                </CardContent>
+                <CardContent style={{ display: activeStep === 2 ? 'block' : 'none' }}>
+                    <Grid container spacing={2} justify="center" alignItems="center">
+                        <Grid item xs={12}>
+                            <Typography component="h3" variant="h5">Місцезнаходження</Typography>
+                        </Grid>
                         <Grid item xs={12}>
                             <Map containerStyle={{ width: "100%", height: "200px" }} options={{ streetViewControl: false, mapTypeControl: false }} center={userData.position}>
                                 <Autocomplete
@@ -214,8 +257,11 @@ const DogownerStepper = (props) => {
                         </Grid>
                     </Grid>
                 </CardContent>
-                <CardContent style={{ display: activeStep === 2 ? 'block' : 'none' }}>
-                    <Grid container>
+                <CardContent style={{ display: activeStep === 3 ? 'block' : 'none' }}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Typography component="h3" variant="h5">Фото профілю</Typography>
+                        </Grid>
                         <Grid item container xs={12} alignItems="center" justify="center">
                             <Box>
                                 <input type="file" onChange={handleLoad} accept="image/*" style={{ display: userData.avatar ? 'none' : 'block' }} ref={fileInput} />
