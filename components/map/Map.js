@@ -31,7 +31,7 @@ const Map = ({ containerStyle, center, children, zoom = 12, options }) => {
             {children}
         </GoogleMap>
     )
-    return isLoaded ? renderMap() : <p>Loading...</p>
+    return isLoaded ? renderMap() : <div><p>Loading...</p></div>
 }
 
 export default React.memo(Map)
