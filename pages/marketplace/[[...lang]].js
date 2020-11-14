@@ -92,7 +92,7 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
                     </Grid>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                    <SimpleBar style={{ maxHeight: "calc(100vh - 110px)" }}>
+                    <SimpleBar forceVisible={"y"} autoHide={true} style={{ maxHeight: "calc(100vh - 110px)",overflowX:"hidden"}}>
                         <Grid container spacing={3} alignContent={"center"} justify={"center"} >
                             {dogwalkers.map((el, i) => {
                                 return (

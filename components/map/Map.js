@@ -13,7 +13,7 @@ const defaultCenter = {
 
 const libraries = ["places","drawing"];
 const API_KEY = "AIzaSyDmlK3mVog-Im6jxzFvEScDyx8Jk2MqyZY"
-const Map = ({ containerStyle, center, children, zoom = 16, options }) => {
+const Map = ({ containerStyle, center, children, zoom = 12, options }) => {
     const { isLoaded, loadError } = useJsApiLoader({
         googleMapsApiKey: API_KEY,
         libraries
