@@ -9,9 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import DogwalkerCard from "../../components/marketplace/DogwalkerCard";
 import { ACTION_TYPES, ACTIONS } from "../../store/marketplace_store";
 import Regions from "../../components/map/Regions";
-import DogwalkerDetailedCard, { DogWalkerDetailedCardModal } from "../../components/marketplace/DogwalkerDetailedCard";
 import SimpleBar from "simplebar-react";
-
+import {useRouter} from "next/router";
+import {mapRegion} from "../../lib/lib";
 
 const QUERY = gql`
     query($ua:Boolean!){
@@ -47,7 +47,7 @@ export async function getStaticProps({params}) {
         props: { data:newData }, // will be passed to the page component as props
     }
 }
-const mapRegion = ({ lng, lat, radius, name }) => ({ center: { lng, lat }, radius, name })
+
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
@@ -62,20 +62,20 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
     useEffect(() => {
         fetchDogwalkers()
     }, [])
+    const router = useRouter()
     const regions = dogwalkers.map((el) => {
         const { region } = el;
         console.log(mapRegion(region))
         return { center: { lat: region.lat, lng: region.lng }, radius: region.radius }
     })
-    const dwModal = useRef()
-    const onDetails = useCallback(({ index }) => {
-        const dogwalker = mapDogwalker(dogwalkers[index])
-        dwModal.current.open({ dogwalker })
-    }, [dogwalkers])
     const [regionIndex, setRegionIndex] = useState(0)
+
+    const onDetails = useCallback(({ index }) => {
+       router.push({pathname:"/dogWalker",query:{id:index+1}})
+    }, [dogwalkers,regionIndex])
     return (
         <PageBase footerParams={{ theme: 'dark' }}>
-            <DogWalkerDetailedCardModal ref={dwModal} dogwalker={dogwalkers[regionIndex]} />
+
             <NextSeo canonical="https://doggo.co.ua/marketplace" title="Doggo | Выгульщики собак" />
             <Grid style={{ padding: '20px', color: '#434a54', fontWeight: 600 }} container>
                 <Grid item xs={12} md={8}>

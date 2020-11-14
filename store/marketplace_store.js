@@ -16,6 +16,7 @@ export const ACTION_TYPES = {
 const QUERY = gql`
     query{
         dogwalkers{
+            id,
             name,
             avatar{
                 url
