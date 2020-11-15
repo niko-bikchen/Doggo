@@ -18,12 +18,12 @@ import Box from '@material-ui/core/Box';
 import RotateRightIcon from '@material-ui/icons/RotateRight';
 import DeleteIcon from '@material-ui/icons/Delete';
 import PhoneIcon from '@material-ui/icons/Phone';
+import ViberIcon from './ViberIcon';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TelegramIcon from '@material-ui/icons/Telegram';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import { green } from '@material-ui/core/colors';
 
+import ScheduleDay from './ScheduleDay';
 import DoggoInput from './DoggoInput';
 import DoggoBtn from './DoggoBtn/DoggoBtn';
 import Map from './map/Map';
@@ -67,7 +67,7 @@ const DogownerStepper = (props) => {
     const [croppedAvatar, setCroppedAvatar] = useState("");
 
     const [activeStep, setActiveStep] = useState(0);
-    const maxSteps = 4;
+    const maxSteps = 6;
     const marks = [
         { value: 0, label: '0' },
         { value: 1000, label: '1 км' },
@@ -87,7 +87,8 @@ const DogownerStepper = (props) => {
         croppedAvatar: null,
         phone: '',
         telegram: '',
-        viber: false
+        viber: '',
+        services: ''
     });
 
     const handleNext = () => {
@@ -103,9 +104,6 @@ const DogownerStepper = (props) => {
     const handleInputChange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value });
     };
-    const setViber = () => {
-        setUserData({ ...userData, viber: !userData.viber });
-    }
     const handleRadiusChange = (_, value) => {
         setUserData({ ...userData, radius: value });
     };
@@ -183,6 +181,46 @@ const DogownerStepper = (props) => {
                 <CardContent style={{ display: activeStep === 1 ? 'block' : 'none' }}>
                     <Grid container spacing={2} justify="center" alignItems="center">
                         <Grid item xs={12}>
+                            <Typography component="h3" variant="h5">Послуги</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <DoggoInput onChange={handleInputChange} rows={10} name="services" fullWidth multiline variant="outlined" label="Опишіть послуги які ви надаєте" />
+                        </Grid>
+                    </Grid>
+                </CardContent>
+                <CardContent style={{ display: activeStep === 2 ? 'block' : 'none' }}>
+                    <Grid container spacing={2} justify="center" alignItems="center">
+                        <Grid item xs={12}>
+                            <Typography component="h3" variant="h5">Ваш розклад</Typography>
+                        </Grid>
+                        <Grid item xs={12} container spacing={1} style={{ overflow: 'hidden auto', height: '300px' }} >
+                            <Grid item xs={12}>
+                                <ScheduleDay day="Понеділок" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ScheduleDay day="Вівторок" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ScheduleDay day="Середа" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ScheduleDay day="Четвер" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ScheduleDay day="П'ятниця" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ScheduleDay day="Субота" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ScheduleDay day="Неділя" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </CardContent>
+                <CardContent style={{ display: activeStep === 3 ? 'block' : 'none' }}>
+                    <Grid container spacing={2} justify="center" alignItems="center">
+                        <Grid item xs={12}>
                             <Typography component="h3" variant="h5">Контактні дані</Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -192,21 +230,11 @@ const DogownerStepper = (props) => {
                             <DoggoInput onChange={handleInputChange} name="telegram" fullWidth variant="outlined" label="Telegram" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><TelegramIcon /></InputAdornment>) }} />
                         </Grid>
                         <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={userData.viber}
-                                        onChange={setViber}
-                                        name="viber"
-                                        color="primary"
-                                    />
-                                }
-                                label="У мене є Viber"
-                            />
+                            <DoggoInput onChange={handleInputChange} name="viber" fullWidth variant="outlined" label="Viber" type="text" InputProps={{ startAdornment: (<InputAdornment position="start"><ViberIcon /></InputAdornment>) }} />
                         </Grid>
                     </Grid>
                 </CardContent>
-                <CardContent style={{ display: activeStep === 2 ? 'block' : 'none' }}>
+                <CardContent style={{ display: activeStep === 4 ? 'block' : 'none' }}>
                     <Grid container spacing={2} justify="center" alignItems="center">
                         <Grid item xs={12}>
                             <Typography component="h3" variant="h5">Місцезнаходження</Typography>
@@ -257,7 +285,7 @@ const DogownerStepper = (props) => {
                         </Grid>
                     </Grid>
                 </CardContent>
-                <CardContent style={{ display: activeStep === 3 ? 'block' : 'none' }}>
+                <CardContent style={{ display: activeStep === 5 ? 'block' : 'none' }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Typography component="h3" variant="h5">Фото профілю</Typography>
