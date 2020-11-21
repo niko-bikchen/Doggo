@@ -80,7 +80,7 @@ const Header = () => {
                 <img className={styles['Header-logo']} src={logo} alt="Логотип Doggo" />
             </Button>
         </Link>,
-        <DropdownBtn buttonProps={{size:"large"}} key={2} text={'Услуги'}>
+        <DropdownBtn buttonProps={{size:"large"}} key={2} text={'Послуги'}>
             <MenuItem className={classes.menuItem}>
                 <Link href='/marketplace' passHref>
                     <a className={classes.link}>Вигул</a>
@@ -103,13 +103,14 @@ const Header = () => {
             </MenuItem>
             <MenuItem className={classes.menuItem}>
                 <Link href='/dogwalkingZones' passHref>
-                    <a className={classes.link}>Місця выгулу</a>
+                    <a className={classes.link}>Місця для вигулу</a>
                 </Link>
             </MenuItem>
         </DropdownBtn>,
-        <Link key={5} href='/login' passHref>
-            <DoggoBtn size={"large"}>Увійти</DoggoBtn>
-        </Link>
+        // TODO
+        // <Link key={5} href='/login' passHref>
+        //     <DoggoBtn size={"large"}>Увійти</DoggoBtn>
+        // </Link>
     ]
     return (
         <AppBar style={{ backgroundColor: "#2B2B3B" }} position="static">

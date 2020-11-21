@@ -89,10 +89,8 @@ const useStyles = makeStyles((theme) => ({
 const DogwalkingZones = ({ dogWalkingZones, text }) => {
     const router = useRouter();
     if (dogWalkingZones == undefined) {
-        console.log("sosy")
         return <div>Loading...</div>
     }
-    console.log({dogWalkingZones})
     const locations = _.groupBy(dogWalkingZones, 'district')
     const [currLocation, setCurrLocation] = useState({ lat: dogWalkingZones[0].lat, lng: dogWalkingZones[0].lng })
     const onAddressClick = ({ lng, lat }) => {
