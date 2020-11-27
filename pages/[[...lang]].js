@@ -84,6 +84,24 @@ const Index = ({ data }) => {
       background="Landing_body.jpg"
       footerParams={{ backgroundColor: "#2B2B3B", theme: "light" }}
     >
+      <div style={{display:"none"}}>
+        <a href={"/404"}></a>
+        <a href={"/dogWalker"}></a>
+        <a href={"/dogwalkingZones"}></a>
+        <a href={"/job"}></a>
+        <a href={"/login"}></a>
+        <a href={"/marketplace"}></a>
+        <a href={"/petAdoption"}></a>
+        <a href={"/registration"}></a>
+        <a href={"/ru"}></a>
+        <a href={"/rules"}></a>
+
+        <a href={"/dogwalkingZones/ru"}></a>
+        <a href={"/job/ru"}></a>
+        <a href={"/marketplace/ru"}></a>
+        <a href={"/petAdoption/ru"}></a>
+        <a href={"/rules/ru"}></a>
+      </div>
       <NextSeo
         canonical="https://doggo.co.ua/"
         title="Doggo | Сервис выгула собак"
