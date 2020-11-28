@@ -172,7 +172,7 @@ const DogwalkerStepper = (props) => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
         })
         .catch((err) => {
           console.error(err);
@@ -517,6 +517,7 @@ const DogwalkerStepper = (props) => {
                         width: "250px",
                         height: "auto",
                       }}
+                      alt="Аватар догвокера"
                     />
                   </Box>
                 </Box>

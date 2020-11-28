@@ -1,17 +1,11 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from "react";
-import Paper from "@material-ui/core/Paper";
+import React, { useState } from "react";
+import { NextSeo } from "next-seo";
 import { Avatar, Divider, Grid } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles } from "@material-ui/core/styles";
-import SimpleBar from "simplebar-react";
 import Regions from "../components/map/Regions";
 import _ from "underscore";
 import { mapContacts } from "../components/marketplace/lib";
@@ -90,6 +84,11 @@ const DogwalkerDetailedCard = () => {
   const isMd = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <PageBase footerParams={{ theme: "dark" }}>
+      <NextSeo
+        canonical="https://doggo.co.ua/dogWalker"
+        title="Doggo | Догвокер"
+        description="Сторінка догвокера."
+      />
       <Grid
         spacing={3}
         style={{ padding: "20px" }}

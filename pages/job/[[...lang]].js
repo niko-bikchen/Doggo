@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Client from "../../lib/apollo";
 import gql from "graphql-tag";
 import PageBase from "../../components/PageBase/PageBase";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Card from "@material-ui/core/Card";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import DoggoBtn from "../../components/DoggoBtn/DoggoBtn";
 import DogwalkerStepper from "../../components/DogwalkerStepper";
@@ -69,6 +70,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const LightTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: theme.palette.common.white,
+    color: "rgba(0, 0, 0, 0.87)",
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}))(Tooltip);
+
 const Lang = ({ data }) => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
@@ -84,16 +94,31 @@ const Lang = ({ data }) => {
     <PageBase footerParams={{ theme: "dark" }}>
       <NextSeo
         canonical="https://doggo.co.ua/job"
-        title="Doggo | Работа догвокером"
+        title="Doggo | Робота догвокером"
         description="У вас есть собака и вы обожаете гулять с ней? Это очень здорово! Возможно, вы уже слышали про работу выгульщика собак, если нет, то мы с удовольствием расскажем. Как бы банально это не звучало, но это тот самый человек который гуляет с питомцем, когда его хозяин вынужден отсутствовать."
       />
       <div className={styles["Job"]}>
         <div className={styles["Job-promo"]}>
           <div className={styles["Job-promo--content"]}>
             <h2 style={{ fontWeight: "300" }}>Хочеш стати частиною команди?</h2>
-            <DoggoBtn size="large" className="mt-5" onClick={handleOpen}>
+            <DoggoBtn
+              disabled
+              size="large"
+              className="mt-5"
+              onClick={handleOpen}
+            >
               Почати роботу
             </DoggoBtn>
+            <div>
+              <small style={{ color: "#ffff1f" }}>
+                🛠 Функціонал знаходиться у розробці 🛠
+                <br />
+                Надсилайте інформацію про Вас та Ваші послуги на нашу поштову
+                адресу
+                <br />
+                <strong>doggo.co.ua@gmail.com</strong>
+              </small>
+            </div>
           </div>
         </div>
         <div className={styles["Job-body--content"]}>

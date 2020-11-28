@@ -8,7 +8,7 @@
     justify-content    : center;
     height             : 100vh;
     width              : 100%;
-    background-image   : url("../../public/Job_top.png");
+    background-image   : url("../../public/Job_top.webp");
     background-repeat  : no-repeat;
     background-size    : cover;
     background-position: bottom;
@@ -17,8 +17,8 @@
 .Job-promo--content {
     padding         : 4rem 3rem;
     text-align      : center;
-    color           : rgb(59, 59, 59);
-    background-color: #797f887c;
+    color           : white;
+    background-color: #3f42467c;
 }
 
 .Job-promo--content h2 {
@@ -32,4 +32,10 @@
 
 .Job-text {
     font-size: larger;
+}
+
+@media(max-width: 960px) {
+    .Job-body--content {
+        padding: 15px;
+    }
 }

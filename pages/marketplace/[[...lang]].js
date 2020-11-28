@@ -12,6 +12,7 @@ import Regions from "../../components/map/Regions";
 import SimpleBar from "simplebar-react";
 import { useRouter } from "next/router";
 import { mapRegion } from "../../lib/lib";
+import Paper from "@material-ui/core/Paper";
 
 const QUERY = gql`
   query($ua: Boolean!) {
@@ -49,12 +50,11 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
-  },
-  paper: {
-    textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      marginTop: "30px",
+    },
   },
 }));
 const mapDogwalker = (dogwalker) =>
@@ -70,6 +70,7 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
   useEffect(() => {
     fetchDogwalkers();
   }, []);
+  const classes = useStyles();
   const router = useRouter();
   const regions = dogwalkers.map((el) => {
     const { region } = el;
@@ -90,12 +91,16 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
     <PageBase footerParams={{ theme: "dark" }}>
       <NextSeo
         canonical="https://doggo.co.ua/marketplace"
-        title="Doggo | Выгульщики собак"
+        title="Doggo | Догвокери"
+        description="Собака - це не іграшка для вас або вашої дитини, а тварина. Як і людині, їй потрібний простір, спілкування, активності та свіже повітря."
       />
       <Grid
         style={{ padding: "20px", color: "#434a54", fontWeight: 600 }}
         container
       >
+        <Grid item xs={12}>
+          <h1 style={{ textAlign: "center", marginTop: "0" }}>Вигул</h1>
+        </Grid>
         <Grid item xs={12} md={8}>
           <Grid container alignContent={"center"} direction={"column"}>
             <Regions
@@ -115,7 +120,7 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
             />
           </Grid>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} classes={{ root: classes.root }}>
           <SimpleBar
             forceVisible={"y"}
             autoHide={true}
@@ -145,8 +150,10 @@ const Marketplace = ({ data, jwt, dogwalkers = [], fetchDogwalkers }) => {
             </Grid>
           </SimpleBar>
         </Grid>
-        <Grid item xs={12}>
-          <div dangerouslySetInnerHTML={{ __html: data.content }} />
+        <Grid item xs={12} style={{ marginTop: "2rem" }}>
+          <Paper style={{ padding: "10px" }}>
+            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+          </Paper>
         </Grid>
       </Grid>
     </PageBase>

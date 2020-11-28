@@ -5,6 +5,7 @@ import PageBase from "../../components/PageBase/PageBase";
 import { NextSeo } from "next-seo";
 import PageCard from "../../components/PageCard";
 import Box from "@material-ui/core/Box";
+import styles from "../styles/rules.module.css";
 
 const QUERY = gql`
   query($ua: Boolean!) {
@@ -51,31 +52,18 @@ const Rules = ({ data }) => {
     <PageBase footerParams={{ theme: "dark" }}>
       <NextSeo
         canonical="https://doggo.co.ua/rules"
-        title="Doggo | Правила выгула"
+        title="Doggo | Правила вигула"
+        description="Заборонено виводити собаку без повідка за межі проживання(квартира чи будинок). Крім того, улюбленець повинен мати ошийник з жетоном, на якому написаний його особистий номер..."
       />
       <PageCard>
         <Box textAlign="center" mb={3}>
-          <h1>Правила выгулу собак</h1>
+          <h1>Правила вигулу собак</h1>
         </Box>
         {data.map((r, i) => (
-          <div
-            key={i}
-            style={{ display: "flex", margin: "30px", alignItems: "center" }}
-          >
-            <div style={{ marginRight: "30px" }}>
-              <div
-                style={{
-                  height: "70px",
-                  width: "70px",
-                  backgroundColor: "#E0802A",
-                  borderRadius: "50%",
-                  display: "flex",
-                  fontSize: "150%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <span style={{ color: "white" }}>{i + 1}</span>
+          <div key={i} className={styles["Rules--rule"]}>
+            <div className={styles["Rules--number-container"]}>
+              <div className={styles["Rules--number"]}>
+                <span>{i + 1}</span>
               </div>
             </div>
             <span>{r["content"]}</span>
